@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Jean Baptiste Joseph — Geomecânica &amp; Simulação Numérica</title>
-<meta name="description" content="Jean Baptiste Joseph — engenheiro geotécnico e de geomecânica, pesquisador (UFPE). Mecânica do sal, fechamento de minas, integridade de poços, simulação THM e IA para a engenharia do subsolo." />
+<title>Jean Baptiste Joseph — Geomechanics &amp; Simulation</title>
+<meta name="description" content="Jean Baptiste Joseph, PhD — engenheiro de geomecânica e simulação numérica. Mecânica do sal, integridade de poços, subsidência, acoplamento THM (FLAC3D, OPM, CODE_BRIGHT) e IA para a engenharia do subsolo." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,147 +12,139 @@
 
 <style>
   :root{
-    --paper:#fbfaf7;
-    --surface:#fffefb;
-    --ink:#0f1d2b;
-    --text:#2a3542;
-    --muted:#5f6b7a;
-    --line:#e4e1d9;
-    --line-strong:#cfcac0;
-    --accent:#0f6f74;
-    --accent-strong:#0a5357;
-    --accent-soft:rgba(15,111,116,.08);
-    --accent-dark:#7cc4c0;
-    --container:72rem;
-    --gutter:clamp(1.25rem,4vw,3rem);
-    --nav-h:4rem;
-    --radius:6px;
+    --paper:#fbfaf7; --surface:#fffefb; --ink:#0f1d2b; --text:#2a3542; --muted:#5f6b7a;
+    --line:#e4e1d9; --line-strong:#cfcac0;
+    --accent:#0f6f74; --accent-strong:#0a5357; --accent-soft:rgba(15,111,116,.08); --accent-dark:#7cc4c0;
+    --container:72rem; --gutter:clamp(1.25rem,4vw,3rem); --nav-h:4rem; --radius:6px;
     --ease:cubic-bezier(.2,.7,.2,1);
     --serif:"Fraunces",Georgia,"Times New Roman",serif;
     --sans:"Inter",system-ui,"Segoe UI",Roboto,sans-serif;
     --mono:"IBM Plex Mono",SFMono-Regular,Menlo,Consolas,monospace;
   }
-
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 1rem)}
-  body{
-    background:var(--paper);
-    color:var(--text);
-    font-family:var(--sans);
-    font-size:1.0625rem;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-
-  /* language toggle */
+  body{background:var(--paper);color:var(--text);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   html[lang="pt"] .en{display:none}
   html[lang="en"] .pt{display:none}
-
   a{color:var(--accent-strong);text-decoration:none;transition:color .2s var(--ease)}
   a:hover{color:var(--accent)}
-
   .wrap{max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
 
-  /* ---------- nav ---------- */
-  header.nav{
-    position:sticky;top:0;z-index:50;height:var(--nav-h);
-    display:flex;align-items:center;
-    background:rgba(251,250,247,.82);
-    backdrop-filter:saturate(1.2) blur(10px);
-    border-bottom:1px solid var(--line);
-  }
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;height:var(--nav-h);display:flex;align-items:center;background:rgba(251,250,247,.82);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
   .brand{font-family:var(--mono);font-size:.9rem;letter-spacing:.02em;color:var(--ink);font-weight:500}
   .brand b{color:var(--accent-strong)}
-  .nav-links{display:flex;align-items:center;gap:1.75rem}
-  .nav-links a{color:var(--muted);font-size:.85rem;font-weight:500;letter-spacing:.01em}
+  .nav-links{display:flex;align-items:center;gap:1.4rem}
+  .nav-links a{color:var(--muted);font-size:.82rem;font-weight:500;letter-spacing:.01em}
   .nav-links a:hover{color:var(--ink)}
-  .lang-btn{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;
-    border:1px solid var(--line-strong);background:var(--surface);color:var(--muted);
-    border-radius:999px;padding:.35rem .7rem;cursor:pointer;transition:all .2s var(--ease);
-  }
+  .lang-btn{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;border:1px solid var(--line-strong);background:var(--surface);color:var(--muted);border-radius:999px;padding:.35rem .7rem;cursor:pointer;transition:all .2s var(--ease)}
   .lang-btn:hover{border-color:var(--accent);color:var(--accent-strong)}
-  @media(max-width:680px){.nav-links a:not(.lang-wrap a){display:none}}
+  @media(max-width:880px){.nav-links a{display:none}}
 
-  /* ---------- hero ---------- */
-  .hero{padding:clamp(4rem,10vw,7.5rem) 0 clamp(3rem,7vw,5rem)}
-  .eyebrow{
-    font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--accent-strong);margin-bottom:1.5rem;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;
-  }
-  .eyebrow::before{content:"";width:2rem;height:1px;background:var(--accent)}
-  h1{
-    font-family:var(--serif);font-weight:500;color:var(--ink);
-    font-size:clamp(2.6rem,6.5vw,4.6rem);line-height:1.02;letter-spacing:-.02em;
-    margin-bottom:1.5rem;
-  }
-  .lead{font-size:clamp(1.1rem,2.2vw,1.35rem);color:var(--text);max-width:46ch;line-height:1.55}
-  .lead .accent{color:var(--accent-strong);font-weight:500}
-  .hero-cta{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap}
-  .btn{
-    display:inline-flex;align-items:center;gap:.5rem;
-    font-size:.9rem;font-weight:500;padding:.7rem 1.2rem;border-radius:var(--radius);
-    transition:all .2s var(--ease);
-  }
-  .btn-primary{background:var(--ink);color:var(--surface)}
-  .btn-primary:hover{background:var(--accent-strong);color:#fff}
-  .btn-ghost{border:1px solid var(--line-strong);color:var(--ink)}
-  .btn-ghost:hover{border-color:var(--accent);color:var(--accent-strong)}
+  /* hero */
+  .hero{padding:clamp(3.5rem,8vw,6rem) 0 clamp(2.5rem,6vw,4rem);border-top:0}
+  .hero .wrap{display:grid;grid-template-columns:1fr minmax(0,19rem);gap:clamp(2rem,5vw,4rem);align-items:start}
+  .hero-text{min-width:0}
+  .role{font-family:var(--mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-strong);display:flex;gap:.6rem;align-items:center;margin-bottom:.5rem}
+  .role::before{content:"";width:1.8rem;height:1px;background:var(--accent)}
+  .affil{font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.04em;margin-bottom:1.4rem}
+  h1{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:clamp(2.4rem,6vw,4.1rem);line-height:1.02;letter-spacing:-.02em;margin-bottom:1.4rem}
+  h1 sup{font-family:var(--mono);font-size:.26em;font-weight:500;color:var(--accent-strong);letter-spacing:.06em;vertical-align:super;margin-left:.5rem;top:-.3em;position:relative}
+  .hero-text p{max-width:54ch;margin-bottom:1rem;color:var(--text);font-size:1.05rem}
+  .hero-text p .ac{color:var(--accent-strong);font-weight:500}
+  .socials{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+  .socials a{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:500;color:var(--ink);border:1px solid var(--line-strong);border-radius:999px;padding:.4rem .85rem;transition:all .2s var(--ease)}
+  .socials a:hover{border-color:var(--accent);color:var(--accent-strong);background:var(--accent-soft)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-top:2rem}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1rem}
+  .stat .l{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.3rem}
+  .stat .v{font-family:var(--serif);font-size:1.02rem;color:var(--ink);line-height:1.15}
+  @media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
 
-  /* ---------- section shell ---------- */
-  section{padding:clamp(3rem,7vw,5.5rem) 0;border-top:1px solid var(--line)}
-  .sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.5rem}
+  .portrait{position:relative;justify-self:center}
+  .portrait img{width:100%;max-width:17rem;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:var(--radius);border:1px solid var(--line-strong);background:var(--surface);box-shadow:0 20px 45px -25px rgba(15,29,43,.45);display:block}
+  .portrait figcaption{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.03em;margin-top:.7rem;text-align:center}
+  .portrait::after{content:"";position:absolute;inset:auto auto 1.6rem -.75rem;width:45%;height:45%;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);border-radius:0 0 0 var(--radius);z-index:-1}
+  @media(max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:2.25rem}.portrait{order:-1;justify-self:start}.portrait img{max-width:10rem}.portrait figcaption{text-align:left}.portrait::after{display:none}}
+
+  /* section shell */
+  section{padding:clamp(3rem,6vw,4.5rem) 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:2.25rem}
+  .sec-head .top{display:flex;align-items:baseline;gap:1rem}
   .sec-num{font-family:var(--mono);font-size:.8rem;color:var(--accent);letter-spacing:.05em}
   h2{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:clamp(1.7rem,3.5vw,2.4rem);letter-spacing:-.015em;line-height:1.1}
-  .sec-intro{max-width:60ch;color:var(--muted);margin-bottom:2.5rem;margin-top:-1.5rem}
+  .sec-sub{color:var(--muted);margin-top:.4rem;margin-left:2.2rem;font-size:.98rem}
+  @media(max-width:560px){.sec-sub{margin-left:0}}
 
-  .prose p{max-width:66ch;margin-bottom:1.1rem;color:var(--text)}
+  .prose p{max-width:66ch;margin-bottom:1rem}
   .prose p:last-child{margin-bottom:0}
 
-  /* ---------- cards grid ---------- */
+  /* projects */
   .grid{display:grid;gap:1.25rem}
-  .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-  @media(max-width:820px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
-
-  .card{
-    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    padding:1.5rem 1.5rem 1.6rem;transition:border-color .2s var(--ease),transform .2s var(--ease);
-  }
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  .cols-2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:860px){.cols-3,.cols-2{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;display:flex;flex-direction:column;transition:border-color .2s var(--ease),transform .2s var(--ease)}
   .card:hover{border-color:var(--line-strong);transform:translateY(-2px)}
-  .card h3{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:1.2rem;margin-bottom:.6rem;letter-spacing:-.01em}
-  .card p{font-size:.95rem;color:var(--muted);line-height:1.55}
-  .card .k{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem;display:block}
+  .card h3{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:1.25rem;letter-spacing:-.01em}
+  .card .badge{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:.4rem 0 .9rem}
+  .card p{font-size:.93rem;color:var(--muted);line-height:1.55;flex:1}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+  .chip{font-family:var(--mono);font-size:.7rem;color:var(--muted);background:var(--accent-soft);padding:.2rem .55rem;border-radius:999px}
+  .card-links{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line)}
+  .card-links a{font-size:.8rem;font-weight:500;font-family:var(--mono);letter-spacing:.02em}
+  .card-links a::after{content:" ↗";color:var(--accent)}
 
-  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
-  .tag{font-family:var(--mono);font-size:.72rem;color:var(--muted);background:var(--accent-soft);border:1px solid transparent;padding:.2rem .55rem;border-radius:999px}
+  /* timeline (experience/education) */
+  .tl{list-style:none;display:grid;gap:0}
+  .tl-item{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;padding:1.4rem 0;border-bottom:1px solid var(--line)}
+  .tl-item:last-child{border-bottom:0}
+  .tl-item:first-child{padding-top:0}
+  .tl-date{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.03em;padding-top:.25rem}
+  .tl-body h3{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:1.2rem;margin-bottom:.15rem}
+  .tl-org{font-size:.9rem;font-weight:500;color:var(--accent-strong);display:inline-block;margin-bottom:.5rem}
+  .tl-body p{font-size:.93rem;color:var(--muted);max-width:60ch}
+  .tl-note{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.3rem}
+  @media(max-width:600px){.tl-item{grid-template-columns:1fr;gap:.4rem}}
 
-  /* project item */
-  .proj{
-    display:flex;justify-content:space-between;gap:1.5rem;align-items:flex-start;
-    padding:1.5rem 0;border-bottom:1px solid var(--line);
-  }
-  .proj:first-child{padding-top:0}
-  .proj:last-child{border-bottom:0;padding-bottom:0}
-  .proj-main{max-width:60ch}
-  .proj-main h3{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:1.25rem;margin-bottom:.4rem}
-  .proj-main p{color:var(--muted);font-size:.95rem}
-  .proj-meta{font-family:var(--mono);font-size:.74rem;color:var(--accent);text-align:right;white-space:nowrap;letter-spacing:.04em;padding-top:.3rem}
-  @media(max-width:600px){.proj{flex-direction:column;gap:.5rem}.proj-meta{text-align:left}}
+  /* publications */
+  .pub-note{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem;max-width:60ch}
+  .pub{display:grid;grid-template-columns:5rem 1fr;gap:1.5rem;padding:1.3rem 0;border-bottom:1px solid var(--line)}
+  .pub:last-child{border-bottom:0}
+  .pub:first-of-type{padding-top:0}
+  .pub-year{font-family:var(--mono);font-size:.8rem;color:var(--accent);padding-top:.2rem}
+  .pub h3{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:1.05rem;line-height:1.3;margin-bottom:.3rem}
+  .pub .auth{font-size:.85rem;color:var(--muted)}
+  .pub .jour{font-size:.85rem;color:var(--text);font-style:italic;margin-top:.15rem}
+  .pub .doi{font-family:var(--mono);font-size:.76rem;margin-top:.35rem;display:inline-block}
+  .pub .doi::after{content:" ↗"}
+  @media(max-width:600px){.pub{grid-template-columns:1fr;gap:.35rem}}
 
-  /* ---------- footer ---------- */
+  /* skills */
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem 3rem}
+  @media(max-width:700px){.skills-grid{grid-template-columns:1fr}}
+  .skill-group h3{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:.9rem}
+  .skill-list{display:flex;flex-wrap:wrap;gap:.45rem}
+  .skill-list span{font-size:.85rem;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:.3rem .7rem}
+  .lang-list{display:grid;gap:.6rem}
+  .lang-row{display:flex;align-items:center;justify-content:space-between;max-width:16rem}
+  .lang-row .nm{font-size:.9rem;color:var(--text)}
+  .dots{display:flex;gap:.3rem}
+  .dots i{width:.55rem;height:.55rem;border-radius:50%;background:var(--line-strong)}
+  .dots i.on{background:var(--accent)}
+
+  /* footer */
   footer{background:var(--ink);color:#c9d1da;padding:clamp(3rem,6vw,4.5rem) 0 2.5rem;border-top:0}
-  footer h2{color:#fff}
-  footer .sec-num{color:var(--accent-dark)}
-  footer a{color:var(--accent-dark)}
-  footer a:hover{color:#fff}
-  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem 2rem;margin-top:2rem}
-  .contact-item .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-dark);display:block;margin-bottom:.35rem}
-  .contact-item a,.contact-item span{color:#e6ebf0;font-size:.98rem;word-break:break-word}
+  .foot-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:1rem}
+  footer h2{color:#fff;max-width:20ch;margin-bottom:1.5rem}
+  .foot-mail{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.7rem);color:var(--accent-dark)!important}
+  .foot-mail:hover{color:#fff!important}
+  .foot-socials{display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:2rem}
+  .foot-socials a{color:#e6ebf0;font-size:.9rem;font-family:var(--mono)}
+  .foot-socials a:hover{color:var(--accent-dark)}
   .foot-bottom{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.8rem;color:#8795a3;font-family:var(--mono);letter-spacing:.02em}
-
+  .foot-bottom a{color:#8795a3}.foot-bottom a:hover{color:var(--accent-dark)}
   ::selection{background:var(--accent);color:#fff}
 </style>
 </head>
@@ -160,223 +152,250 @@
 
 <header class="nav">
   <div class="wrap">
-    <span class="brand">Jean Baptiste <b>Joseph</b></span>
+    <a href="#about" class="brand">Jean Baptiste <b>Joseph</b></a>
     <nav class="nav-links">
-      <a href="#about"><span class="pt">Sobre</span><span class="en">About</span></a>
-      <a href="#research"><span class="pt">Pesquisa</span><span class="en">Research</span></a>
-      <a href="#projects"><span class="pt">Projetos</span><span class="en">Projects</span></a>
-      <a href="#aisim">AI SIM</a>
-      <a href="#contact"><span class="pt">Contato</span><span class="en">Contact</span></a>
-      <span class="lang-wrap"><button class="lang-btn" id="langBtn" aria-label="Toggle language">EN</button></span>
+      <a href="#about"><span class="pt">sobre</span><span class="en">about</span></a>
+      <a href="#projects"><span class="pt">projetos</span><span class="en">projects</span></a>
+      <a href="#experience"><span class="pt">experiência</span><span class="en">experience</span></a>
+      <a href="#education"><span class="pt">formação</span><span class="en">education</span></a>
+      <a href="#publications"><span class="pt">publicações</span><span class="en">publications</span></a>
+      <a href="#skills"><span class="pt">competências</span><span class="en">skills</span></a>
+      <button class="lang-btn" id="langBtn" aria-label="Toggle language">EN</button>
     </nav>
   </div>
 </header>
 
 <main>
-  <!-- HERO -->
-  <section class="hero" style="border-top:0">
+  <!-- HERO / ABOUT -->
+  <section class="hero" id="about">
     <div class="wrap">
-      <div class="eyebrow">
-        <span class="pt">Geomecânica · Simulação Numérica · IA no Subsolo</span>
-        <span class="en">Geomechanics · Numerical Simulation · AI for the Subsurface</span>
-      </div>
-      <h1>Jean Baptiste Joseph</h1>
-      <p class="lead">
-        <span class="pt">Engenheiro <span class="accent">geotécnico e de geomecânica</span> e pesquisador de doutorado (UFPE). Trabalho com mecânica do sal, fechamento de minas, integridade de poços e subsidência — unindo <span class="accent">modelagem THM acoplada</span> a ferramentas de IA e dados para a engenharia do subsolo.</span>
-        <span class="en">Geotechnical &amp; <span class="accent">geomechanics engineer</span> and PhD researcher (UFPE). I work on salt mechanics, mine closure, well integrity and subsidence — pairing <span class="accent">coupled THM modeling</span> with AI and data tooling for subsurface engineering.</span>
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#research"><span class="pt">Ver pesquisa</span><span class="en">See research</span></a>
-        <a class="btn btn-ghost" href="#contact"><span class="pt">Entrar em contato</span><span class="en">Get in touch</span></a>
-      </div>
-    </div>
-  </section>
+     <div class="hero-text">
+      <div class="role"><span class="pt">Engenheiro de Geomecânica &amp; Simulação</span><span class="en">Geomechanics &amp; Simulation Engineer</span></div>
+      <div class="affil">AI SIM · UFPE / i-LITPEG · Recife, Brasil</div>
+      <h1>Jean Baptiste Joseph<sup>PhD</sup></h1>
+      <p class="pt">Desenvolvo <span class="ac">modelos numéricos e simuladores</span> para o comportamento mecânico do sal — fluência (<em>creep</em>), estabilidade de cavernas e subsidência — com FLAC3D e acoplamento <span class="ac">termo-hidro-mecânico (THM)</span>.</p>
+      <p class="en">I develop <span class="ac">numerical models and simulators</span> for the mechanical behavior of salt — creep, cavern stability and subsidence — using FLAC3D and coupled <span class="ac">thermo-hydro-mechanical (THM)</span> modeling.</p>
+      <p class="pt">Minha atuação une geomecânica computacional a integridade de poços, estocagem geológica (gás, CO₂, H₂) e ferramentas de IA e dados para o subsolo. Fundador da <strong>AI SIM Engenharia Geotécnica</strong>.</p>
+      <p class="en">My work connects computational geomechanics with well integrity, geological storage (gas, CO₂, H₂) and AI/data tooling for the subsurface. Founder of <strong>AI SIM Engenharia Geotécnica</strong>.</p>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-num">01</span><h2><span class="pt">Sobre</span><span class="en">About</span></h2></div>
-      <div class="prose">
-        <div class="pt">
-          <p>Sou engenheiro com foco em <strong>geomecânica computacional</strong>. Minha pesquisa e consultoria giram em torno do comportamento mecânico de formações salinas: fluência (<em>creep</em>) do sal, estabilidade de cavernas, enchimento (<em>backfilling</em>), subsidência de superfície e integridade de poços que atravessam o sal.</p>
-          <p>Aplico modelagem numérica acoplada termo-hidro-mecânica (THM) — em FLAC3D, OPM Flow e CODE_BRIGHT — a problemas reais de <strong>fechamento de minas de sal</strong> e de <strong>estocagem geológica</strong> (gás natural, CO₂ e hidrogênio). Em paralelo, construo ferramentas de software e de IA que tornam esses modelos mais rápidos, auditáveis e acessíveis.</p>
-          <p>Sou também fundador da <strong>AI SIM Engenharia Geotécnica</strong>, onde combino geomecânica com ciência de dados e modelos de linguagem para entregar simulação, copilotos técnicos e plataformas de dados para o setor de energia e mineração.</p>
-        </div>
-        <div class="en">
-          <p>I'm an engineer focused on <strong>computational geomechanics</strong>. My research and consulting center on the mechanical behavior of salt formations: salt creep, cavern stability, backfilling, surface subsidence, and the integrity of wells that cross the salt.</p>
-          <p>I apply coupled thermo-hydro-mechanical (THM) modeling — in FLAC3D, OPM Flow and CODE_BRIGHT — to real problems in <strong>salt-mine closure</strong> and <strong>geological storage</strong> (natural gas, CO₂ and hydrogen). In parallel, I build software and AI tools that make those models faster, auditable and more accessible.</p>
-          <p>I'm also the founder of <strong>AI SIM Engenharia Geotécnica</strong>, where I combine geomechanics with data science and language models to deliver simulation, technical copilots and data platforms for the energy and mining sectors.</p>
-        </div>
+      <div class="socials">
+        <a href="mailto:contato@simgroup.com.br">Email</a>
+        <a href="https://www.linkedin.com/in/jeanbjosephht/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Jeanbjoseph" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">ORCID</a>
+        <a href="http://lattes.cnpq.br/0456933468707806" target="_blank" rel="noopener">Lattes</a>
       </div>
-    </div>
-  </section>
 
-  <!-- RESEARCH -->
-  <section id="research">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-num">02</span><h2><span class="pt">Pesquisa &amp; Especialidades</span><span class="en">Research &amp; Expertise</span></h2></div>
-      <p class="sec-intro">
-        <span class="pt">Linhas de trabalho que conectam mecânica das rochas, simulação e dados.</span>
-        <span class="en">Lines of work connecting rock mechanics, simulation and data.</span>
-      </p>
-      <div class="grid cols-3">
-        <div class="card">
-          <span class="k">01</span>
-          <h3><span class="pt">Mecânica do sal &amp; fechamento de minas</span><span class="en">Salt mechanics &amp; mine closure</span></h3>
-          <p><span class="pt">Fluência (Norton), estabilidade de cavernas, subsidência e otimização de enchimento em modelos full-field de FLAC3D.</span><span class="en">Creep (Norton law), cavern stability, subsidence and backfill optimization in full-field FLAC3D models.</span></p>
-          <div class="tags"><span class="tag">FLAC3D</span><span class="tag">creep</span><span class="tag">subsidence</span></div>
-        </div>
-        <div class="card">
-          <span class="k">02</span>
-          <h3><span class="pt">Integridade de poços</span><span class="en">Well integrity</span></h3>
-          <p><span class="pt">Janela operacional de tensões, deformação e desgaste de revestimento, momento de tamponamento e modelos geomecânicos 1D→3D.</span><span class="en">Stress operating windows, casing deformation and wear, plugging timing, and 1D→3D geomechanical models.</span></p>
-          <div class="tags"><span class="tag">MEM</span><span class="tag">Kirsch</span><span class="tag">casing</span></div>
-        </div>
-        <div class="card">
-          <span class="k">03</span>
-          <h3><span class="pt">Simulação THM acoplada</span><span class="en">Coupled THM simulation</span></h3>
-          <p><span class="pt">Acoplamento termo-hidro-mecânico com FLAC3D, OPM Flow, Dean e CODE_BRIGHT; orquestração de fluxos de simulação.</span><span class="en">Thermo-hydro-mechanical coupling with FLAC3D, OPM Flow, Dean and CODE_BRIGHT; simulation workflow orchestration.</span></p>
-          <div class="tags"><span class="tag">OPM Flow</span><span class="tag">CODE_BRIGHT</span><span class="tag">THM</span></div>
-        </div>
-        <div class="card">
-          <span class="k">04</span>
-          <h3><span class="pt">Estocagem &amp; transição energética</span><span class="en">Storage &amp; energy transition</span></h3>
-          <p><span class="pt">Estocagem de gás natural e hidrogênio em cavernas de sal e armazenamento geológico de CO₂ (CCS).</span><span class="en">Natural-gas and hydrogen storage in salt caverns, and geological CO₂ storage (CCS).</span></p>
-          <div class="tags"><span class="tag">H₂</span><span class="tag">CCS</span><span class="tag">salt caverns</span></div>
-        </div>
-        <div class="card">
-          <span class="k">05</span>
-          <h3><span class="pt">Geopressão &amp; petrofísica</span><span class="en">Geopressure &amp; petrophysics</span></h3>
-          <p><span class="pt">Pressão de poros (Eaton), modelo mecânico da terra (MEM 1D), rock physics e modelos a partir de perfis de poços.</span><span class="en">Pore pressure (Eaton), 1D mechanical earth models, rock physics, and log-based subsurface models.</span></p>
-          <div class="tags"><span class="tag">Eaton</span><span class="tag">MEM</span><span class="tag">rock physics</span></div>
-        </div>
-        <div class="card">
-          <span class="k">06</span>
-          <h3><span class="pt">IA &amp; ciência de dados no subsolo</span><span class="en">AI &amp; data science for the subsurface</span></h3>
-          <p><span class="pt">Copilotos técnicos (RAG), dashboards geoespaciais e plataformas de dados para engenharia de energia e mineração.</span><span class="en">Technical copilots (RAG), geospatial dashboards and data platforms for energy and mining engineering.</span></p>
-          <div class="tags"><span class="tag">RAG</span><span class="tag">Python</span><span class="tag">dashboards</span></div>
-        </div>
+      <div class="stats">
+        <div class="stat"><span class="l">Foco</span><span class="v"><span class="pt">Sal &amp; Subsolo</span><span class="en">Salt &amp; Subsurface</span></span></div>
+        <div class="stat"><span class="l"><span class="pt">Métodos</span><span class="en">Methods</span></span><span class="v"><span class="pt">THM acoplado</span><span class="en">Coupled THM</span></span></div>
+        <div class="stat"><span class="l">Stack</span><span class="v">FLAC3D · OPM</span></div>
+        <div class="stat"><span class="l">IA</span><span class="v"><span class="pt">RAG &amp; Dados</span><span class="en">RAG &amp; Data</span></span></div>
       </div>
+     </div>
+     <figure class="portrait">
+       <img src="jean.jpg" alt="Jean Baptiste Joseph" width="400" height="500" />
+       <figcaption><span class="pt">Geomecânica computacional · subsolo salino</span><span class="en">Computational geomechanics · salt subsurface</span></figcaption>
+     </figure>
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-num">03</span><h2><span class="pt">Projetos &amp; Software</span><span class="en">Projects &amp; Software</span></h2></div>
-      <p class="sec-intro">
-        <span class="pt">Ferramentas que desenvolvo — algumas open-source, outras em produção com clientes.</span>
-        <span class="en">Tools I build — some open-source, others in production with clients.</span>
-      </p>
+      <div class="sec-head">
+        <div class="top"><span class="sec-num">01</span><h2><span class="pt">Projetos</span><span class="en">Projects</span></h2></div>
+        <p class="sec-sub"><span class="pt">Ferramentas open-source e software de pesquisa.</span><span class="en">Open-source tools and research software.</span></p>
+      </div>
+      <div class="grid cols-2">
 
-      <div>
-        <div class="proj">
-          <div class="proj-main">
-            <h3>SIMˣ / simcore</h3>
-            <p><span class="pt">Plataforma open-source de simulação THM (um "MRST brasileiro"), com edições de pesquisa, consultoria e produção e uma CLI unificada.</span><span class="en">Open-source THM simulation platform (a "Brazilian MRST"), with research, consulting and production editions and a unified CLI.</span></p>
-          </div>
-          <div class="proj-meta">Apache-2.0 · THM</div>
-        </div>
-        <div class="proj">
-          <div class="proj-main">
-            <h3>mesh2flac3d</h3>
-            <p><span class="pt">Pacote Python (MIT) que converte malhas de geomodelos para o formato <code>.f3grid</code> do FLAC3D. Publicado no PyPI.</span><span class="en">Python package (MIT) that converts geomodel meshes to FLAC3D's <code>.f3grid</code> format. Published on PyPI.</span></p>
-          </div>
-          <div class="proj-meta">PyPI · MIT</div>
-        </div>
-        <div class="proj">
-          <div class="proj-main">
-            <h3>PetroView 3D</h3>
-            <p><span class="pt">Aplicação web para visualização e análise de poços — perfis, trajetórias direcionais e dados abertos de poços.</span><span class="en">Web application for well visualization and analysis — logs, directional trajectories and open well data.</span></p>
-          </div>
-          <div class="proj-meta">Web · 3D</div>
-        </div>
-        <div class="proj">
-          <div class="proj-main">
-            <h3>GeoMEM</h3>
-            <p><span class="pt">Software para construir modelos mecânicos da terra a partir de perfis, gerando janela de fluido de perfuração. Em beta, validado.</span><span class="en">Software to build mechanical earth models from well logs and derive the drilling-fluid window. In beta, validated.</span></p>
-          </div>
-          <div class="proj-meta">Beta · MEM</div>
-        </div>
-        <div class="proj">
-          <div class="proj-main">
-            <h3><span class="pt">Modelos full-field &amp; subsidência</span><span class="en">Full-field &amp; subsidence models</span></h3>
-            <p><span class="pt">Modelos FLAC3D de campo completo para cavernas de sal, com extração de tensões, seções verticais e exportação de subsidência para Google Earth.</span><span class="en">Full-field FLAC3D models for salt caverns, with stress extraction, vertical sections and subsidence export to Google Earth.</span></p>
-          </div>
-          <div class="proj-meta">FLAC3D · FISH</div>
-        </div>
+        <article class="card">
+          <h3>SIMˣ / simcore</h3>
+          <span class="badge">Open Source · Creator</span>
+          <p><span class="pt">Plataforma open-source de simulação THM (um "MRST brasileiro"), com edições de pesquisa/consultoria/produção e uma CLI unificada <code>sim</code>.</span><span class="en">Open-source THM simulation platform (a "Brazilian MRST") with research/consulting/production editions and a unified <code>sim</code> CLI.</span></p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">THM</span><span class="chip">FLAC3D</span><span class="chip">OPM</span><span class="chip">Apache-2.0</span></div>
+          <div class="card-links"><a href="https://github.com/Jeanbjoseph" target="_blank" rel="noopener">Repository</a></div>
+        </article>
+
+        <article class="card">
+          <h3>mesh2flac3d</h3>
+          <span class="badge">Open Source · Author</span>
+          <p><span class="pt">Pacote Python (MIT) que converte malhas de geomodelos para o formato <code>.f3grid</code> do FLAC3D. Publicado no PyPI.</span><span class="en">Python package (MIT) converting geomodel meshes to FLAC3D's <code>.f3grid</code> format. Published on PyPI.</span></p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">meshio</span><span class="chip">FLAC3D</span><span class="chip">MIT</span></div>
+          <div class="card-links"><a href="https://pypi.org/project/mesh2flac3d/" target="_blank" rel="noopener">PyPI</a><a href="https://github.com/Jeanbjoseph" target="_blank" rel="noopener">Repository</a></div>
+        </article>
+
+        <article class="card">
+          <h3>PetroView 3D</h3>
+          <span class="badge">Web App · Creator</span>
+          <p><span class="pt">Aplicação web para visualização e análise de poços — perfis, trajetórias direcionais e dados abertos da ANP em 3D.</span><span class="en">Web application for well visualization and analysis — logs, directional trajectories and open ANP well data in 3D.</span></p>
+          <div class="chips"><span class="chip">React</span><span class="chip">WebGL</span><span class="chip">Supabase</span><span class="chip">ANP data</span></div>
+        </article>
+
+        <article class="card">
+          <h3>GeoMEM</h3>
+          <span class="badge">Software · Beta</span>
+          <p><span class="pt">Constrói o modelo mecânico da terra (MEM) a partir de perfis de poço e deriva a janela de fluido de perfuração. Validado em beta.</span><span class="en">Builds the mechanical earth model (MEM) from well logs and derives the drilling-fluid window. Validated, in beta.</span></p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Well logs</span><span class="chip">MEM</span><span class="chip">Eaton</span></div>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <!-- AI SIM -->
-  <section id="aisim">
+  <!-- EXPERIENCE -->
+  <section id="experience">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-num">04</span><h2>AI SIM Engenharia Geotécnica</h2></div>
-      <div class="prose">
-        <div class="pt">
-          <p>A <strong>AI SIM</strong> é minha empresa de engenharia geotécnica e geomecânica. Entregamos modelagem numérica avançada (sal, poços, subsidência, estocagem geológica) e produtos de software e IA sob medida para o setor de energia e mineração.</p>
-          <p>Atuamos em três frentes: <strong>consultoria em geomecânica</strong>, <strong>desenvolvimento de software</strong> técnico-científico e <strong>copilotos de IA</strong> (RAG) que organizam acervos técnicos e aceleram decisões de engenharia.</p>
-        </div>
-        <div class="en">
-          <p><strong>AI SIM</strong> is my geotechnical and geomechanics engineering company. We deliver advanced numerical modeling (salt, wells, subsidence, geological storage) and bespoke software and AI products for the energy and mining sectors.</p>
-          <p>We work across three fronts: <strong>geomechanics consulting</strong>, scientific <strong>software development</strong>, and <strong>AI copilots</strong> (RAG) that organize technical archives and speed up engineering decisions.</p>
-        </div>
+      <div class="sec-head">
+        <div class="top"><span class="sec-num">02</span><h2><span class="pt">Experiência</span><span class="en">Experience</span></h2></div>
+        <p class="sec-sub"><span class="pt">Trajetória profissional e de pesquisa.</span><span class="en">Professional career and research positions.</span></p>
       </div>
-      <div class="grid cols-3" style="margin-top:2rem">
-        <div class="card"><h3><span class="pt">Consultoria</span><span class="en">Consulting</span></h3><p><span class="pt">Geomecânica de sal, integridade de poços, subsidência e estabilidade de cavernas.</span><span class="en">Salt geomechanics, well integrity, subsidence and cavern stability.</span></p></div>
-        <div class="card"><h3>Software</h3><p><span class="pt">Ferramentas de simulação, visualização e automação de fluxos de modelagem.</span><span class="en">Simulation, visualization and modeling-workflow automation tools.</span></p></div>
-        <div class="card"><h3><span class="pt">IA &amp; dados</span><span class="en">AI &amp; data</span></h3><p><span class="pt">Copilotos técnicos, RAG sobre acervos de engenharia e plataformas de dados.</span><span class="en">Technical copilots, RAG over engineering archives and data platforms.</span></p></div>
-      </div>
+      <ul class="tl">
+        <li class="tl-item">
+          <div class="tl-date">⟨2024⟩ – <span class="pt">Presente</span><span class="en">Present</span></div>
+          <div class="tl-body">
+            <h3><span class="pt">Fundador &amp; Engenheiro Principal de Geomecânica</span><span class="en">Founder &amp; Principal Geomechanics Engineer</span></h3>
+            <span class="tl-org">AI SIM Engenharia Geotécnica</span>
+            <p><span class="pt">Modelagem numérica avançada (sal, poços, subsidência, estocagem) e produtos de software e IA sob medida para energia e mineração.</span><span class="en">Advanced numerical modeling (salt, wells, subsidence, storage) and bespoke software/AI products for energy and mining.</span></p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date">⟨2019⟩ – <span class="pt">Presente</span><span class="en">Present</span></div>
+          <div class="tl-body">
+            <h3><span class="pt">Pesquisador de Doutorado — Geomecânica Computacional</span><span class="en">Doctoral Researcher — Computational Geomechanics</span></h3>
+            <span class="tl-org">UFPE / i-LITPEG</span>
+            <p><span class="pt">Fluência do sal, estabilidade de cavernas e subsidência com FLAC3D e acoplamento THM; integração de modelos de poço e caverna.</span><span class="en">Salt creep, cavern stability and subsidence with FLAC3D and THM coupling; integration of well and cavern models.</span></p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date">⟨período⟩</div>
+          <div class="tl-body">
+            <h3><span class="pt">Docente / Palestrante</span><span class="en">Lecturer / Speaker</span></h3>
+            <span class="tl-org">UNINASSAU · ABEMEC-PE</span>
+            <p><span class="pt">Aulas e palestras em geomecânica, simulação numérica e aplicações de IA na engenharia. <em>⟨confirmar instituições e datas⟩</em></span><span class="en">Courses and lectures on geomechanics, numerical simulation and AI applications in engineering. <em>⟨confirm institutions &amp; dates⟩</em></span></p>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- TEACHING -->
-  <section id="teaching">
+  <!-- EDUCATION -->
+  <section id="education">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-num">05</span><h2><span class="pt">Ensino &amp; Divulgação</span><span class="en">Teaching &amp; Outreach</span></h2></div>
-      <div class="prose">
-        <div class="pt"><p>Ministro palestras e cursos sobre geomecânica, simulação numérica e aplicações de IA na engenharia, e produzo material didático (mecânica contínua do sal, juntas ubíquas, modelos de Dean) para formação de estudantes e profissionais.</p></div>
-        <div class="en"><p>I give lectures and courses on geomechanics, numerical simulation and AI applications in engineering, and I produce didactic material (salt continuum mechanics, ubiquitous joints, Dean models) for students and professionals.</p></div>
+      <div class="sec-head">
+        <div class="top"><span class="sec-num">03</span><h2><span class="pt">Formação</span><span class="en">Education</span></h2></div>
+        <p class="sec-sub"><span class="pt">Formação acadêmica.</span><span class="en">Academic background.</span></p>
+      </div>
+      <ul class="tl">
+        <li class="tl-item">
+          <div class="tl-date">2019 – ⟨20XX⟩</div>
+          <div class="tl-body">
+            <h3><span class="pt">Doutorado em Engenharia Civil</span><span class="en">PhD in Civil Engineering</span></h3>
+            <span class="tl-org"><span class="pt">Universidade Federal de Pernambuco (UFPE), Brasil</span><span class="en">Federal University of Pernambuco (UFPE), Brazil</span></span>
+            <p class="tl-note"><span class="pt">Ênfase em geomecânica computacional. ⟨linha de pesquisa / orientador⟩</span><span class="en">Focus on computational geomechanics. ⟨research line / advisor⟩</span></p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date">⟨anos⟩</div>
+          <div class="tl-body">
+            <h3><span class="pt">Mestrado em Engenharia</span><span class="en">MSc in Engineering</span></h3>
+            <span class="tl-org">⟨<span class="pt">instituição</span><span class="en">institution</span>⟩</span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date">⟨anos⟩</div>
+          <div class="tl-body">
+            <h3><span class="pt">Graduação em Engenharia</span><span class="en">BSc in Engineering</span></h3>
+            <span class="tl-org">⟨<span class="pt">instituição</span><span class="en">institution</span>⟩</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="top"><span class="sec-num">04</span><h2><span class="pt">Publicações</span><span class="en">Publications</span></h2></div>
+        <p class="sec-sub"><span class="pt">Artigos revisados por pares, anais e teses.</span><span class="en">Peer-reviewed articles, proceedings and theses.</span></p>
+      </div>
+      <p class="pub-note"><span class="pt">Lista completa e atualizada no <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">ORCID</a> e no <a href="http://lattes.cnpq.br/0456933468707806" target="_blank" rel="noopener">Currículo Lattes</a>.</span><span class="en">Full, up-to-date list on <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">ORCID</a> and <a href="http://lattes.cnpq.br/0456933468707806" target="_blank" rel="noopener">Lattes</a>.</span></p>
+      <div class="pub">
+        <div class="pub-year">⟨ano⟩</div>
+        <div>
+          <h3>⟨ <span class="pt">título do artigo</span><span class="en">article title</span> ⟩</h3>
+          <div class="auth">Joseph, J.B.; ⟨coautores⟩</div>
+          <div class="jour">⟨<span class="pt">periódico</span><span class="en">journal</span>⟩</div>
+          <a class="doi" href="#" >DOI</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT / FOOTER -->
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="top"><span class="sec-num">05</span><h2><span class="pt">Competências</span><span class="en">Skills</span></h2></div>
+        <p class="sec-sub"><span class="pt">Competências técnicas e idiomas.</span><span class="en">Technical competencies and languages.</span></p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3><span class="pt">Programação</span><span class="en">Programming</span></h3>
+          <div class="skill-list"><span>Python</span><span>NumPy / SciPy</span><span>FISH (FLAC3D)</span><span>SQL</span><span>Bash</span></div>
+        </div>
+        <div class="skill-group">
+          <h3><span class="pt">Simulação &amp; Modelagem</span><span class="en">Simulation &amp; Modeling</span></h3>
+          <div class="skill-list"><span>FLAC3D</span><span>OPM Flow</span><span>CODE_BRIGHT</span><span>Dean</span><span>ParaView</span></div>
+        </div>
+        <div class="skill-group">
+          <h3><span class="pt">Geomecânica</span><span class="en">Geomechanics</span></h3>
+          <div class="skill-list"><span><span class="pt">Fluência do sal (Norton)</span><span class="en">Salt creep (Norton)</span></span><span><span class="pt">Integridade de poços (MEM)</span><span class="en">Well integrity (MEM)</span></span><span><span class="pt">Subsidência</span><span class="en">Subsidence</span></span><span>Rock physics</span><span>CCS / H₂</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>IA &amp; Data</h3>
+          <div class="skill-list"><span>RAG / LLM</span><span>LangChain</span><span>Streamlit</span><span>Chroma / pgvector</span><span>Azure</span></div>
+        </div>
+        <div class="skill-group">
+          <h3><span class="pt">Ferramentas</span><span class="en">Tools &amp; Platforms</span></h3>
+          <div class="skill-list"><span>Git / GitHub</span><span>Linux / WSL</span><span>Docker</span><span>LaTeX</span><span>Excel COM</span></div>
+        </div>
+        <div class="skill-group">
+          <h3><span class="pt">Idiomas</span><span class="en">Languages</span></h3>
+          <div class="lang-list">
+            <div class="lang-row"><span class="nm">Français</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+            <div class="lang-row"><span class="nm"><span class="pt">Português</span><span class="en">Portuguese</span></span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+            <div class="lang-row"><span class="nm"><span class="pt">Inglês</span><span class="en">English</span></span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <footer id="contact">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-num">06</span><h2><span class="pt">Contato</span><span class="en">Contact</span></h2></div>
-      <p style="max-width:52ch;color:#aab4bf">
-        <span class="pt">Aberto a colaborações em geomecânica, simulação numérica e projetos de IA para o subsolo.</span>
-        <span class="en">Open to collaborations in geomechanics, numerical simulation and AI projects for the subsurface.</span>
-      </p>
-      <div class="contact-grid">
-        <div class="contact-item"><span class="k">Email</span><a href="mailto:contato@simgroup.com.br">contato@simgroup.com.br</a></div>
-        <div class="contact-item"><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/jeanbjosephht/" target="_blank" rel="noopener">/in/jeanbjosephht</a></div>
-        <div class="contact-item"><span class="k">GitHub</span><a href="https://github.com/Jeanbjoseph" target="_blank" rel="noopener">@Jeanbjoseph</a></div>
-        <div class="contact-item"><span class="k">ORCID</span><a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">0000-0002-5625-8487</a></div>
-        <div class="contact-item"><span class="k">Lattes</span><a href="http://lattes.cnpq.br/0456933468707806" target="_blank" rel="noopener">CV Lattes</a></div>
+      <div class="foot-eyebrow"><span class="pt">Contato</span><span class="en">Contact</span></div>
+      <h2><span class="pt">Interessado em geomecânica, simulação ou uma colaboração?</span><span class="en">Interested in geomechanics, simulation or a collaboration?</span></h2>
+      <a class="foot-mail" href="mailto:contato@simgroup.com.br">contato@simgroup.com.br</a>
+      <div class="foot-socials">
+        <a href="https://www.linkedin.com/in/jeanbjosephht/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Jeanbjoseph" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">ORCID</a>
+        <a href="http://lattes.cnpq.br/0456933468707806" target="_blank" rel="noopener">Lattes</a>
       </div>
       <div class="foot-bottom">
-        <span>© <span id="year">2026</span> Jean Baptiste Joseph</span>
-        <span>Recife · Brazil</span>
+        <span>Jean Baptiste Joseph, PhD · Recife, Brazil</span>
+        <span>ORCID · <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">0000-0002-5625-8487</a></span>
       </div>
     </div>
   </footer>
 </main>
 
 <script>
-  // language toggle
-  var btn = document.getElementById('langBtn');
-  var root = document.documentElement;
-  btn.addEventListener('click', function(){
-    var next = root.lang === 'pt' ? 'en' : 'pt';
-    root.lang = next;
-    btn.textContent = next === 'pt' ? 'EN' : 'PT';
-  });
-  // current year
-  // (set statically to avoid Date in sandbox; update if needed)
+  var btn=document.getElementById('langBtn'),root=document.documentElement;
+  btn.addEventListener('click',function(){var n=root.lang==='pt'?'en':'pt';root.lang=n;btn.textContent=n==='pt'?'EN':'PT';});
 </script>
-
 </body>
 </html>
