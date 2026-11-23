@@ -94,10 +94,12 @@
   .socials a:hover{border-color:var(--accent);color:var(--accent-strong);background:var(--accent-soft)}
 
   .portrait{position:relative;justify-self:center}
-  .portrait img{width:100%;max-width:17rem;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:var(--radius);border:1px solid var(--line-strong);background:var(--surface);box-shadow:0 20px 45px -25px rgba(15,29,43,.45);display:block}
+  .portrait-box{position:relative;width:17rem;max-width:100%;height:30rem;border-radius:var(--radius);border:1px solid var(--line-strong);background:#0d1622;box-shadow:0 20px 45px -25px rgba(15,29,43,.45);overflow:hidden}
+  #portraitFx{position:absolute;inset:0;width:100%;height:100%}
+  .portrait-box img{position:relative;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
   .portrait figcaption{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.03em;margin-top:.7rem;text-align:center}
   .portrait::after{content:"";position:absolute;inset:auto auto 1.6rem -.75rem;width:45%;height:45%;border-left:2px solid var(--red);border-bottom:2px solid var(--red);border-radius:0 0 0 var(--radius);z-index:-1}
-  @media(max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:2.25rem}.portrait{order:-1;justify-self:start}.portrait img{max-width:10rem}.portrait figcaption{text-align:left}.portrait::after{display:none}}
+  @media(max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:2.25rem}.portrait{order:-1;justify-self:start}.portrait-box{width:10rem;height:14rem}.portrait figcaption{text-align:left}.portrait::after{display:none}}
   .mesh-note{position:relative;font-family:var(--mono);font-size:.68rem;color:var(--red);letter-spacing:.03em;margin-top:2.2rem;opacity:.85}
   @media(hover:none){.mesh-note{display:none}}
 
@@ -312,7 +314,10 @@
       <div class="mesh-note"><span class="pt">malha deformável · o sal escoa ao redor do cursor e relaxa lentamente — fluência</span><span class="en">deformable mesh · salt flows around the cursor and slowly relaxes — creep</span></div>
      </div>
      <figure class="portrait">
-       <img src="jean_mesh.jpg" alt="Jean Baptiste Joseph — retrato em malha de elementos finitos" width="400" height="500" />
+       <div class="portrait-box">
+         <canvas id="portraitFx" aria-hidden="true"></canvas>
+         <img src="jean_cut.png" alt="Jean Baptiste Joseph" width="400" height="500" />
+       </div>
        <figcaption><span class="pt">Geomecânica computacional · subsolo salino</span><span class="en">Computational geomechanics · salt subsurface</span></figcaption>
      </figure>
     </div>
@@ -1323,6 +1328,69 @@ document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el);}
   var rto=null;
   window.addEventListener('resize',function(){clearTimeout(rto);rto=setTimeout(build,180);});
   build();
+})();
+
+/* ---------- portrait plexus background ---------- */
+(function(){
+  var cv=document.getElementById('portraitFx');
+  if(!cv)return;
+  var ctx=cv.getContext('2d'),W=0,H=0,nodes=[],visible=false,raf=null;
+  function size(){
+    var r=cv.parentElement.getBoundingClientRect();
+    W=r.width;H=r.height;
+    var dpr=Math.min(window.devicePixelRatio||1,2);
+    cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function init(){
+    nodes=[];
+    var n=Math.round(W*H/1500);
+    for(var i=0;i<n;i++)nodes.push({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,
+      red:Math.random()<0.1
+    });
+  }
+  function draw(){
+    ctx.fillStyle='#0d1622';ctx.fillRect(0,0,W,H);
+    var R=Math.max(52,W*0.26);
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
+        if(d2<R*R){
+          var al=(1-Math.sqrt(d2)/R)*0.55;
+          ctx.strokeStyle=(a.red&&b.red)?'rgba(214,108,84,'+al+')':'rgba(64,201,193,'+(al*0.8)+')';
+          ctx.lineWidth=1;
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+        }
+      }
+    }
+    ctx.fillStyle='rgba(64,201,193,.6)';
+    for(var k=0;k<nodes.length;k++){
+      var p=nodes[k];
+      ctx.beginPath();ctx.arc(p.x,p.y,1.6,0,6.283);ctx.fill();
+    }
+  }
+  function step(){
+    for(var i=0;i<nodes.length;i++){
+      var p=nodes[i];
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-6)p.x=W+6;if(p.x>W+6)p.x=-6;
+      if(p.y<-6)p.y=H+6;if(p.y>H+6)p.y=-6;
+    }
+    draw();
+    if(visible&&!reduced)raf=requestAnimationFrame(step);
+  }
+  var pio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      visible=e.isIntersecting;
+      if(visible){size();if(!nodes.length)init();
+        if(reduced){draw();}else{cancelAnimationFrame(raf);raf=requestAnimationFrame(step);}}
+      else cancelAnimationFrame(raf);
+    });
+  },{threshold:0.05});
+  pio.observe(cv.parentElement);
+  window.addEventListener('resize',function(){if(visible){size();init();draw();}});
 })();
 
 /* ---------- generic scene scrubber ---------- */
