@@ -7,7 +7,7 @@
 <meta name="description" content="Jean Baptiste Joseph, PhD — especialista em geomecânica e simulação numérica. Mecânica do sal, cavidades salinas, fechamento de minas, acoplamento THM (FLAC3D, elementos finitos, GPU/CPU) e IA para a engenharia do subsolo." />
 <meta name="author" content="Jean Baptiste Joseph" />
 <meta name="robots" content="index,follow,max-image-preview:large" />
-<meta name="theme-color" content="#fbfaf7" />
+<meta name="theme-color" content="#f5f8fa" />
 <link rel="canonical" href="https://jeanbjoseph.github.io/" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <meta property="og:type" content="profile" />
@@ -31,10 +31,10 @@
 
 <style>
   :root{
-    --paper:#fbfaf7; --surface:#fffefb; --ink:#0f1d2b; --text:#2a3542; --muted:#5f6b7a;
-    --line:#e4e1d9; --line-strong:#cfcac0;
-    --accent:#0f6f74; --accent-strong:#0a5357; --accent-soft:rgba(15,111,116,.08); --accent-dark:#7cc4c0;
-    --red:#b64a35; --red-soft:rgba(182,74,53,.1);
+    --paper:#f5f8fa; --surface:#ffffff; --ink:#0f1d2b; --text:#2a3542; --muted:#5f6b7a;
+    --line:#dde4ea; --line-strong:#b9c6cf;
+    --accent:#005ca9; --accent-strong:#00447e; --accent-soft:rgba(0,92,169,.08); --accent-dark:#8ab9e8;
+    --red:#ec6607; --red-soft:rgba(236,102,7,.1);
     --container:72rem; --gutter:clamp(1.25rem,4vw,3rem); --nav-h:4rem; --radius:6px;
     --ease:cubic-bezier(.2,.7,.2,1);
     --serif:"Fraunces",Georgia,"Times New Roman",serif;
@@ -51,7 +51,7 @@
   .wrap{max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
 
   /* nav */
-  header.nav{position:sticky;top:0;z-index:50;height:var(--nav-h);display:flex;align-items:center;background:rgba(251,250,247,.82);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
+  header.nav{position:sticky;top:0;z-index:50;height:var(--nav-h);display:flex;align-items:center;background:rgba(245,248,250,.82);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
   .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.9rem;letter-spacing:.02em;color:var(--ink);font-weight:500}
   .brand b{color:var(--red)}
@@ -143,33 +143,33 @@
   .scene-fig svg{width:100%;height:100%;display:block}
   .scene-cap{flex:none;background:var(--ink);color:#e6ebf0;border-top:2px solid var(--red)}
   .scene-cap .inner{max-width:var(--container);margin-inline:auto;padding:1rem var(--gutter) 1.2rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
-  .cap-kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#e58d7b;margin-bottom:.3rem}
+  .cap-kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#f29a5e;margin-bottom:.3rem}
   .cap-text{font-family:var(--serif);font-size:clamp(1rem,2vw,1.25rem);line-height:1.4;color:#f2f4f6;max-width:58ch}
   .cap-right{display:flex;align-items:center;gap:1rem;flex:none;padding-top:.4rem}
   .cap-step{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#9fb0bf;white-space:nowrap}
   .skip-btn{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:#e6ebf0;background:none;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.4rem .9rem;cursor:pointer;transition:all .2s var(--ease);white-space:nowrap}
   .skip-btn:hover{border-color:#fff;background:rgba(255,255,255,.08)}
   .svg-label{font-family:var(--mono);font-size:13px;fill:#2a3542}
-  .svg-label-box{fill:#fffefb;stroke:#cfcac0;stroke-width:1}
+  .svg-label-box{fill:#ffffff;stroke:#b9c6cf;stroke-width:1}
   .svg-leader{stroke:#5f6b7a;stroke-width:1;fill:none}
 
   /* projects — dark with parallax strata */
   .dark-sec{position:relative;background:var(--ink);border-top:0;overflow:hidden}
   .dark-sec .sec-sub{color:#9fb0bf}
   .dark-sec h2{color:#fff}
-  .dark-sec .sec-num{color:#e58d7b}
+  .dark-sec .sec-num{color:#f29a5e}
   #strataBg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5}
   .dark-sec .wrap{position:relative}
   .dark-sec .grid{display:grid;gap:1.25rem}
   .dcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:1.6rem;transition:border-color .2s var(--ease),transform .2s var(--ease),background .2s var(--ease)}
   .dcard:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.06);transform:translateY(-2px)}
   .dcard h3{font-family:var(--serif);font-weight:500;color:#fff;font-size:1.3rem;letter-spacing:-.01em}
-  .dcard .badge{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#e58d7b;margin:.4rem 0 .9rem;display:block}
+  .dcard .badge{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#f29a5e;margin:.4rem 0 .9rem;display:block}
   .dcard p{font-size:.95rem;color:#b8c3ce;line-height:1.55;max-width:64ch}
   .dcard .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
-  .dcard .chip{font-family:var(--mono);font-size:.7rem;color:#c9d7d6;background:rgba(124,196,192,.12);border:1px solid rgba(124,196,192,.25);padding:.2rem .55rem;border-radius:999px}
+  .dcard .chip{font-family:var(--mono);font-size:.7rem;color:#c9d7d6;background:rgba(138,185,232,.12);border:1px solid rgba(138,185,232,.25);padding:.2rem .55rem;border-radius:999px}
   .dcard .card-foot{font-family:var(--mono);font-size:.78rem;margin-top:1.1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.1);color:#9fb0bf}
-  .dcard .card-foot a{color:#e58d7b}
+  .dcard .card-foot a{color:#f29a5e}
   .dcard .card-foot a:hover{color:#fff}
   .parallax-note{position:relative;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:#6d7d8d;margin-top:2.5rem}
 
@@ -247,9 +247,9 @@
   footer{position:relative;background:var(--ink);color:#c9d1da;padding:clamp(3.5rem,7vw,5.5rem) 0 2.5rem;border-top:0;overflow:hidden}
   #footCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55}
   footer .wrap{position:relative}
-  .foot-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#e58d7b;margin-bottom:1rem}
+  .foot-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#f29a5e;margin-bottom:1rem}
   footer h2{color:#fff;max-width:22ch;margin-bottom:1.5rem;font-size:clamp(1.9rem,4.5vw,3.1rem)}
-  .foot-mail{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.7rem);color:var(--accent-dark)!important;border-bottom:1px solid rgba(124,196,192,.4);padding-bottom:.15rem}
+  .foot-mail{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.7rem);color:var(--accent-dark)!important;border-bottom:1px solid rgba(138,185,232,.4);padding-bottom:.15rem}
   .foot-mail:hover{color:#fff!important;border-bottom-color:#fff}
   .foot-socials{display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:2rem}
   .foot-socials a{color:#e6ebf0;font-size:.9rem;font-family:var(--mono)}
@@ -289,11 +289,11 @@
   <div class="wrap">
     <a href="#about" class="brand">
       <svg class="brand-logo" viewBox="0 0 64 64" aria-hidden="true">
-        <line x1="5" y1="20" x2="59" y2="20" stroke="#b64a35" stroke-width="3.5"/>
+        <line x1="5" y1="20" x2="59" y2="20" stroke="#ec6607" stroke-width="3.5"/>
         <line x1="13" y1="9" x2="31" y2="9" stroke="#0f1d2b" stroke-width="5" stroke-linecap="round"/>
         <line x1="33" y1="9" x2="51" y2="9" stroke="#0f1d2b" stroke-width="5" stroke-linecap="round"/>
         <path d="M22,9 V33 C22,49 42,49 42,33 V9" fill="none" stroke="#0f1d2b" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="32" cy="45" r="3.6" fill="#0f6f74"/>
+        <circle cx="32" cy="45" r="3.6" fill="#005ca9"/>
       </svg>
       <span>Jean <b>Joseph</b></span>
     </a>
@@ -426,8 +426,8 @@
             <circle class="xi-red" cx="60" cy="18" r="9"/>
             <circle class="xi-acc" cx="30" cy="68" r="9"/>
             <circle class="xi" cx="90" cy="68" r="9"/>
-            <text x="60" y="22" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b64a35">T</text>
-            <text x="30" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#0a5357">H</text>
+            <text x="60" y="22" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#ec6607">T</text>
+            <text x="30" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#00447e">H</text>
             <text x="90" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#0f1d2b">M</text>
             <line class="xi" x1="52" y1="25" x2="37" y2="60" opacity=".6"/>
             <line class="xi" x1="68" y1="25" x2="83" y2="60" opacity=".6"/>
@@ -481,7 +481,7 @@
           <!-- original surface (dashed, appears with subsidence) -->
           <line id="surf0" x1="340" y1="200" x2="1260" y2="200" stroke="#5f6b7a" stroke-width="2" stroke-dasharray="8 7" opacity="0"/>
           <!-- sky, carving the subsidence bowl into the ground -->
-          <path id="skyDip" d="M0,0 H1600 V200 H0 Z" fill="#fbfaf7"/>
+          <path id="skyDip" d="M0,0 H1600 V200 H0 Z" fill="#f5f8fa"/>
           <!-- drill rig -->
           <g id="rig" opacity="0">
             <path d="M782,200 L800,138 L818,200 Z" fill="none" stroke="#0f1d2b" stroke-width="3"/>
@@ -498,7 +498,7 @@
           </defs>
           <path id="cav" d="" fill="url(#brine)" stroke="#1a2435" stroke-width="2.5" opacity="0"/>
           <!-- creep arrows -->
-          <g id="creepArr" opacity="0" stroke="#e58d7b" stroke-width="3.5" fill="#e58d7b">
+          <g id="creepArr" opacity="0" stroke="#f29a5e" stroke-width="3.5" fill="#f29a5e">
             <g id="ca1"></g>
           </g>
           <!-- labels -->
@@ -586,16 +586,16 @@
     <div class="scene-sticky">
       <div class="scene-fig">
         <svg id="svgB" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect x="0" y="0" width="1600" height="900" fill="#fbfaf7"/>
+          <rect x="0" y="0" width="1600" height="900" fill="#f5f8fa"/>
           <!-- depth axis -->
-          <line x1="250" y1="160" x2="250" y2="820" stroke="#cfcac0" stroke-width="2"/>
+          <line x1="250" y1="160" x2="250" y2="820" stroke="#b9c6cf" stroke-width="2"/>
           <g font-family="IBM Plex Mono,monospace" font-size="13" fill="#5f6b7a">
             <text x="176" y="214">0 m</text>
             <text x="150" y="500">−1000</text>
             <text x="150" y="790">−2000</text>
-            <text x="260" y="214" fill="#0a5357" letter-spacing="2" id="axTitle">PROFUNDIDADE</text>
+            <text x="260" y="214" fill="#00447e" letter-spacing="2" id="axTitle">PROFUNDIDADE</text>
           </g>
-          <g stroke="#e4e1d9" stroke-width="1">
+          <g stroke="#dde4ea" stroke-width="1">
             <line x1="250" y1="325" x2="1450" y2="325"/><line x1="250" y1="490" x2="1450" y2="490"/><line x1="250" y1="655" x2="1450" y2="655"/>
           </g>
           <!-- stage groups (filled by JS) -->
@@ -604,7 +604,7 @@
           <g id="gStress" opacity="0"></g>
           <g id="gWin" opacity="0"></g>
           <!-- moving depth cursor -->
-          <line id="bitLine" x1="250" y1="160" x2="1450" y2="160" stroke="#b64a35" stroke-width="1.5" stroke-dasharray="5 6" opacity=".8"/>
+          <line id="bitLine" x1="250" y1="160" x2="1450" y2="160" stroke="#ec6607" stroke-width="1.5" stroke-dasharray="5 6" opacity=".8"/>
         </svg>
       </div>
       <div class="scene-cap">
@@ -666,7 +666,7 @@
       <div class="scene-fig">
         <svg id="svgD" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <!-- strata -->
-          <rect x="0" y="0" width="1600" height="170" fill="#fbfaf7"/>
+          <rect x="0" y="0" width="1600" height="170" fill="#f5f8fa"/>
           <path d="M0,170.0 L40,170.0 L80,170.0 L120,170.0 L160,170.0 L200,170.0 L240,170.0 L280,170.0 L320,170.0 L360,170.0 L400,170.0 L440,170.0 L480,170.0 L520,170.0 L560,170.0 L600,170.0 L640,170.0 L680,170.0 L720,170.0 L760,170.0 L800,170.0 L840,170.0 L880,170.0 L920,170.0 L960,170.0 L1000,170.0 L1040,170.0 L1080,170.0 L1120,170.0 L1160,170.0 L1200,170.0 L1240,170.0 L1280,170.0 L1320,170.0 L1360,170.0 L1400,170.0 L1440,170.0 L1480,170.0 L1520,170.0 L1560,170.0 L1600,170.0 L1600,284.8 L1560,284.5 L1520,284.1 L1480,283.5 L1440,282.7 L1400,281.7 L1360,280.6 L1320,279.3 L1280,277.9 L1240,276.5 L1200,275.1 L1160,273.8 L1120,272.7 L1080,271.9 L1040,271.5 L1000,271.5 L960,271.9 L920,272.7 L880,273.8 L840,275.1 L800,276.5 L760,277.9 L720,279.3 L680,280.6 L640,281.7 L600,282.7 L560,283.5 L520,284.1 L480,284.5 L440,284.8 L400,285.1 L360,285.2 L320,285.3 L280,285.4 L240,285.4 L200,285.4 L160,285.5 L120,285.5 L80,285.5 L40,285.5 L0,285.5 Z" fill="#ddd8ca"/>
           <path d="M0,285.5 L40,285.5 L80,285.5 L120,285.5 L160,285.5 L200,285.4 L240,285.4 L280,285.4 L320,285.3 L360,285.2 L400,285.1 L440,284.8 L480,284.5 L520,284.1 L560,283.5 L600,282.7 L640,281.7 L680,280.6 L720,279.3 L760,277.9 L800,276.5 L840,275.1 L880,273.8 L920,272.7 L960,271.9 L1000,271.5 L1040,271.5 L1080,271.9 L1120,272.7 L1160,273.8 L1200,275.1 L1240,276.5 L1280,277.9 L1320,279.3 L1360,280.6 L1400,281.7 L1440,282.7 L1480,283.5 L1520,284.1 L1560,284.5 L1600,284.8 L1600,390.3 L1560,389.7 L1520,388.7 L1480,387.4 L1440,385.8 L1400,383.7 L1360,381.3 L1320,378.6 L1280,375.6 L1240,372.5 L1200,369.4 L1160,366.7 L1120,364.3 L1080,362.7 L1040,361.8 L1000,361.8 L960,362.7 L920,364.3 L880,366.7 L840,369.4 L800,372.5 L760,375.6 L720,378.6 L680,381.3 L640,383.7 L600,385.8 L560,387.4 L520,388.7 L480,389.7 L440,390.3 L400,390.8 L360,391.2 L320,391.4 L280,391.5 L240,391.6 L200,391.7 L160,391.7 L120,391.7 L80,391.7 L40,391.7 L0,391.7 Z" fill="#d2ccbc"/>
           <path d="M0,391.7 L40,391.7 L80,391.7 L120,391.7 L160,391.7 L200,391.7 L240,391.6 L280,391.5 L320,391.4 L360,391.2 L400,390.8 L440,390.3 L480,389.7 L520,388.7 L560,387.4 L600,385.8 L640,383.7 L680,381.3 L720,378.6 L760,375.6 L800,372.5 L840,369.4 L880,366.7 L920,364.3 L960,362.7 L1000,361.8 L1040,361.8 L1080,362.7 L1120,364.3 L1160,366.7 L1200,369.4 L1240,372.5 L1280,375.6 L1320,378.6 L1360,381.3 L1400,383.7 L1440,385.8 L1480,387.4 L1520,388.7 L1560,389.7 L1600,390.3 L1600,486.6 L1560,485.4 L1520,483.9 L1480,481.9 L1440,479.2 L1400,476.0 L1360,472.1 L1320,467.7 L1280,462.9 L1240,458.0 L1200,453.1 L1160,448.7 L1120,445.0 L1080,442.3 L1040,440.9 L1000,440.9 L960,442.3 L920,445.0 L880,448.7 L840,453.1 L800,458.0 L760,462.9 L720,467.7 L680,472.1 L640,476.0 L600,479.2 L560,481.9 L520,483.9 L480,485.4 L440,486.6 L400,487.3 L360,487.9 L320,488.2 L280,488.4 L240,488.6 L200,488.6 L160,488.7 L120,488.7 L80,488.7 L40,488.7 L0,488.7 Z" fill="#c6bfae"/>
@@ -691,18 +691,18 @@
           <path id="dBit" d="" fill="#0f1d2b"/>
           <!-- mud window mini chart -->
           <g id="dChart" opacity="0">
-            <rect x="150" y="300" width="300" height="370" rx="8" fill="rgba(251,250,247,.92)" stroke="#cfcac0"/>
-            <text class="pt" x="300" y="332" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#0a5357" letter-spacing="2">JANELA DE LAMA</text>
-            <text class="en" x="300" y="332" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#0a5357" letter-spacing="2">MUD WINDOW</text>
-            <path d="M210,355 L222,392 L215,430 L235,470 L228,510 L248,550 L242,595 L258,640" fill="none" stroke="#b64a35" stroke-width="2.5"/>
+            <rect x="150" y="300" width="300" height="370" rx="8" fill="rgba(245,248,250,.92)" stroke="#b9c6cf"/>
+            <text class="pt" x="300" y="332" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#00447e" letter-spacing="2">JANELA DE LAMA</text>
+            <text class="en" x="300" y="332" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#00447e" letter-spacing="2">MUD WINDOW</text>
+            <path d="M210,355 L222,392 L215,430 L235,470 L228,510 L248,550 L242,595 L258,640" fill="none" stroke="#ec6607" stroke-width="2.5"/>
             <path d="M335,355 L350,398 L342,440 L362,480 L355,525 L372,570 L366,615 L380,640" fill="none" stroke="#0f1d2b" stroke-width="2.5"/>
-            <path d="M265,355 L305,640" fill="none" stroke="#0a5357" stroke-width="3" stroke-dasharray="2 7"/>
-            <text class="pt" x="232" y="660" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#b64a35">colapso</text>
-            <text class="en" x="232" y="660" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#b64a35">collapse</text>
+            <path d="M265,355 L305,640" fill="none" stroke="#00447e" stroke-width="3" stroke-dasharray="2 7"/>
+            <text class="pt" x="232" y="660" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#ec6607">colapso</text>
+            <text class="en" x="232" y="660" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#ec6607">collapse</text>
             <text class="pt" x="372" y="660" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#0f1d2b">fratura</text>
             <text class="en" x="372" y="660" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#0f1d2b">fracture</text>
-            <text class="pt" x="300" y="384" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#0a5357">lama</text>
-            <text class="en" x="300" y="384" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#0a5357">mud</text>
+            <text class="pt" x="300" y="384" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#00447e">lama</text>
+            <text class="en" x="300" y="384" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#00447e">mud</text>
           </g>
           <!-- labels -->
           <g id="dF1" opacity="0">
@@ -739,8 +739,8 @@
           <g id="dBadge" opacity="0">
             <rect x="580" y="196" width="440" height="96" rx="10" fill="#0f1d2b"/>
             <text x="800" y="240" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="34" fill="#ffffff">PetroView 3D</text>
-            <text class="pt" x="800" y="272" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" fill="#7cc4c0" letter-spacing="2">PERFIS · TRAJETÓRIAS 3D · DADOS ANP</text>
-            <text class="en" x="800" y="272" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" fill="#7cc4c0" letter-spacing="2">LOGS · 3D TRAJECTORIES · ANP OPEN DATA</text>
+            <text class="pt" x="800" y="272" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" fill="#8ab9e8" letter-spacing="2">PERFIS · TRAJETÓRIAS 3D · DADOS ANP</text>
+            <text class="en" x="800" y="272" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" fill="#8ab9e8" letter-spacing="2">LOGS · 3D TRAJECTORIES · ANP OPEN DATA</text>
           </g>
         </svg>
       </div>
@@ -815,7 +815,7 @@
     <div class="scene-sticky">
       <div class="scene-fig">
         <svg id="svgC" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect x="0" y="0" width="1600" height="900" fill="#fbfaf7"/>
+          <rect x="0" y="0" width="1600" height="900" fill="#f5f8fa"/>
           <!-- 1 · the problem -->
           <g id="cS1">
             <g id="cIso" transform="translate(224,210) scale(0.72)"></g>
@@ -849,25 +849,25 @@
             <text class="en" x="510" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">CPU · 6 CORES</text>
             <text class="pt" x="1090" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">GPU · 3 840 CUDA CORES</text>
             <text class="en" x="1090" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">GPU · 3,840 CUDA CORES</text>
-            <rect x="244" y="260" width="532" height="298" rx="6" fill="#101c2c" stroke="#cfcac0" stroke-width="1.5"/>
-            <rect x="824" y="260" width="532" height="298" rx="6" fill="#101c2c" stroke="#cfcac0" stroke-width="1.5"/>
+            <rect x="244" y="260" width="532" height="298" rx="6" fill="#101c2c" stroke="#b9c6cf" stroke-width="1.5"/>
+            <rect x="824" y="260" width="532" height="298" rx="6" fill="#101c2c" stroke="#b9c6cf" stroke-width="1.5"/>
             <g id="gSimC"></g>
             <g id="gSimG"></g>
             <rect x="250" y="582" width="520" height="12" rx="4" fill="#e8e4d8"/>
-            <rect id="simBarC" x="250" y="582" width="0" height="12" rx="4" fill="#b64a35"/>
-            <rect x="830" y="582" width="520" height="12" rx="4" fill="#0f6f74" opacity=".15"/>
-            <rect id="simBarG" x="830" y="582" width="0" height="12" rx="4" fill="#0f6f74"/>
-            <text id="simTC" x="510" y="624" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#8a4335">64,1 min</text>
-            <text id="simTG" x="1090" y="624" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#0a5357" opacity="0">20,4 min ✓</text>
+            <rect id="simBarC" x="250" y="582" width="0" height="12" rx="4" fill="#ec6607"/>
+            <rect x="830" y="582" width="520" height="12" rx="4" fill="#005ca9" opacity=".15"/>
+            <rect id="simBarG" x="830" y="582" width="0" height="12" rx="4" fill="#005ca9"/>
+            <text id="simTC" x="510" y="624" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#b55407">64,1 min</text>
+            <text id="simTG" x="1090" y="624" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#00447e" opacity="0">20,4 min ✓</text>
             <text class="pt" x="800" y="672" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#8a95a1" letter-spacing="2">MESMO MODELO · MESMA MALHA · PLUMA DE PRESSÃO AVANÇANDO</text>
             <text class="en" x="800" y="672" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#8a95a1" letter-spacing="2">SAME MODEL · SAME MESH · PRESSURE PLUME ADVANCING</text>
           </g>
           <!-- 5 · speedup -->
           <g id="cS5" opacity="0">
-            <text id="spdBig" x="800" y="420" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="170" fill="#0a5357">×1</text>
+            <text id="spdBig" x="800" y="420" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="170" fill="#00447e">×1</text>
             <text class="pt" x="800" y="468" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#5f6b7a" letter-spacing="2">NO SOLVER (GRADIENTE CONJUGADO)</text>
             <text class="en" x="800" y="468" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#5f6b7a" letter-spacing="2">IN THE SOLVER (CONJUGATE GRADIENT)</text>
-            <text id="spdL" x="420" y="600" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="66" fill="#b64a35">×1</text>
+            <text id="spdL" x="420" y="600" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="66" fill="#ec6607">×1</text>
             <text class="pt" x="420" y="636" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#5f6b7a" letter-spacing="1">MONTAGEM DAS MATRIZES</text>
             <text class="en" x="420" y="636" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#5f6b7a" letter-spacing="1">MATRIX ASSEMBLY</text>
             <text id="spdR" x="1180" y="600" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="66" fill="#0f1d2b">×1</text>
@@ -994,50 +994,50 @@
     <div class="scene-sticky">
       <div class="scene-fig">
         <svg id="svgE" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect x="0" y="0" width="1600" height="900" fill="#fbfaf7"/>
+          <rect x="0" y="0" width="1600" height="900" fill="#f5f8fa"/>
           <!-- FLOW panel -->
           <g id="eFlow" opacity="0">
-            <rect x="150" y="240" width="560" height="380" rx="10" fill="#101c2c" stroke="#cfcac0" stroke-width="2"/>
-            <text class="pt" x="430" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#0a5357" letter-spacing="2">SIMULADOR DE FLUXO · PRESSÃO</text>
-            <text class="en" x="430" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#0a5357" letter-spacing="2">FLOW SIMULATOR · PRESSURE</text>
+            <rect x="150" y="240" width="560" height="380" rx="10" fill="#101c2c" stroke="#b9c6cf" stroke-width="2"/>
+            <text class="pt" x="430" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#00447e" letter-spacing="2">SIMULADOR DE FLUXO · PRESSÃO</text>
+            <text class="en" x="430" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#00447e" letter-spacing="2">FLOW SIMULATOR · PRESSURE</text>
             <g id="eCells"></g>
-            <line x1="430" y1="248" x2="430" y2="300" stroke="#fbfaf7" stroke-width="3"/>
-            <path d="M424,300 L436,300 L430,312 Z" fill="#fbfaf7"/>
+            <line x1="430" y1="248" x2="430" y2="300" stroke="#f5f8fa" stroke-width="3"/>
+            <path d="M424,300 L436,300 L430,312 Z" fill="#f5f8fa"/>
             <text class="pt" x="446" y="268" font-family="IBM Plex Mono,monospace" font-size="13" fill="#9fb0bf">poço produtor</text>
             <text class="en" x="446" y="268" font-family="IBM Plex Mono,monospace" font-size="13" fill="#9fb0bf">producing well</text>
           </g>
           <!-- GEO panel -->
           <g id="eGeo" opacity="0">
-            <rect x="890" y="240" width="560" height="380" rx="10" fill="rgba(251,250,247,.9)" stroke="#cfcac0" stroke-width="2"/>
-            <text class="pt" x="1170" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#8a4335" letter-spacing="2">SIMULADOR GEOMECÂNICO · σ e ε</text>
-            <text class="en" x="1170" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#8a4335" letter-spacing="2">GEOMECHANICS SIMULATOR · σ &amp; ε</text>
-            <ellipse id="eComp" cx="1170" cy="450" rx="150" ry="60" fill="rgba(182,74,53,.0)"/>
+            <rect x="890" y="240" width="560" height="380" rx="10" fill="rgba(245,248,250,.9)" stroke="#b9c6cf" stroke-width="2"/>
+            <text class="pt" x="1170" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#b55407" letter-spacing="2">SIMULADOR GEOMECÂNICO · σ e ε</text>
+            <text class="en" x="1170" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#b55407" letter-spacing="2">GEOMECHANICS SIMULATOR · σ &amp; ε</text>
+            <ellipse id="eComp" cx="1170" cy="450" rx="150" ry="60" fill="rgba(236,102,7,.0)"/>
             <g id="eMesh" stroke="#2a3542" stroke-width="1.5" fill="none"></g>
             <line id="eSurf0" x1="910" y1="270" x2="1430" y2="270" stroke="#8a95a1" stroke-width="2" stroke-dasharray="7 6" opacity="0"/>
           </g>
           <!-- blocked question mark (stage 2) -->
           <g id="eQm" opacity="0">
-            <line x1="718" y1="430" x2="880" y2="430" stroke="#b64a35" stroke-width="3" stroke-dasharray="6 8"/>
-            <line x1="860" y1="400" x2="860" y2="460" stroke="#b64a35" stroke-width="4"/>
-            <text x="800" y="392" text-anchor="middle" font-family="Fraunces,serif" font-size="56" fill="#b64a35">?</text>
+            <line x1="718" y1="430" x2="880" y2="430" stroke="#ec6607" stroke-width="3" stroke-dasharray="6 8"/>
+            <line x1="860" y1="400" x2="860" y2="460" stroke="#ec6607" stroke-width="4"/>
+            <text x="800" y="392" text-anchor="middle" font-family="Fraunces,serif" font-size="56" fill="#ec6607">?</text>
           </g>
           <!-- coupling bridge -->
           <g id="eBridge" opacity="0">
-            <path d="M700,330 C760,300 840,300 900,330" fill="none" stroke="#0f6f74" stroke-width="3.5"/>
-            <path d="M900,330 L886,318 L890,334 Z" fill="#0f6f74"/>
-            <path d="M900,520 C840,550 760,550 700,520" fill="none" stroke="#b64a35" stroke-width="3.5"/>
-            <path d="M700,520 L714,532 L710,516 Z" fill="#b64a35"/>
+            <path d="M700,330 C760,300 840,300 900,330" fill="none" stroke="#005ca9" stroke-width="3.5"/>
+            <path d="M900,330 L886,318 L890,334 Z" fill="#005ca9"/>
+            <path d="M900,520 C840,550 760,550 700,520" fill="none" stroke="#ec6607" stroke-width="3.5"/>
+            <path d="M700,520 L714,532 L710,516 Z" fill="#ec6607"/>
             <rect class="svg-label-box" x="742" y="262" width="116" height="26"/>
             <text class="svg-label" x="756" y="280">p → σ′−αp</text>
             <rect class="svg-label-box" x="738" y="560" width="124" height="26"/>
             <text class="svg-label" x="752" y="578">εv → φ , k</text>
-            <g id="ePkTeal" fill="#2f9a93"></g>
-            <g id="ePkRed" fill="#d66c54"></g>
+            <g id="ePkTeal" fill="#1372c2"></g>
+            <g id="ePkRed" fill="#ef8436"></g>
           </g>
           <!-- time loop (stage 4) -->
           <g id="eLoop" opacity="0">
             <circle cx="800" cy="425" r="52" fill="none" stroke="#5f6b7a" stroke-width="2.5" stroke-dasharray="6 7"/>
-            <circle id="eLoopDot" cx="800" cy="373" r="8" fill="#0f6f74"/>
+            <circle id="eLoopDot" cx="800" cy="373" r="8" fill="#005ca9"/>
             <text id="eStepN" x="800" y="432" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="16" fill="#2a3542">n = 1/8</text>
           </g>
           <!-- THM badge (stage 5) -->
@@ -1048,8 +1048,8 @@
           </g>
           <!-- result checks (stage 5) -->
           <g id="eChecks" opacity="0" font-family="IBM Plex Mono,monospace" font-size="15">
-            <text class="pt" x="800" y="688" text-anchor="middle" fill="#0a5357">✓ compactação &nbsp;&nbsp; ✓ subsidência &nbsp;&nbsp; ✓ k(t) atualizada</text>
-            <text class="en" x="800" y="688" text-anchor="middle" fill="#0a5357">✓ compaction &nbsp;&nbsp; ✓ subsidence &nbsp;&nbsp; ✓ updated k(t)</text>
+            <text class="pt" x="800" y="688" text-anchor="middle" fill="#00447e">✓ compactação &nbsp;&nbsp; ✓ subsidência &nbsp;&nbsp; ✓ k(t) atualizada</text>
+            <text class="en" x="800" y="688" text-anchor="middle" fill="#00447e">✓ compaction &nbsp;&nbsp; ✓ subsidence &nbsp;&nbsp; ✓ updated k(t)</text>
           </g>
         </svg>
       </div>
@@ -1150,8 +1150,8 @@
             <div class="vrow">
               <svg id="creepChart" viewBox="0 0 420 280" aria-hidden="true"></svg>
               <svg id="creepCav" viewBox="0 0 120 220" aria-hidden="true">
-                <path id="cavRef" d="M48,40 C36,46 30,62 30,84 C30,116 42,132 60,132 C78,132 90,116 90,84 C90,62 84,46 72,40 Z" fill="none" stroke="#cfcac0" stroke-width="2" stroke-dasharray="5 5" transform="translate(0,20)"/>
-                <path id="cavNow" d="M48,40 C36,46 30,62 30,84 C30,116 42,132 60,132 C78,132 90,116 90,84 C90,62 84,46 72,40 Z" fill="rgba(15,111,116,.18)" stroke="#0a5357" stroke-width="2.5" transform="translate(0,20)"/>
+                <path id="cavRef" d="M48,40 C36,46 30,62 30,84 C30,116 42,132 60,132 C78,132 90,116 90,84 C90,62 84,46 72,40 Z" fill="none" stroke="#b9c6cf" stroke-width="2" stroke-dasharray="5 5" transform="translate(0,20)"/>
+                <path id="cavNow" d="M48,40 C36,46 30,62 30,84 C30,116 42,132 60,132 C78,132 90,116 90,84 C90,62 84,46 72,40 Z" fill="rgba(0,92,169,.18)" stroke="#00447e" stroke-width="2.5" transform="translate(0,20)"/>
                 <text x="60" y="196" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f6b7a"><tspan class="pt">caverna</tspan><tspan class="en">cavern</tspan></text>
               </svg>
             </div>
@@ -1346,9 +1346,9 @@ document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el);}
     var dx=b.x-a.x,dy=b.y-a.y,len=Math.sqrt(dx*dx+dy*dy),strain=Math.abs(len-rest)/rest;
     if(strain>0.06){
       var al=clamp(strain*2.2,0,0.5);
-      ctx.strokeStyle='rgba(182,74,53,'+al.toFixed(3)+')';
+      ctx.strokeStyle='rgba(236,102,7,'+al.toFixed(3)+')';
     }else{
-      ctx.strokeStyle='rgba(15,111,116,0.13)';
+      ctx.strokeStyle='rgba(0,92,169,0.13)';
     }
     ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
   }
@@ -1391,13 +1391,13 @@ document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el);}
         var b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
         if(d2<R*R){
           var al=(1-Math.sqrt(d2)/R)*0.55;
-          ctx.strokeStyle=(a.red&&b.red)?'rgba(214,108,84,'+al+')':'rgba(64,201,193,'+(al*0.8)+')';
+          ctx.strokeStyle=(a.red&&b.red)?'rgba(214,108,84,'+al+')':'rgba(73,167,245,'+(al*0.8)+')';
           ctx.lineWidth=1;
           ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
         }
       }
     }
-    ctx.fillStyle='rgba(64,201,193,.6)';
+    ctx.fillStyle='rgba(73,167,245,.6)';
     for(var k=0;k<nodes.length;k++){
       var p=nodes[k];
       ctx.beginPath();ctx.arc(p.x,p.y,1.6,0,6.283);ctx.fill();
@@ -1566,24 +1566,24 @@ function updateCaps(){sceneList.forEach(function(sc){if(sc){sc.last=-1;}});scene
   // stage 1: raw logs
   var g1=document.getElementById('gLogs');
   var gr=noiseCurve(N+1,0.72),dt=noiseCurve(N+1,0.78);
-  poly(g1,ys.map(function(y,i){return[440+gr[i]*110,y]}),'#b64a35',2);
-  poly(g1,ys.map(function(y,i){return[760+dt[i]*90,y]}),'#0f6f74',2);
+  poly(g1,ys.map(function(y,i){return[440+gr[i]*110,y]}),'#ec6607',2);
+  poly(g1,ys.map(function(y,i){return[760+dt[i]*90,y]}),'#005ca9',2);
   poly(g1,ys.map(function(y,i){return[1060+noiseCurveCache(i),y]}),'#5f6b7a',1.5);
   function noiseCurveCache(i){if(!noiseCurveCache.v)noiseCurveCache.v=noiseCurve(N+1,0.75);return noiseCurveCache.v[i]*80}
-  label(g1,400,214,'GR','#b64a35');label(g1,730,214,'DT','#0a5357');label(g1,1030,214,'RHOB','#5f6b7a');
+  label(g1,400,214,'GR','#ec6607');label(g1,730,214,'DT','#00447e');label(g1,1030,214,'RHOB','#5f6b7a');
   // stage 2: elastic props
   var g2=document.getElementById('gElas');
   var e1=noiseCurve(N+1,0.93),e2=noiseCurve(N+1,0.95);
-  poly(g2,ys.map(function(y,i){return[520+e1[i]*70+(y-yTop)*0.06,y]}),'#0f6f74',2.5);
-  poly(g2,ys.map(function(y,i){return[940+e2[i]*55,y]}),'#b64a35',2.5);
-  label(g2,470,214,'E (GPa)','#0a5357');label(g2,900,214,'ν (-)','#b64a35');
+  poly(g2,ys.map(function(y,i){return[520+e1[i]*70+(y-yTop)*0.06,y]}),'#005ca9',2.5);
+  poly(g2,ys.map(function(y,i){return[940+e2[i]*55,y]}),'#ec6607',2.5);
+  label(g2,470,214,'E (GPa)','#00447e');label(g2,900,214,'ν (-)','#ec6607');
   // stage 3: stresses
   var g3=document.getElementById('gStress');
   var sh=noiseCurve(N+1,0.96);
   poly(g3,ys.map(function(y){return[300+(y-yTop)*0.52,y]}),'#5c99c4',2.5,'7 6');
-  poly(g3,ys.map(function(y,i){return[330+(y-yTop)*0.86+sh[i]*26,y]}),'#0f6f74',2.5);
+  poly(g3,ys.map(function(y,i){return[330+(y-yTop)*0.86+sh[i]*26,y]}),'#005ca9',2.5);
   poly(g3,ys.map(function(y){return[360+(y-yTop)*1.18,y]}),'#0f1d2b',2.5);
-  label(g3,320,214,'Pp','#5c99c4');label(g3,760,214,'σh','#0a5357');label(g3,1080,214,'σv','#0f1d2b');
+  label(g3,320,214,'Pp','#5c99c4');label(g3,760,214,'σh','#00447e');label(g3,1080,214,'σv','#0f1d2b');
   // stage 4: mud window
   var g4=document.getElementById('gWin');
   var co=noiseCurve(N+1,0.94),fr=noiseCurve(N+1,0.96);
@@ -1592,14 +1592,14 @@ function updateCaps(){sceneList.forEach(function(sc){if(sc){sc.last=-1;}});scene
   var area=document.createElementNS(NS,'path');
   var d='M'+colPts.map(function(q){return q[0].toFixed(1)+','+q[1].toFixed(1)}).join(' L');
   d+=' L'+frPts.slice().reverse().map(function(q){return q[0].toFixed(1)+','+q[1].toFixed(1)}).join(' L')+' Z';
-  area.setAttribute('d',d);area.setAttribute('fill','rgba(15,111,116,0.13)');area.setAttribute('stroke','none');
+  area.setAttribute('d',d);area.setAttribute('fill','rgba(0,92,169,0.13)');area.setAttribute('stroke','none');
   g4.appendChild(area);
-  poly(g4,colPts,'#b64a35',2.5);
+  poly(g4,colPts,'#ec6607',2.5);
   poly(g4,frPts,'#0f1d2b',2.5);
-  poly(g4,ys.map(function(y){return[575+(y-yTop)*0.77,y]}),'#0a5357',3,'2 7');
-  label(g4,400,214,'colapso','#b64a35').id='wColl';
+  poly(g4,ys.map(function(y){return[575+(y-yTop)*0.77,y]}),'#00447e',3,'2 7');
+  label(g4,400,214,'colapso','#ec6607').id='wColl';
   label(g4,690,214,'fratura','#0f1d2b').id='wFrac';
-  label(g4,980,214,'janela de lama','#0a5357').id='wWin';
+  label(g4,980,214,'janela de lama','#00447e').id='wWin';
   var caps={
     pt:[
       'Tudo começa nos perfis do poço: raios gama, sônico e densidade registrados metro a metro ao longo da profundidade.',
@@ -1681,7 +1681,7 @@ function updateCaps(){sceneList.forEach(function(sc){if(sc){sc.last=-1;}});scene
       el('rect',{x:566+k*40,y:610,width:12,height:12,fill:'#8a95a1'},gp);
     }
     var gq=document.getElementById('cpuQueue');
-    for(var q=0;q<10;q++)queueSq.push(el('rect',{x:0,y:416,width:24,height:24,rx:4,fill:'rgba(182,74,53,.75)',stroke:'#b64a35'},gq));
+    for(var q=0;q<10;q++)queueSq.push(el('rect',{x:0,y:416,width:24,height:24,rx:4,fill:'rgba(236,102,7,.75)',stroke:'#ec6607'},gq));
   })();
   /* --- stage 3: GPU die + fingers + fan --- */
   var dieCells=[];
@@ -1696,7 +1696,7 @@ function updateCaps(){sceneList.forEach(function(sc){if(sc){sc.last=-1;}});scene
     var fan=document.getElementById('gpuFan');
     el('circle',{cx:1092,cy:410,r:80,fill:'#0d1b2a',stroke:'rgba(255,255,255,.18)','stroke-width':'2'},fan);
     for(var b=0;b<5;b++){
-      el('path',{d:'M1092,410 L'+(1092+62*Math.cos(b*1.2566))+','+(410+62*Math.sin(b*1.2566))+' A62,62 0 0 1 '+(1092+62*Math.cos(b*1.2566+0.7))+','+(410+62*Math.sin(b*1.2566+0.7))+' Z',fill:'rgba(124,196,192,.14)'},fan);
+      el('path',{d:'M1092,410 L'+(1092+62*Math.cos(b*1.2566))+','+(410+62*Math.sin(b*1.2566))+' A62,62 0 0 1 '+(1092+62*Math.cos(b*1.2566+0.7))+','+(410+62*Math.sin(b*1.2566+0.7))+' Z',fill:'rgba(138,185,232,.14)'},fan);
     }
     el('circle',{cx:1092,cy:410,r:18,fill:'#1a2940',stroke:'rgba(255,255,255,.25)'},fan);
   })();
@@ -1746,7 +1746,7 @@ function updateCaps(){sceneList.forEach(function(sc){if(sc){sc.last=-1;}});scene
     dofNum.textContent=fmt(Math.round(ease(t1)*8000000));
     // CPU: one active core at a time + queue crawling in
     var act=Math.floor(t2*24)%6;
-    for(var c=0;c<6;c++)cores[c].setAttribute('fill',c===act&&t2>0?'#b64a35':'#223450');
+    for(var c=0;c<6;c++)cores[c].setAttribute('fill',c===act&&t2>0?'#ec6607':'#223450');
     for(var q=0;q<queueSq.length;q++){
       var x=1120+q*42-t2*480;
       queueSq[q].setAttribute('x',x);
@@ -1756,7 +1756,7 @@ function updateCaps(){sceneList.forEach(function(sc){if(sc){sc.last=-1;}});scene
     for(var n=0;n<dieCells.length;n++){
       var d=dieCells[n];
       var v=(0.5+0.5*Math.sin(t3*30+(d.i+d.j)*0.42))*clamp(t3*2.5,0,1);
-      d.el.setAttribute('fill',mix('#13263a','#3fd0c4',v));
+      d.el.setAttribute('fill',mix('#13263a','#49a7f5',v));
     }
     // simulation race: same plume, GPU ~3.1x faster
     var pg=clamp(t4*1.25,0,1),pc=clamp(t4*1.25*0.318,0,1);
@@ -1766,8 +1766,8 @@ function updateCaps(){sceneList.forEach(function(sc){if(sc){sc.last=-1;}});scene
         var f;
         if(v<=0)f='#17263b';
         else{
-          f=mix('#17263b','#2f9a93',Math.min(1,v*1.8));
-          if(v>0.6)f=mix('#2f9a93','#e5a84b',(v-0.6)/0.4);
+          f=mix('#17263b','#1372c2',Math.min(1,v*1.8));
+          if(v>0.6)f=mix('#1372c2','#f6b203',(v-0.6)/0.4);
         }
         c.el.setAttribute('fill',f);
       }
@@ -1934,7 +1934,7 @@ function parallax(){
         var x=cx+Math.cos(a)*r*1.25,y=cy+Math.sin(a)*r*0.85;
         if(a===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
       }
-      ctx.strokeStyle='rgba(124,196,192,'+(0.14-k*0.009)+')';
+      ctx.strokeStyle='rgba(138,185,232,'+(0.14-k*0.009)+')';
       ctx.lineWidth=1.2;
       ctx.stroke();
     }
@@ -2059,7 +2059,7 @@ function parallax(){
     /* mesh deformation + compaction shading */
     var C=clamp((s-2.35)/1.65,0,1);
     drawMesh(C);
-    eComp.setAttribute('fill','rgba(182,74,53,'+(0.22*C)+')');
+    eComp.setAttribute('fill','rgba(236,102,7,'+(0.22*C)+')');
     eComp.setAttribute('cy',450+10*C);
     eSurf0.setAttribute('opacity',C>0.15?0.8:0);
     /* time loop */
@@ -2108,10 +2108,10 @@ function parallax(){
   var Acal=1e-10/(Math.exp(-Q/(Rg*333.15))*Math.pow(15,N));
   // chart skeleton
   var ML=52,MR=16,MT=16,MB=38,CW=420,CH=280,PW=CW-ML-MR,PH=CH-MT-MB;
-  el('rect',{x:0,y:0,width:CW,height:CH,fill:'#fffefb'},chart);
+  el('rect',{x:0,y:0,width:CW,height:CH,fill:'#ffffff'},chart);
   for(var gy=0;gy<=4;gy++){
     var yy=MT+PH-PH*gy/4;
-    el('line',{x1:ML,y1:yy,x2:CW-MR,y2:yy,stroke:'#e4e1d9','stroke-width':1},chart);
+    el('line',{x1:ML,y1:yy,x2:CW-MR,y2:yy,stroke:'#dde4ea','stroke-width':1},chart);
     el('text',{x:ML-8,y:yy+4,'text-anchor':'end','font-family':'IBM Plex Mono,monospace','font-size':11,fill:'#5f6b7a'},chart).textContent=(gy*25)+'%';
   }
   for(var gx=0;gx<=5;gx++){
@@ -2119,9 +2119,9 @@ function parallax(){
     el('text',{x:xx,y:CH-14,'text-anchor':'middle','font-family':'IBM Plex Mono,monospace','font-size':11,fill:'#5f6b7a'},chart).textContent=(gx*10);
   }
   var xlab=el('text',{x:ML+PW/2,y:CH-1,'text-anchor':'middle','font-family':'IBM Plex Mono,monospace','font-size':11,fill:'#8a95a1'},chart);
-  var curve=el('polyline',{fill:'none',stroke:'#0f6f74','stroke-width':3},chart);
-  var markV=el('line',{stroke:'#b64a35','stroke-width':1.5,'stroke-dasharray':'4 4'},chart);
-  var markDot=el('circle',{r:5,fill:'#b64a35'},chart);
+  var curve=el('polyline',{fill:'none',stroke:'#005ca9','stroke-width':3},chart);
+  var markV=el('line',{stroke:'#ec6607','stroke-width':1.5,'stroke-dasharray':'4 4'},chart);
+  var markDot=el('circle',{r:5,fill:'#ec6607'},chart);
   function fmtExp(v){
     var e=Math.floor(Math.log10(v)),m=v/Math.pow(10,e);
     return m.toFixed(1)+'e'+e+' s⁻¹';
@@ -2158,7 +2158,7 @@ function parallax(){
       kStatus=document.getElementById('kStatus'),kChip=document.getElementById('kStatusChip'),
       ksvg=document.getElementById('kirschSvg');
   var KX=210,KY=150,R0=52,R1=60,R2=92;
-  el('rect',{x:0,y:0,width:420,height:300,fill:'#fffefb'},ksvg);
+  el('rect',{x:0,y:0,width:420,height:300,fill:'#ffffff'},ksvg);
   var mud=el('circle',{cx:KX,cy:KY,r:R0,fill:'#9fd2e8','fill-opacity':.4,stroke:'#6b6458','stroke-width':2},ksvg);
   var NSEG=48,segs=[];
   for(var i=0;i<NSEG;i++){
@@ -2177,10 +2177,10 @@ function parallax(){
       ' L'+(x2-10*Math.cos(ang-0.4))+','+(y2-10*Math.sin(ang-0.4))+
       ' L'+(x2-10*Math.cos(ang+0.4))+','+(y2-10*Math.sin(ang+0.4))+' Z',fill:c},ksvg);
   }
-  arr(66,KY,110,KY,'#b64a35');arr(354,KY,310,KY,'#b64a35');
-  arr(KX,22,KX,52,'#0f6f74');arr(KX,278,KX,248,'#0f6f74');
-  el('text',{x:46,y:KY+5,'font-family':'IBM Plex Mono,monospace','font-size':14,fill:'#b64a35'},ksvg).textContent='σH';
-  el('text',{x:KX-10,y:16,'font-family':'IBM Plex Mono,monospace','font-size':14,fill:'#0a5357'},ksvg).textContent='σh';
+  arr(66,KY,110,KY,'#ec6607');arr(354,KY,310,KY,'#ec6607');
+  arr(KX,22,KX,52,'#005ca9');arr(KX,278,KX,248,'#005ca9');
+  el('text',{x:46,y:KY+5,'font-family':'IBM Plex Mono,monospace','font-size':14,fill:'#ec6607'},ksvg).textContent='σH';
+  el('text',{x:KX-10,y:16,'font-family':'IBM Plex Mono,monospace','font-size':14,fill:'#00447e'},ksvg).textContent='σh';
   var legend=el('text',{x:210,y:294,'text-anchor':'middle','font-family':'IBM Plex Mono,monospace','font-size':11,fill:'#8a95a1'},ksvg);
   function kirschRender(){
     var SH=+sSH.value,Sh=+sSh.value,Pw=+sPw.value,UCS=+sUcs.value;
@@ -2194,9 +2194,9 @@ function parallax(){
       var th=segs[i].th;
       var s=SH+Sh-2*(SH-Sh)*Math.cos(2*th)-Pw;
       var f;
-      if(s>UCS)f='rgba(182,74,53,'+Math.min(0.95,0.4+(s-UCS)/60)+')';
+      if(s>UCS)f='rgba(236,102,7,'+Math.min(0.95,0.4+(s-UCS)/60)+')';
       else if(s<0)f='rgba(92,153,196,'+Math.min(0.95,0.4+(-s)/30)+')';
-      else f='rgba(15,111,116,'+(0.1+0.45*s/UCS)+')';
+      else f='rgba(0,92,169,'+(0.1+0.45*s/UCS)+')';
       segs[i].el.setAttribute('fill',f);
     }
     var st;
