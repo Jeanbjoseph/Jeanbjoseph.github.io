@@ -53,8 +53,10 @@
   /* nav */
   header.nav{position:sticky;top:0;z-index:50;height:var(--nav-h);display:flex;align-items:center;background:rgba(251,250,247,.82);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
-  .brand{font-family:var(--mono);font-size:.9rem;letter-spacing:.02em;color:var(--ink);font-weight:500}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.9rem;letter-spacing:.02em;color:var(--ink);font-weight:500}
   .brand b{color:var(--red)}
+  .brand-logo{width:2.1rem;height:2.1rem;flex:none;transition:transform .35s var(--ease)}
+  .brand:hover .brand-logo{transform:translateY(2px)}
   .nav-right{display:flex;align-items:center;gap:1.1rem}
   .nav-links{display:flex;align-items:center;gap:1.4rem}
   .nav-links a{color:var(--muted);font-size:.82rem;font-weight:500;letter-spacing:.01em;border-bottom:2px solid transparent;padding:.2rem 0}
@@ -270,7 +272,16 @@
 
 <header class="nav">
   <div class="wrap">
-    <a href="#about" class="brand">Jean Baptiste <b>Joseph</b></a>
+    <a href="#about" class="brand">
+      <svg class="brand-logo" viewBox="0 0 64 64" aria-hidden="true">
+        <line x1="5" y1="20" x2="59" y2="20" stroke="#b64a35" stroke-width="3.5"/>
+        <line x1="13" y1="9" x2="31" y2="9" stroke="#0f1d2b" stroke-width="5" stroke-linecap="round"/>
+        <line x1="33" y1="9" x2="51" y2="9" stroke="#0f1d2b" stroke-width="5" stroke-linecap="round"/>
+        <path d="M22,9 V33 C22,49 42,49 42,33 V9" fill="none" stroke="#0f1d2b" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="32" cy="45" r="3.6" fill="#0f6f74"/>
+      </svg>
+      <span>Jean <b>Joseph</b></span>
+    </a>
     <div class="nav-right">
       <nav class="nav-links" id="navLinks">
         <a href="#about"><span class="pt">sobre</span><span class="en">about</span></a>
