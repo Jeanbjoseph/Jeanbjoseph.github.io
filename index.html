@@ -258,6 +258,21 @@
   .foot-bottom a{color:#8795a3}.foot-bottom a:hover{color:var(--accent-dark)}
   ::selection{background:var(--accent);color:#fff}
 
+  /* mobile: scenes become full-width static figures */
+  @media(max-width:760px){
+    .scene{height:auto !important;border-top:1px solid var(--line)}
+    .scene-sticky{position:relative;top:0;height:auto;overflow:visible}
+    .scene-fig{display:block;background:var(--paper)}
+    .scene-fig svg{width:100%;height:auto;aspect-ratio:1600/900}
+    .cap-step,.skip-btn{display:none}
+    .scene-cap .inner{padding:.8rem 1rem .95rem;gap:.5rem}
+    .cap-text{font-size:.95rem}
+    .statband .nstat{padding:1rem .8rem}
+    .xcard svg{height:72px}
+    .lab-read{gap:.5rem}
+    .lab-chip{min-width:7rem;padding:.45rem .7rem}
+  }
+
   /* reveal on scroll */
   .rev{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
   .rev.in{opacity:1;transform:none}
@@ -1208,6 +1223,12 @@
 "use strict";
 var root=document.documentElement;
 var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var isMobile=window.matchMedia('(max-width:760px)').matches;
+if(isMobile){
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.scene-fig svg').forEach(function(s){s.setAttribute('preserveAspectRatio','xMidYMid meet');});
+  });
+}
 function clamp(v,a,b){return v<a?a:(v>b?b:v)}
 function lerp(a,b,t){return a+(b-a)*t}
 function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
@@ -1424,7 +1445,7 @@ function sceneScroll(){
     var r=sc.el.getBoundingClientRect();
     var total=r.height-window.innerHeight;
     var p=total>0?clamp(-r.top/total,0,1):1;
-    if(reduced)p=1;
+    if(reduced||isMobile)p=1;
     if(Math.abs(p-sc.last)<0.0005)continue;
     sc.last=p;
     sc.update(p);
