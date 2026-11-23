@@ -3,8 +3,27 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Jean Baptiste Joseph — Geomechanics &amp; Simulation</title>
+<title>Jean Baptiste Joseph, PhD — Geomechanics &amp; Simulation</title>
 <meta name="description" content="Jean Baptiste Joseph, PhD — especialista em geomecânica e simulação numérica. Mecânica do sal, cavidades salinas, fechamento de minas, acoplamento THM (FLAC3D, elementos finitos, GPU/CPU) e IA para a engenharia do subsolo." />
+<meta name="author" content="Jean Baptiste Joseph" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="theme-color" content="#fbfaf7" />
+<link rel="canonical" href="https://jeanbjoseph.github.io/" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta property="og:type" content="profile" />
+<meta property="og:site_name" content="Jean Baptiste Joseph" />
+<meta property="og:url" content="https://jeanbjoseph.github.io/" />
+<meta property="og:title" content="Jean Baptiste Joseph, PhD — Geomechanics &amp; Simulation Specialist" />
+<meta property="og:description" content="Salt mechanics, salt-cavern stability and mine closure. Coupled THM simulation, FLAC3D, finite elements and AI for subsurface engineering." />
+<meta property="og:image" content="https://jeanbjoseph.github.io/og.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://jeanbjoseph.github.io/og.jpg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Jean Baptiste Joseph","honorificSuffix":"PhD","jobTitle":"Geomechanics & Simulation Specialist","url":"https://jeanbjoseph.github.io/","image":"https://jeanbjoseph.github.io/jean.jpg","alumniOf":{"@type":"CollegeOrUniversity","name":"Universidade Federal de Pernambuco (UFPE)"},"knowsAbout":["Salt mechanics","Salt caverns","Mine closure","Thermo-hydro-mechanical coupling","FLAC3D","Finite element method","Reservoir geomechanics"],"sameAs":["https://www.linkedin.com/in/jeanbjosephht/","https://github.com/Jeanbjoseph","https://orcid.org/0000-0002-5625-8487","http://lattes.cnpq.br/0456933468707806"]}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +43,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 1rem)}
-  body{background:var(--paper);color:var(--text);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{background:var(--paper);color:var(--text);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
   html[lang="pt"] .en{display:none}
   html[lang="en"] .pt{display:none}
   a{color:var(--accent-strong);text-decoration:none;transition:color .2s var(--ease)}
@@ -38,8 +57,10 @@
   .brand b{color:var(--red)}
   .nav-right{display:flex;align-items:center;gap:1.1rem}
   .nav-links{display:flex;align-items:center;gap:1.4rem}
-  .nav-links a{color:var(--muted);font-size:.82rem;font-weight:500;letter-spacing:.01em}
+  .nav-links a{color:var(--muted);font-size:.82rem;font-weight:500;letter-spacing:.01em;border-bottom:2px solid transparent;padding:.2rem 0}
   .nav-links a:hover{color:var(--ink)}
+  .nav-links a.active{color:var(--ink);border-bottom-color:var(--red)}
+  #progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--red);width:0%;z-index:51}
   .lang-btn{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;border:1px solid var(--line-strong);background:var(--surface);color:var(--muted);border-radius:999px;padding:.35rem .7rem;cursor:pointer;transition:all .2s var(--ease);flex:none}
   .lang-btn:hover{border-color:var(--accent);color:var(--accent-strong)}
   .menu-btn{display:none;flex-direction:column;justify-content:center;gap:.28rem;width:2.2rem;height:2.2rem;padding:0 .45rem;background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius);cursor:pointer}
@@ -53,11 +74,13 @@
     .nav-links.open{max-height:80vh;opacity:1;pointer-events:auto}
     .nav-links a{padding:.8rem .25rem;font-size:1rem;border-bottom:1px solid var(--line)}
     .nav-links a:last-child{border-bottom:0}
+    .nav-links a.active{border-bottom-color:var(--line)}
   }
 
   /* hero */
-  .hero{padding:clamp(3.5rem,8vw,6rem) 0 clamp(2.5rem,6vw,4rem);border-top:0}
-  .hero .wrap{display:grid;grid-template-columns:1fr minmax(0,19rem);gap:clamp(2rem,5vw,4rem);align-items:start}
+  .hero{position:relative;padding:clamp(3.5rem,8vw,6rem) 0 clamp(2.5rem,6vw,4rem);border-top:0;overflow:hidden}
+  #meshCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1fr minmax(0,19rem);gap:clamp(2rem,5vw,4rem);align-items:start}
   .hero-text{min-width:0}
   .role{font-family:var(--mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-strong);display:flex;gap:.6rem;align-items:center;margin-bottom:.5rem}
   .role::before{content:"";width:1.8rem;height:2px;background:var(--red)}
@@ -67,19 +90,26 @@
   .hero-text p{max-width:54ch;margin-bottom:1rem;color:var(--text);font-size:1.05rem}
   .hero-text p .ac{color:var(--accent-strong);font-weight:500}
   .socials{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
-  .socials a{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:500;color:var(--ink);border:1px solid var(--line-strong);border-radius:999px;padding:.4rem .85rem;transition:all .2s var(--ease)}
+  .socials a{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:500;color:var(--ink);border:1px solid var(--line-strong);border-radius:999px;padding:.4rem .85rem;background:rgba(255,254,251,.85);transition:all .2s var(--ease)}
   .socials a:hover{border-color:var(--accent);color:var(--accent-strong);background:var(--accent-soft)}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-top:2rem}
-  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1rem}
-  .stat .l{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.3rem}
-  .stat .v{font-family:var(--serif);font-size:1.02rem;color:var(--ink);line-height:1.15}
-  @media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
 
   .portrait{position:relative;justify-self:center}
   .portrait img{width:100%;max-width:17rem;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:var(--radius);border:1px solid var(--line-strong);background:var(--surface);box-shadow:0 20px 45px -25px rgba(15,29,43,.45);display:block}
   .portrait figcaption{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.03em;margin-top:.7rem;text-align:center}
   .portrait::after{content:"";position:absolute;inset:auto auto 1.6rem -.75rem;width:45%;height:45%;border-left:2px solid var(--red);border-bottom:2px solid var(--red);border-radius:0 0 0 var(--radius);z-index:-1}
   @media(max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:2.25rem}.portrait{order:-1;justify-self:start}.portrait img{max-width:10rem}.portrait figcaption{text-align:left}.portrait::after{display:none}}
+  .mesh-note{position:relative;font-family:var(--mono);font-size:.68rem;color:var(--red);letter-spacing:.03em;margin-top:2.2rem;opacity:.85}
+  @media(hover:none){.mesh-note{display:none}}
+
+  /* stats band */
+  .statband{position:relative;border-top:1px solid var(--line);background:rgba(255,254,251,.6)}
+  .statband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
+  .nstat{padding:1.4rem 1rem;border-right:1px solid var(--line)}
+  .nstat:last-child{border-right:0}
+  .nstat .n{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.3rem);color:var(--ink);line-height:1}
+  .nstat .n i{font-style:normal;color:var(--red)}
+  .nstat .l{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.45rem}
+  @media(max-width:700px){.statband .wrap{grid-template-columns:repeat(2,1fr)}.nstat:nth-child(2){border-right:0}}
 
   /* section shell */
   section{padding:clamp(3rem,6vw,4.5rem) 0;border-top:1px solid var(--line)}
@@ -90,16 +120,54 @@
   .sec-sub{color:var(--muted);margin-top:.4rem;margin-left:2.2rem;font-size:.98rem}
   @media(max-width:560px){.sec-sub{margin-left:0}}
 
-  /* projects */
-  .grid{display:grid;gap:1.25rem}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;display:flex;flex-direction:column;transition:border-color .2s var(--ease),transform .2s var(--ease)}
-  .card:hover{border-color:var(--line-strong);transform:translateY(-2px)}
-  .card h3{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:1.3rem;letter-spacing:-.01em}
-  .card .badge{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:.4rem 0 .9rem}
-  .card p{font-size:.95rem;color:var(--muted);line-height:1.55;max-width:64ch}
-  .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
-  .chip{font-family:var(--mono);font-size:.7rem;color:var(--muted);background:var(--accent-soft);padding:.2rem .55rem;border-radius:999px}
-  .card-foot{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line)}
+  /* expertise cards */
+  .xgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.25rem}
+  .xcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem 1.5rem 1.35rem;transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease)}
+  .xcard:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 18px 35px -28px rgba(15,29,43,.5)}
+  .xcard svg{width:100%;height:96px;display:block;margin-bottom:1.1rem}
+  .xcard h3{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:1.15rem;letter-spacing:-.01em;margin-bottom:.4rem}
+  .xcard p{font-size:.88rem;color:var(--muted);line-height:1.55}
+  .xi{stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round}
+  .xi-acc{stroke:var(--accent);stroke-width:2;fill:none;stroke-linecap:round}
+  .xi-red{stroke:var(--red);stroke-width:2;fill:none;stroke-linecap:round}
+  .xi-soft{fill:var(--accent-soft)}
+
+  /* scroll scenes */
+  .scene{position:relative;border-top:1px solid var(--line)}
+  .scene-sticky{position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));display:flex;flex-direction:column;overflow:hidden}
+  .scene-fig{flex:1;min-height:0;display:flex;align-items:stretch;justify-content:center}
+  .scene-fig svg{width:100%;height:100%;display:block}
+  .scene-cap{flex:none;background:var(--ink);color:#e6ebf0;border-top:2px solid var(--red)}
+  .scene-cap .inner{max-width:var(--container);margin-inline:auto;padding:1rem var(--gutter) 1.2rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+  .cap-kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#e58d7b;margin-bottom:.3rem}
+  .cap-text{font-family:var(--serif);font-size:clamp(1rem,2vw,1.25rem);line-height:1.4;color:#f2f4f6;max-width:58ch}
+  .cap-right{display:flex;align-items:center;gap:1rem;flex:none;padding-top:.4rem}
+  .cap-step{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#9fb0bf;white-space:nowrap}
+  .skip-btn{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:#e6ebf0;background:none;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.4rem .9rem;cursor:pointer;transition:all .2s var(--ease);white-space:nowrap}
+  .skip-btn:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+  .svg-label{font-family:var(--mono);font-size:13px;fill:#2a3542}
+  .svg-label-box{fill:#fffefb;stroke:#cfcac0;stroke-width:1}
+  .svg-leader{stroke:#5f6b7a;stroke-width:1;fill:none}
+
+  /* projects — dark with parallax strata */
+  .dark-sec{position:relative;background:var(--ink);border-top:0;overflow:hidden}
+  .dark-sec .sec-sub{color:#9fb0bf}
+  .dark-sec h2{color:#fff}
+  .dark-sec .sec-num{color:#e58d7b}
+  #strataBg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5}
+  .dark-sec .wrap{position:relative}
+  .dark-sec .grid{display:grid;gap:1.25rem}
+  .dcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:1.6rem;transition:border-color .2s var(--ease),transform .2s var(--ease),background .2s var(--ease)}
+  .dcard:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.06);transform:translateY(-2px)}
+  .dcard h3{font-family:var(--serif);font-weight:500;color:#fff;font-size:1.3rem;letter-spacing:-.01em}
+  .dcard .badge{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#e58d7b;margin:.4rem 0 .9rem;display:block}
+  .dcard p{font-size:.95rem;color:#b8c3ce;line-height:1.55;max-width:64ch}
+  .dcard .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+  .dcard .chip{font-family:var(--mono);font-size:.7rem;color:#c9d7d6;background:rgba(124,196,192,.12);border:1px solid rgba(124,196,192,.25);padding:.2rem .55rem;border-radius:999px}
+  .dcard .card-foot{font-family:var(--mono);font-size:.78rem;margin-top:1.1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.1);color:#9fb0bf}
+  .dcard .card-foot a{color:#e58d7b}
+  .dcard .card-foot a:hover{color:#fff}
+  .parallax-note{position:relative;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:#6d7d8d;margin-top:2.5rem}
 
   /* timeline */
   .tl{list-style:none;display:grid;gap:0}
@@ -143,18 +211,57 @@
   .dots i{width:.55rem;height:.55rem;border-radius:50%;background:var(--line-strong)}
   .dots i.on{background:var(--accent)}
 
+  /* mini-lab */
+  .ltabs{display:flex;gap:.25rem;margin-bottom:1.75rem;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .ltab{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;color:var(--muted);background:none;border:0;border-bottom:2px solid transparent;padding:.55rem .75rem;cursor:pointer;margin-bottom:-1px;transition:color .2s var(--ease)}
+  .ltab:hover{color:var(--ink)}
+  .ltab.active{color:var(--accent-strong);border-bottom-color:var(--accent)}
+  .ltab-panel{display:none}
+  .ltab-panel.active{display:block}
+  .lab-grid{display:grid;grid-template-columns:minmax(16rem,2fr) 3fr;gap:2.5rem;align-items:start}
+  @media(max-width:860px){.lab-grid{grid-template-columns:1fr}}
+  .ctl{margin-bottom:1.15rem}
+  .ctl .lbl{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-size:.86rem;color:var(--text);margin-bottom:.3rem}
+  .ctl .lbl b{font-family:var(--mono);font-weight:500;color:var(--accent-strong);white-space:nowrap}
+  .ctl input[type=range]{width:100%;accent-color:var(--accent);cursor:pointer}
+  .lab-formula{font-family:var(--mono);font-size:.76rem;color:var(--accent-strong);background:var(--accent-soft);border-radius:var(--radius);padding:.6rem .8rem;margin:1.1rem 0 .7rem}
+  .lab-note{font-family:var(--mono);font-size:.66rem;color:var(--red);opacity:.85;line-height:1.5}
+  .lab-read{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1rem}
+  .lab-chip{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:.55rem .9rem;min-width:8.5rem}
+  .lab-chip .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.15rem}
+  .lab-chip .v{font-family:var(--mono);font-size:1rem;color:var(--ink)}
+  .lab-chip.status-ok .v{color:var(--accent-strong)}
+  .lab-chip.status-bad .v{color:var(--red)}
+  .lab-viz svg{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+  .lab-viz .vrow{display:flex;gap:1rem;align-items:stretch}
+  #creepChart{flex:1;min-width:0;width:100%;height:auto}
+  #creepCav{width:120px;flex:none}
+  #kirschSvg{width:100%;max-width:34rem;height:auto;display:block}
+  @media(max-width:560px){#creepCav{display:none}}
+
   /* footer */
-  footer{background:var(--ink);color:#c9d1da;padding:clamp(3rem,6vw,4.5rem) 0 2.5rem;border-top:0}
-  .foot-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:1rem}
-  footer h2{color:#fff;max-width:20ch;margin-bottom:1.5rem}
-  .foot-mail{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.7rem);color:var(--accent-dark)!important}
-  .foot-mail:hover{color:#fff!important}
+  footer{position:relative;background:var(--ink);color:#c9d1da;padding:clamp(3.5rem,7vw,5.5rem) 0 2.5rem;border-top:0;overflow:hidden}
+  #footCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55}
+  footer .wrap{position:relative}
+  .foot-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#e58d7b;margin-bottom:1rem}
+  footer h2{color:#fff;max-width:22ch;margin-bottom:1.5rem;font-size:clamp(1.9rem,4.5vw,3.1rem)}
+  .foot-mail{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.7rem);color:var(--accent-dark)!important;border-bottom:1px solid rgba(124,196,192,.4);padding-bottom:.15rem}
+  .foot-mail:hover{color:#fff!important;border-bottom-color:#fff}
   .foot-socials{display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:2rem}
   .foot-socials a{color:#e6ebf0;font-size:.9rem;font-family:var(--mono)}
   .foot-socials a:hover{color:var(--accent-dark)}
   .foot-bottom{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.8rem;color:#8795a3;font-family:var(--mono);letter-spacing:.02em}
   .foot-bottom a{color:#8795a3}.foot-bottom a:hover{color:var(--accent-dark)}
   ::selection{background:var(--accent);color:#fff}
+
+  /* reveal on scroll */
+  .rev{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .rev.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rev{opacity:1;transform:none;transition:none}
+    .scene-sticky{position:relative;top:0;height:auto;min-height:70vh}
+  }
 </style>
 </head>
 <body>
@@ -165,21 +272,25 @@
     <div class="nav-right">
       <nav class="nav-links" id="navLinks">
         <a href="#about"><span class="pt">sobre</span><span class="en">about</span></a>
-        <a href="#projects"><span class="pt">projetos</span><span class="en">projects</span></a>
+        <a href="#expertise"><span class="pt">especialidades</span><span class="en">expertise</span></a>
         <a href="#experience"><span class="pt">experiência</span><span class="en">experience</span></a>
+        <a href="#projects"><span class="pt">projetos</span><span class="en">projects</span></a>
         <a href="#education"><span class="pt">formação</span><span class="en">education</span></a>
         <a href="#publications"><span class="pt">publicações</span><span class="en">publications</span></a>
         <a href="#skills"><span class="pt">competências</span><span class="en">skills</span></a>
+        <a href="#lab"><span class="pt">laboratório</span><span class="en">lab</span></a>
       </nav>
       <button class="lang-btn" id="langBtn" aria-label="Toggle language">EN</button>
       <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
+  <div id="progress"></div>
 </header>
 
 <main>
   <!-- HERO / ABOUT -->
   <section class="hero" id="about">
+    <canvas id="meshCanvas" aria-hidden="true"></canvas>
     <div class="wrap">
      <div class="hero-text">
       <div class="role"><span class="pt">Especialista em Geomecânica &amp; Simulação</span><span class="en">Geomechanics &amp; Simulation Specialist</span></div>
@@ -196,50 +307,222 @@
         <a href="https://github.com/Jeanbjoseph" target="_blank" rel="noopener">GitHub</a>
         <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">ORCID</a>
         <a href="http://lattes.cnpq.br/0456933468707806" target="_blank" rel="noopener">Lattes</a>
+        <a href="https://simgroup.com.br" target="_blank" rel="noopener">AI SIM</a>
       </div>
-
-      <div class="stats">
-        <div class="stat"><span class="l">Foco</span><span class="v"><span class="pt">Mecânica do sal</span><span class="en">Salt mechanics</span></span></div>
-        <div class="stat"><span class="l"><span class="pt">Métodos</span><span class="en">Methods</span></span><span class="v"><span class="pt">THM · FEM · GPU</span><span class="en">THM · FEM · GPU</span></span></div>
-        <div class="stat"><span class="l">Stack</span><span class="v">FLAC3D · MATLAB · Python</span></div>
-        <div class="stat"><span class="l"><span class="pt">Aplicação</span><span class="en">Application</span></span><span class="v"><span class="pt">Fechamento de minas</span><span class="en">Mine closure</span></span></div>
-      </div>
+      <div class="mesh-note"><span class="pt">malha deformável · o sal escoa ao redor do cursor e relaxa lentamente — fluência</span><span class="en">deformable mesh · salt flows around the cursor and slowly relaxes — creep</span></div>
      </div>
      <figure class="portrait">
-       <img src="jean.jpg" alt="Jean Baptiste Joseph" width="400" height="500" />
+       <img src="jean_mesh.jpg" alt="Jean Baptiste Joseph — retrato em malha de elementos finitos" width="400" height="500" />
        <figcaption><span class="pt">Geomecânica computacional · subsolo salino</span><span class="en">Computational geomechanics · salt subsurface</span></figcaption>
      </figure>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
+  <!-- STATS -->
+  <div class="statband">
     <div class="wrap">
-      <div class="sec-head">
-        <div class="top"><span class="sec-num">01</span><h2><span class="pt">Projetos</span><span class="en">Projects</span></h2></div>
-        <p class="sec-sub"><span class="pt">Software aplicado à engenharia do subsolo.</span><span class="en">Software applied to subsurface engineering.</span></p>
+      <div class="nstat rev"><span class="n"><span data-count="10">0</span><i>+</i></span><span class="l"><span class="pt">anos em geomecânica computacional</span><span class="en">years in computational geomechanics</span></span></div>
+      <div class="nstat rev"><span class="n"><span data-count="9">0</span></span><span class="l"><span class="pt">publicações &amp; teses</span><span class="en">publications &amp; theses</span></span></div>
+      <div class="nstat rev"><span class="n"><span data-count="4">0</span></span><span class="l"><span class="pt">ferramentas de software</span><span class="en">software tools built</span></span></div>
+      <div class="nstat rev"><span class="n"><span data-count="3">0</span></span><span class="l"><span class="pt">idiomas de trabalho</span><span class="en">working languages</span></span></div>
+    </div>
+  </div>
+
+  <!-- EXPERTISE -->
+  <section id="expertise">
+    <div class="wrap">
+      <div class="sec-head rev">
+        <div class="top"><span class="sec-num">01</span><h2><span class="pt">Especialidades</span><span class="en">Expertise</span></h2></div>
+        <p class="sec-sub"><span class="pt">Onde a mecânica do sal encontra a engenharia do subsolo.</span><span class="en">Where salt mechanics meets subsurface engineering.</span></p>
       </div>
-      <div class="grid">
-        <article class="card">
-          <h3>PetroView 3D</h3>
-          <span class="badge">Web App · Creator</span>
-          <p><span class="pt">Aplicação web para visualização e análise de poços — perfis, trajetórias direcionais e dados abertos da ANP em 3D, voltada a estudos de geomecânica e reservatório.</span><span class="en">Web application for well visualization and analysis — logs, directional trajectories and open ANP well data in 3D, aimed at geomechanics and reservoir studies.</span></p>
-          <div class="chips"><span class="chip">React</span><span class="chip">WebGL</span><span class="chip">Supabase</span><span class="chip">ANP data</span><span class="chip">3D</span></div>
-          <div class="card-foot"><span class="pt">Mais projetos em breve.</span><span class="en">More projects soon.</span></div>
+      <div class="xgrid">
+        <article class="xcard rev">
+          <svg viewBox="0 0 120 90" aria-hidden="true">
+            <line class="xi" x1="8" y1="16" x2="112" y2="16" opacity=".35"/>
+            <line class="xi" x1="8" y1="26" x2="112" y2="26" opacity=".35"/>
+            <path class="xi-soft" d="M52,38 C44,42 42,52 42,60 C42,72 50,78 60,78 C70,78 78,72 78,60 C78,52 76,42 68,38 Z"/>
+            <path class="xi" d="M52,38 C44,42 42,52 42,60 C42,72 50,78 60,78 C70,78 78,72 78,60 C78,52 76,42 68,38 Z"/>
+            <line class="xi" x1="60" y1="16" x2="60" y2="38"/>
+            <line class="xi-acc" x1="46" y1="68" x2="74" y2="68" stroke-dasharray="4 4"/>
+            <path class="xi-red" d="M60,74 L60,62 M56,66 L60,62 L64,66"/>
+          </svg>
+          <h3><span class="pt">Fechamento de Minas</span><span class="en">Mine Closure</span></h3>
+          <p><span class="pt">Estabilidade de cavernas, fluência do sal e estratégias de preenchimento (backfill) para encerrar minas com segurança — do modelo local ao full-field.</span><span class="en">Cavern stability, salt creep and backfilling strategies for safe mine closure — from local to full-field models.</span></p>
+        </article>
+        <article class="xcard rev">
+          <svg viewBox="0 0 120 90" aria-hidden="true">
+            <path class="xi-soft" d="M52,30 C44,34 40,44 40,54 C40,68 49,76 60,76 C71,76 80,68 80,54 C80,44 76,34 68,30 Z"/>
+            <path class="xi" d="M52,30 C44,34 40,44 40,54 C40,68 49,76 60,76 C71,76 80,68 80,54 C80,44 76,34 68,30 Z"/>
+            <line class="xi" x1="60" y1="10" x2="60" y2="30"/>
+            <path class="xi-red" d="M60,14 L60,26 M56,22 L60,26 L64,22"/>
+            <circle class="xi-acc" cx="52" cy="52" r="4.5"/>
+            <circle class="xi-acc" cx="66" cy="60" r="4.5"/>
+            <circle class="xi-acc" cx="62" cy="44" r="4.5"/>
+          </svg>
+          <h3><span class="pt">Cavernas de Armazenamento</span><span class="en">Storage Caverns</span></h3>
+          <p><span class="pt">Gás natural, hidrogênio e CO₂ em cavernas de sal: projeto geomecânico, pressões operacionais e integridade de longo prazo.</span><span class="en">Natural gas, hydrogen and CO₂ in salt caverns: geomechanical design, operating pressures and long-term integrity.</span></p>
+        </article>
+        <article class="xcard rev">
+          <svg viewBox="0 0 120 90" aria-hidden="true">
+            <circle class="xi-soft" cx="60" cy="45" r="17"/>
+            <circle class="xi" cx="60" cy="45" r="17"/>
+            <path class="xi-red" d="M60,8 L60,22 M56,18 L60,22 L64,18"/>
+            <path class="xi-red" d="M60,82 L60,68 M56,72 L60,68 L64,72"/>
+            <path class="xi-acc" d="M18,45 L36,45 M32,41 L36,45 L32,49"/>
+            <path class="xi-acc" d="M102,45 L84,45 M88,41 L84,45 L88,49"/>
+            <path class="xi" d="M48,38 C45,42 45,48 48,52" stroke-dasharray="3 3"/>
+            <path class="xi" d="M72,38 C75,42 75,48 72,52" stroke-dasharray="3 3"/>
+          </svg>
+          <h3><span class="pt">Integridade de Poços</span><span class="en">Well Integrity</span></h3>
+          <p><span class="pt">Tensões ao redor do poço (Kirsch), janela de lama e vida útil de poços em formações que fluem — da perfuração ao tamponamento.</span><span class="en">Near-wellbore stresses (Kirsch), mud window and well life in creeping formations — from drilling to plug &amp; abandonment.</span></p>
+        </article>
+        <article class="xcard rev">
+          <svg viewBox="0 0 120 90" aria-hidden="true">
+            <line class="xi" x1="8" y1="52" x2="30" y2="52" stroke-dasharray="4 4" opacity=".5"/>
+            <line class="xi" x1="90" y1="52" x2="112" y2="52" stroke-dasharray="4 4" opacity=".5"/>
+            <path class="xi" d="M8,52 C30,52 40,66 60,66 C80,66 90,52 112,52"/>
+            <rect class="xi-acc" x="52" y="12" width="16" height="10"/>
+            <line class="xi-acc" x1="44" y1="17" x2="52" y2="17"/>
+            <line class="xi-acc" x1="68" y1="17" x2="76" y2="17"/>
+            <path class="xi-acc" d="M55,26 L50,40 M60,26 L60,42 M65,26 L70,40" stroke-dasharray="2 4"/>
+            <path class="xi-red" d="M60,66 L60,56 M56,60 L60,56 L64,60"/>
+          </svg>
+          <h3><span class="pt">Subsidência &amp; Monitoramento</span><span class="en">Subsidence &amp; Monitoring</span></h3>
+          <p><span class="pt">Previsão de subsidência com modelos numéricos, calibrada com InSAR, GPS, sonar e piezometria — decisão baseada em dados.</span><span class="en">Subsidence forecasting with numerical models, calibrated against InSAR, GPS, sonar and piezometers — data-driven decisions.</span></p>
+        </article>
+        <article class="xcard rev">
+          <svg viewBox="0 0 120 90" aria-hidden="true">
+            <circle class="xi-red" cx="60" cy="18" r="9"/>
+            <circle class="xi-acc" cx="30" cy="68" r="9"/>
+            <circle class="xi" cx="90" cy="68" r="9"/>
+            <text x="60" y="22" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b64a35">T</text>
+            <text x="30" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#0a5357">H</text>
+            <text x="90" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#0f1d2b">M</text>
+            <line class="xi" x1="52" y1="25" x2="37" y2="60" opacity=".6"/>
+            <line class="xi" x1="68" y1="25" x2="83" y2="60" opacity=".6"/>
+            <line class="xi" x1="39" y1="68" x2="81" y2="68" opacity=".6"/>
+          </svg>
+          <h3><span class="pt">Acoplamento THM &amp; HPC</span><span class="en">THM Coupling &amp; HPC</span></h3>
+          <p><span class="pt">Processos termo-hidro-mecânicos acoplados em FLAC3D e elementos finitos, acelerados em GPU — física completa, tempo de engenharia.</span><span class="en">Coupled thermo-hydro-mechanical processes in FLAC3D and finite elements, GPU-accelerated — full physics at engineering speed.</span></p>
+        </article>
+        <article class="xcard rev">
+          <svg viewBox="0 0 120 90" aria-hidden="true">
+            <circle class="xi-acc" cx="24" cy="24" r="6"/>
+            <circle class="xi-acc" cx="24" cy="45" r="6"/>
+            <circle class="xi-acc" cx="24" cy="66" r="6"/>
+            <circle class="xi" cx="62" cy="34" r="6"/>
+            <circle class="xi" cx="62" cy="56" r="6"/>
+            <circle class="xi-red" cx="98" cy="45" r="7"/>
+            <line class="xi" x1="30" y1="24" x2="56" y2="33" opacity=".5"/>
+            <line class="xi" x1="30" y1="45" x2="56" y2="35" opacity=".5"/>
+            <line class="xi" x1="30" y1="45" x2="56" y2="55" opacity=".5"/>
+            <line class="xi" x1="30" y1="66" x2="56" y2="57" opacity=".5"/>
+            <line class="xi" x1="68" y1="34" x2="91" y2="43" opacity=".5"/>
+            <line class="xi" x1="68" y1="56" x2="91" y2="47" opacity=".5"/>
+          </svg>
+          <h3><span class="pt">IA Aplicada ao Subsolo</span><span class="en">AI for the Subsurface</span></h3>
+          <p><span class="pt">RAG, dashboards e copilotos técnicos sobre dados de poços, cavernas e monitoramento — conhecimento geotécnico consultável.</span><span class="en">RAG, dashboards and technical copilots over well, cavern and monitoring data — searchable geotechnical knowledge.</span></p>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- SCENE A · SALT CAVERN -->
+  <div class="scene" id="sceneA" style="height:280vh">
+    <div class="scene-sticky">
+      <div class="scene-fig">
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <!-- ground strata -->
+          <path d="M0,200.0 L40,200.0 L80,200.0 L120,200.0 L160,200.0 L200,200.0 L240,200.0 L280,200.0 L320,200.0 L360,200.0 L400,200.0 L440,200.0 L480,200.0 L520,200.0 L560,200.0 L600,200.0 L640,200.0 L680,200.0 L720,200.0 L760,200.0 L800,200.0 L840,200.0 L880,200.0 L920,200.0 L960,200.0 L1000,200.0 L1040,200.0 L1080,200.0 L1120,200.0 L1160,200.0 L1200,200.0 L1240,200.0 L1280,200.0 L1320,200.0 L1360,200.0 L1400,200.0 L1440,200.0 L1480,200.0 L1520,200.0 L1560,200.0 L1600,200.0 L1600,285.6 L1560,285.5 L1520,285.3 L1480,284.9 L1440,284.6 L1400,284.0 L1360,283.4 L1320,282.6 L1280,281.7 L1240,280.7 L1200,279.5 L1160,278.2 L1120,276.9 L1080,275.5 L1040,274.2 L1000,272.9 L960,271.8 L920,271.0 L880,270.4 L840,270.0 L800,270.0 L760,270.4 L720,271.0 L680,271.8 L640,272.9 L600,274.2 L560,275.5 L520,276.9 L480,278.2 L440,279.5 L400,280.7 L360,281.7 L320,282.6 L280,283.4 L240,284.0 L200,284.6 L160,284.9 L120,285.3 L80,285.5 L40,285.6 L0,285.8 Z" fill="#ddd8ca"/>
+          <path d="M0,285.8 L40,285.6 L80,285.5 L120,285.3 L160,284.9 L200,284.6 L240,284.0 L280,283.4 L320,282.6 L360,281.7 L400,280.7 L440,279.5 L480,278.2 L520,276.9 L560,275.5 L600,274.2 L640,272.9 L680,271.8 L720,271.0 L760,270.4 L800,270.0 L840,270.0 L880,270.4 L920,271.0 L960,271.8 L1000,272.9 L1040,274.2 L1080,275.5 L1120,276.9 L1160,278.2 L1200,279.5 L1240,280.7 L1280,281.7 L1320,282.6 L1360,283.4 L1400,284.0 L1440,284.6 L1480,284.9 L1520,285.3 L1560,285.5 L1600,285.6 L1600,366.3 L1560,366.0 L1520,365.5 L1480,364.9 L1440,364.1 L1400,363.1 L1360,361.8 L1320,360.3 L1280,358.5 L1240,356.4 L1200,354.0 L1160,351.5 L1120,348.8 L1080,346.0 L1040,343.4 L1000,340.9 L960,338.7 L920,336.9 L880,335.7 L840,335.1 L800,335.1 L760,335.7 L720,336.9 L680,338.7 L640,340.9 L600,343.4 L560,346.0 L520,348.8 L480,351.5 L440,354.0 L400,356.4 L360,358.5 L320,360.3 L280,361.8 L240,363.1 L200,364.1 L160,364.9 L120,365.5 L80,366.0 L40,366.3 L0,366.5 Z" fill="#d2ccbc"/>
+          <path d="M0,366.5 L40,366.3 L80,366.0 L120,365.5 L160,364.9 L200,364.1 L240,363.1 L280,361.8 L320,360.3 L360,358.5 L400,356.4 L440,354.0 L480,351.5 L520,348.8 L560,346.0 L600,343.4 L640,340.9 L680,338.7 L720,336.9 L760,335.7 L800,335.1 L840,335.1 L880,335.7 L920,336.9 L960,338.7 L1000,340.9 L1040,343.4 L1080,346.0 L1120,348.8 L1160,351.5 L1200,354.0 L1240,356.4 L1280,358.5 L1320,360.3 L1360,361.8 L1400,363.1 L1440,364.1 L1480,364.9 L1520,365.5 L1560,366.0 L1600,366.3 L1600,440.0 L1560,439.5 L1520,438.8 L1480,438.0 L1440,436.8 L1400,435.4 L1360,433.6 L1320,431.4 L1280,428.7 L1240,425.7 L1200,422.3 L1160,418.7 L1120,414.8 L1080,410.9 L1040,407.0 L1000,403.4 L960,400.3 L920,397.8 L880,396.0 L840,395.1 L800,395.1 L760,396.0 L720,397.8 L680,400.3 L640,403.4 L600,407.0 L560,410.9 L520,414.8 L480,418.7 L440,422.3 L400,425.7 L360,428.7 L320,431.4 L280,433.6 L240,435.4 L200,436.8 L160,438.0 L120,438.8 L80,439.5 L40,440.0 L0,440.3 Z" fill="#c6bfae"/>
+          <path d="M0,440.3 L40,440.0 L80,439.5 L120,438.8 L160,438.0 L200,436.8 L240,435.4 L280,433.6 L320,431.4 L360,428.7 L400,425.7 L440,422.3 L480,418.7 L520,414.8 L560,410.9 L600,407.0 L640,403.4 L680,400.3 L720,397.8 L760,396.0 L800,395.1 L840,395.1 L880,396.0 L920,397.8 L960,400.3 L1000,403.4 L1040,407.0 L1080,410.9 L1120,414.8 L1160,418.7 L1200,422.3 L1240,425.7 L1280,428.7 L1320,431.4 L1360,433.6 L1400,435.4 L1440,436.8 L1480,438.0 L1520,438.8 L1560,439.5 L1600,440.0 L1600,513.6 L1560,513.0 L1520,512.1 L1480,510.9 L1440,509.4 L1400,507.4 L1360,505.0 L1320,502.0 L1280,498.5 L1240,494.4 L1200,489.9 L1160,484.9 L1120,479.7 L1080,474.4 L1040,469.2 L1000,464.4 L960,460.1 L920,456.8 L880,454.4 L840,453.2 L800,453.2 L760,454.4 L720,456.8 L680,460.1 L640,464.4 L600,469.2 L560,474.4 L520,479.7 L480,484.9 L440,489.9 L400,494.4 L360,498.5 L320,502.0 L280,505.0 L240,507.4 L200,509.4 L160,510.9 L120,512.1 L80,513.0 L40,513.6 L0,514.1 Z" fill="#b9b2a0"/>
+          <path d="M0,514.1 L40,513.6 L80,513.0 L120,512.1 L160,510.9 L200,509.4 L240,507.4 L280,505.0 L320,502.0 L360,498.5 L400,494.4 L440,489.9 L480,484.9 L520,479.7 L560,474.4 L600,469.2 L640,464.4 L680,460.1 L720,456.8 L760,454.4 L800,453.2 L840,453.2 L880,454.4 L920,456.8 L960,460.1 L1000,464.4 L1040,469.2 L1080,474.4 L1120,479.7 L1160,484.9 L1200,489.9 L1240,494.4 L1280,498.5 L1320,502.0 L1360,505.0 L1400,507.4 L1440,509.4 L1480,510.9 L1520,512.1 L1560,513.0 L1600,513.6 L1600,547.5 L1560,546.8 L1520,545.9 L1480,544.7 L1440,543.0 L1400,540.9 L1360,538.3 L1320,535.2 L1280,531.4 L1240,527.1 L1200,522.2 L1160,517.0 L1120,511.4 L1080,505.7 L1040,500.2 L1000,495.1 L960,490.6 L920,487.0 L880,484.5 L840,483.2 L800,483.2 L760,484.5 L720,487.0 L680,490.6 L640,495.1 L600,500.2 L560,505.7 L520,511.4 L480,517.0 L440,522.2 L400,527.1 L360,531.4 L320,535.2 L280,538.3 L240,540.9 L200,543.0 L160,544.7 L120,545.9 L80,546.8 L40,547.5 L0,548.0 Z" fill="#232f42"/>
+          <path d="M0,548.0 L40,547.5 L80,546.8 L120,545.9 L160,544.7 L200,543.0 L240,540.9 L280,538.3 L320,535.2 L360,531.4 L400,527.1 L440,522.2 L480,517.0 L520,511.4 L560,505.7 L600,500.2 L640,495.1 L680,490.6 L720,487.0 L760,484.5 L800,483.2 L840,483.2 L880,484.5 L920,487.0 L960,490.6 L1000,495.1 L1040,500.2 L1080,505.7 L1120,511.4 L1160,517.0 L1200,522.2 L1240,527.1 L1280,531.4 L1320,535.2 L1360,538.3 L1400,540.9 L1440,543.0 L1480,544.7 L1520,545.9 L1560,546.8 L1600,547.5 L1600,900.0 L1560,900.0 L1520,900.0 L1480,900.0 L1440,900.0 L1400,900.0 L1360,900.0 L1320,900.0 L1280,900.0 L1240,900.0 L1200,900.0 L1160,900.0 L1120,900.0 L1080,900.0 L1040,900.0 L1000,900.0 L960,900.0 L920,900.0 L880,900.0 L840,900.0 L800,900.0 L760,900.0 L720,900.0 L680,900.0 L640,900.0 L600,900.0 L560,900.0 L520,900.0 L480,900.0 L440,900.0 L400,900.0 L360,900.0 L320,900.0 L280,900.0 L240,900.0 L200,900.0 L160,900.0 L120,900.0 L80,900.0 L40,900.0 L0,900.0 Z" fill="#303d55"/>
+          <g>
+            <path d="M0,595.2 L40,594.8 L80,594.2 L120,593.4 L160,592.3 L200,590.9 L240,589.2 L280,586.9 L320,584.3 L360,581.1 L400,577.4 L440,573.3 L480,568.8 L520,564.1 L560,559.3 L600,554.6 L640,550.3 L680,546.5 L720,543.4 L760,541.2 L800,540.1 L840,540.1 L880,541.2 L920,543.4 L960,546.5 L1000,550.3 L1040,554.6 L1080,559.3 L1120,564.1 L1160,568.8 L1200,573.3 L1240,577.4 L1280,581.1 L1320,584.3 L1360,586.9 L1400,589.2 L1440,590.9 L1480,592.3 L1520,593.4 L1560,594.2 L1600,594.8" fill="none" stroke="#3b4a66" stroke-width="1.5" opacity=".8"/>
+            <path d="M0,645.3 L40,645.0 L80,644.5 L120,643.8 L160,643.0 L200,641.8 L240,640.4 L280,638.6 L320,636.4 L360,633.7 L400,630.7 L440,627.3 L480,623.7 L520,619.8 L560,615.9 L600,612.0 L640,608.4 L680,605.3 L720,602.8 L760,601.0 L800,600.1 L840,600.1 L880,601.0 L920,602.8 L960,605.3 L1000,608.4 L1040,612.0 L1080,615.9 L1120,619.8 L1160,623.7 L1200,627.3 L1240,630.7 L1280,633.7 L1320,636.4 L1360,638.6 L1400,640.4 L1440,641.8 L1480,643.0 L1520,643.8 L1560,644.5 L1600,645.0" fill="none" stroke="#3b4a66" stroke-width="1.5" opacity=".8"/>
+            <path d="M0,695.5 L40,695.2 L80,694.8 L120,694.3 L160,693.6 L200,692.7 L240,691.6 L280,690.2 L320,688.5 L360,686.4 L400,684.0 L440,681.4 L480,678.5 L520,675.5 L560,672.4 L600,669.4 L640,666.6 L680,664.2 L720,662.2 L760,660.8 L800,660.1 L840,660.1 L880,660.8 L920,662.2 L960,664.2 L1000,666.6 L1040,669.4 L1080,672.4 L1120,675.5 L1160,678.5 L1200,681.4 L1240,684.0 L1280,686.4 L1320,688.5 L1360,690.2 L1400,691.6 L1440,692.7 L1480,693.6 L1520,694.3 L1560,694.8 L1600,695.2" fill="none" stroke="#3b4a66" stroke-width="1.5" opacity=".8"/>
+            <path d="M0,745.6 L40,745.4 L80,745.2 L120,744.8 L160,744.3 L200,743.6 L240,742.8 L280,741.8 L320,740.6 L360,739.1 L400,737.4 L440,735.5 L480,733.4 L520,731.2 L560,729.0 L600,726.8 L640,724.8 L680,723.0 L720,721.6 L760,720.6 L800,720.1 L840,720.1 L880,720.6 L920,721.6 L960,723.0 L1000,724.8 L1040,726.8 L1080,729.0 L1120,731.2 L1160,733.4 L1200,735.5 L1240,737.4 L1280,739.1 L1320,740.6 L1360,741.8 L1400,742.8 L1440,743.6 L1480,744.3 L1520,744.8 L1560,745.2 L1600,745.4" fill="none" stroke="#3b4a66" stroke-width="1.5" opacity=".8"/>
+            <path d="M0,795.8 L40,795.6 L80,795.5 L120,795.3 L160,794.9 L200,794.6 L240,794.0 L280,793.4 L320,792.6 L360,791.7 L400,790.7 L440,789.5 L480,788.2 L520,786.9 L560,785.5 L600,784.2 L640,782.9 L680,781.8 L720,781.0 L760,780.4 L800,780.0 L840,780.0 L880,780.4 L920,781.0 L960,781.8 L1000,782.9 L1040,784.2 L1080,785.5 L1120,786.9 L1160,788.2 L1200,789.5 L1240,790.7 L1280,791.7 L1320,792.6 L1360,793.4 L1400,794.0 L1440,794.6 L1480,794.9 L1520,795.3 L1560,795.5 L1600,795.6" fill="none" stroke="#3b4a66" stroke-width="1.5" opacity=".8"/>
+            <path d="M0,847.9 L40,847.8 L80,847.7 L120,847.6 L160,847.5 L200,847.3 L240,847.0 L280,846.7 L320,846.3 L360,845.9 L400,845.3 L440,844.8 L480,844.1 L520,843.4 L560,842.8 L600,842.1 L640,841.5 L680,840.9 L720,840.5 L760,840.2 L800,840.0 L840,840.0 L880,840.2 L920,840.5 L960,840.9 L1000,841.5 L1040,842.1 L1080,842.8 L1120,843.4 L1160,844.1 L1200,844.8 L1240,845.3 L1280,845.9 L1320,846.3 L1360,846.7 L1400,847.0 L1440,847.3 L1480,847.5 L1520,847.6 L1560,847.7 L1600,847.8" fill="none" stroke="#3b4a66" stroke-width="1.5" opacity=".8"/>
+          </g>
+          <!-- original surface (dashed, appears with subsidence) -->
+          <line id="surf0" x1="340" y1="200" x2="1260" y2="200" stroke="#5f6b7a" stroke-width="2" stroke-dasharray="8 7" opacity="0"/>
+          <!-- sky, carving the subsidence bowl into the ground -->
+          <path id="skyDip" d="M0,0 H1600 V200 H0 Z" fill="#fbfaf7"/>
+          <!-- drill rig -->
+          <g id="rig" opacity="0">
+            <path d="M782,200 L800,138 L818,200 Z" fill="none" stroke="#0f1d2b" stroke-width="3"/>
+            <line x1="786" y1="186" x2="814" y2="186" stroke="#0f1d2b" stroke-width="2.5"/>
+            <line x1="790" y1="170" x2="810" y2="170" stroke="#0f1d2b" stroke-width="2.5"/>
+            <rect x="836" y="182" width="36" height="18" fill="none" stroke="#0f1d2b" stroke-width="3"/>
+          </g>
+          <line id="well" x1="800" y1="200" x2="800" y2="200" stroke="#0f1d2b" stroke-width="3"/>
+          <!-- cavern -->
+          <defs>
+            <linearGradient id="brine" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#9fd2e8"/><stop offset="1" stop-color="#5c99c4"/>
+            </linearGradient>
+          </defs>
+          <path id="cav" d="" fill="url(#brine)" stroke="#1a2435" stroke-width="2.5" opacity="0"/>
+          <!-- creep arrows -->
+          <g id="creepArr" opacity="0" stroke="#e58d7b" stroke-width="3.5" fill="#e58d7b">
+            <g id="ca1"></g>
+          </g>
+          <!-- labels -->
+          <g id="lblOver" opacity="0">
+            <line class="svg-leader" x1="372" y1="300" x2="330" y2="268"/>
+            <rect class="svg-label-box" x="200" y="252" width="132" height="26"/>
+            <text class="svg-label" x="214" y="270">overburden</text>
+          </g>
+          <g id="lblCap" opacity="0">
+            <line class="svg-leader" x1="1210" y1="502" x2="1256" y2="462"/>
+            <rect class="svg-label-box" x="1256" y="446" width="150" height="26"/>
+            <text class="svg-label" x="1270" y="464">caprock · selo</text>
+          </g>
+          <g id="lblSalt" opacity="0">
+            <line class="svg-leader" x1="400" y1="640" x2="352" y2="606"/>
+            <rect class="svg-label-box" x="254" y="590" width="122" height="26"/>
+            <text class="svg-label" x="268" y="608" id="lblSaltTxt">sal · halita</text>
+          </g>
+          <g id="lblCav" opacity="0">
+            <line class="svg-leader" x1="930" y1="650" x2="1050" y2="610"/>
+            <rect class="svg-label-box" x="1050" y="594" width="188" height="26"/>
+            <text class="svg-label" x="1064" y="612" id="lblCavTxt">caverna · salmoura</text>
+          </g>
+          <g id="lblSub" opacity="0">
+            <line class="svg-leader" x1="800" y1="236" x2="1012" y2="120"/>
+            <rect class="svg-label-box" x="1012" y="104" width="206" height="26"/>
+            <text class="svg-label" x="1026" y="122" id="lblSubTxt">bacia de subsidência</text>
+          </g>
+        </svg>
+      </div>
+      <div class="scene-cap">
+        <div class="inner">
+          <div class="cap-left">
+            <div class="cap-kicker"><span class="pt">Cena · Caverna de Sal</span><span class="en">Scene · Salt Cavern</span></div>
+            <p class="cap-text" id="capA"></p>
+          </div>
+          <div class="cap-right">
+            <span class="cap-step" id="stepA">1 / 4</span>
+            <button class="skip-btn" data-skip="sceneA">SKIP ↓</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- EXPERIENCE -->
+
   <section id="experience">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head rev">
         <div class="top"><span class="sec-num">02</span><h2><span class="pt">Experiência</span><span class="en">Experience</span></h2></div>
         <p class="sec-sub"><span class="pt">Trajetória profissional e de pesquisa.</span><span class="en">Professional career and research positions.</span></p>
       </div>
       <ul class="tl">
-        <li class="tl-item">
+        <li class="tl-item rev">
           <div class="tl-date">2024 – <span class="pt">Atual</span><span class="en">Present</span></div>
           <div class="tl-body">
             <h3><span class="pt">Especialista em Geomecânica</span><span class="en">Geomechanics Specialist</span></h3>
@@ -247,15 +530,15 @@
             <p><span class="pt">Estabilidade geomecânica de cavidades salinas e fechamento de minas (case de Maceió): integração de modelos numéricos avançados e dados de monitoramento para decisões seguras. Gestor técnico do Termo de Cooperação Braskem–UFPE–Petrobras.</span><span class="en">Geomechanical stability of salt caverns and mine closure (Maceió case): integrating advanced numerical models and monitoring data for safe decisions. Technical lead of the Braskem–UFPE–Petrobras cooperation agreement.</span></p>
           </div>
         </li>
-        <li class="tl-item">
+        <li class="tl-item rev">
           <div class="tl-date">2020 – 2024</div>
           <div class="tl-body">
             <h3><span class="pt">Fundador &amp; Gerente de Projeto Geotécnico</span><span class="en">Founder &amp; Geotechnical Project Manager</span></h3>
-            <span class="tl-org">AI SIM Engenharia Geotécnica</span>
+            <a class="tl-org" href="https://simgroup.com.br" target="_blank" rel="noopener">AI SIM Engenharia Geotécnica ↗</a>
             <p><span class="pt">Modelagem geotécnica/geomecânica e desenvolvimento de software e ferramentas de IA para os setores de energia e mineração.</span><span class="en">Geotechnical/geomechanical modeling and development of software and AI tools for the energy and mining sectors.</span></p>
           </div>
         </li>
-        <li class="tl-item">
+        <li class="tl-item rev">
           <div class="tl-date">2015 – 2023</div>
           <div class="tl-body">
             <h3><span class="pt">Pesquisador — Geomecânica Computacional</span><span class="en">Researcher — Computational Geomechanics</span></h3>
@@ -267,15 +550,193 @@
     </div>
   </section>
 
+  <!-- SCENE B · LOG → MEM → MUD WINDOW -->
+  <div class="scene" id="sceneB" style="height:280vh">
+    <div class="scene-sticky">
+      <div class="scene-fig">
+        <svg id="svgB" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect x="0" y="0" width="1600" height="900" fill="#fbfaf7"/>
+          <!-- depth axis -->
+          <line x1="250" y1="160" x2="250" y2="820" stroke="#cfcac0" stroke-width="2"/>
+          <g font-family="IBM Plex Mono,monospace" font-size="13" fill="#5f6b7a">
+            <text x="176" y="214">0 m</text>
+            <text x="150" y="500">−1000</text>
+            <text x="150" y="790">−2000</text>
+            <text x="260" y="214" fill="#0a5357" letter-spacing="2" id="axTitle">PROFUNDIDADE</text>
+          </g>
+          <g stroke="#e4e1d9" stroke-width="1">
+            <line x1="250" y1="325" x2="1450" y2="325"/><line x1="250" y1="490" x2="1450" y2="490"/><line x1="250" y1="655" x2="1450" y2="655"/>
+          </g>
+          <!-- stage groups (filled by JS) -->
+          <g id="gLogs" opacity="1"></g>
+          <g id="gElas" opacity="0"></g>
+          <g id="gStress" opacity="0"></g>
+          <g id="gWin" opacity="0"></g>
+          <!-- moving depth cursor -->
+          <line id="bitLine" x1="250" y1="160" x2="1450" y2="160" stroke="#b64a35" stroke-width="1.5" stroke-dasharray="5 6" opacity=".8"/>
+        </svg>
+      </div>
+      <div class="scene-cap">
+        <div class="inner">
+          <div class="cap-left">
+            <div class="cap-kicker"><span class="pt">Cena · Do Perfil ao Poço Seguro</span><span class="en">Scene · From Log to a Safe Well</span></div>
+            <p class="cap-text" id="capB"></p>
+          </div>
+          <div class="cap-right">
+            <span class="cap-step" id="stepB">1 / 4</span>
+            <button class="skip-btn" data-skip="sceneB">SKIP ↓</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS (dark + parallax) -->
+  <section id="projects" class="dark-sec">
+    <svg id="strataBg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path id="pxA" d="M0,180 C300,150 500,210 800,185 C1100,160 1300,215 1600,190 L1600,320 C1300,345 1100,290 800,315 C500,340 300,285 0,310 Z" fill="#1a2940"/>
+      <path id="pxB" d="M0,400 C300,370 500,430 800,405 C1100,380 1300,435 1600,410 L1600,540 C1300,565 1100,510 800,535 C500,560 300,505 0,530 Z" fill="#15334a"/>
+      <path id="pxC" d="M0,620 C300,590 500,650 800,625 C1100,600 1300,655 1600,630 L1600,760 C1300,785 1100,730 800,755 C500,780 300,725 0,750 Z" fill="#0d4a52"/>
+    </svg>
+    <div class="wrap">
+      <div class="sec-head rev">
+        <div class="top"><span class="sec-num">03</span><h2><span class="pt">Projetos</span><span class="en">Projects</span></h2></div>
+        <p class="sec-sub"><span class="pt">Software aplicado à engenharia do subsolo.</span><span class="en">Software applied to subsurface engineering.</span></p>
+      </div>
+      <div class="grid">
+        <article class="dcard rev">
+          <h3>PetroView 3D</h3>
+          <span class="badge">Web App · Creator</span>
+          <p><span class="pt">Aplicação web para visualização e análise de poços — perfis, trajetórias direcionais e dados abertos da ANP em 3D, voltada a estudos de geomecânica e reservatório.</span><span class="en">Web application for well visualization and analysis — logs, directional trajectories and open ANP well data in 3D, aimed at geomechanics and reservoir studies.</span></p>
+          <div class="chips"><span class="chip">React</span><span class="chip">WebGL</span><span class="chip">Supabase</span><span class="chip">ANP data</span><span class="chip">3D</span></div>
+        </article>
+        <article class="dcard rev">
+          <h3>mesh2flac3d</h3>
+          <span class="badge">Open Source · PyPI · Creator</span>
+          <p><span class="pt">Biblioteca Python (MIT) que converte malhas de elementos finitos em grids <code>.f3grid</code> prontos para o FLAC3D — ponte entre geradores de malha e a simulação geomecânica.</span><span class="en">Python library (MIT) converting finite-element meshes into FLAC3D-ready <code>.f3grid</code> grids — a bridge between mesh generators and geomechanical simulation.</span></p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">FLAC3D</span><span class="chip">Meshing</span><span class="chip">MIT</span></div>
+          <div class="card-foot"><a href="https://pypi.org/project/mesh2flac3d/" target="_blank" rel="noopener">PyPI ↗</a></div>
+        </article>
+        <article class="dcard rev">
+          <h3><span class="pt">Simulação THM do sal</span><span class="en">THM salt simulation</span></h3>
+          <span class="badge">Research · FLAC3D · FEM</span>
+          <p><span class="pt">Modelos de fluência do sal, estabilidade de cavernas e subsidência — do modelo constitutivo (creep) ao modelo de campo completo, com calibração por monitoramento (sonar, InSAR, piezometria).</span><span class="en">Salt creep, cavern stability and subsidence models — from constitutive law to full-field model, calibrated against monitoring data (sonar, InSAR, piezometers).</span></p>
+          <div class="chips"><span class="chip">FLAC3D</span><span class="chip">FISH</span><span class="chip">Creep</span><span class="chip">THM</span><span class="chip">GPU/CPU</span></div>
+          <div class="card-foot"><span class="pt">Mais projetos em breve.</span><span class="en">More projects soon.</span></div>
+        </article>
+      </div>
+      <div class="parallax-note"><span class="pt">fundo: as camadas geológicas se separam conforme você rola a página</span><span class="en">background: the geological layers drift apart as you scroll</span></div>
+    </div>
+  </section>
+
+  <!-- SCENE D · WELL DRILLING → PETROVIEW -->
+  <div class="scene" id="sceneD" style="height:340vh">
+    <div class="scene-sticky">
+      <div class="scene-fig">
+        <svg id="svgD" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <!-- strata -->
+          <rect x="0" y="0" width="1600" height="170" fill="#fbfaf7"/>
+          <path d="M0,170.0 L40,170.0 L80,170.0 L120,170.0 L160,170.0 L200,170.0 L240,170.0 L280,170.0 L320,170.0 L360,170.0 L400,170.0 L440,170.0 L480,170.0 L520,170.0 L560,170.0 L600,170.0 L640,170.0 L680,170.0 L720,170.0 L760,170.0 L800,170.0 L840,170.0 L880,170.0 L920,170.0 L960,170.0 L1000,170.0 L1040,170.0 L1080,170.0 L1120,170.0 L1160,170.0 L1200,170.0 L1240,170.0 L1280,170.0 L1320,170.0 L1360,170.0 L1400,170.0 L1440,170.0 L1480,170.0 L1520,170.0 L1560,170.0 L1600,170.0 L1600,284.8 L1560,284.5 L1520,284.1 L1480,283.5 L1440,282.7 L1400,281.7 L1360,280.6 L1320,279.3 L1280,277.9 L1240,276.5 L1200,275.1 L1160,273.8 L1120,272.7 L1080,271.9 L1040,271.5 L1000,271.5 L960,271.9 L920,272.7 L880,273.8 L840,275.1 L800,276.5 L760,277.9 L720,279.3 L680,280.6 L640,281.7 L600,282.7 L560,283.5 L520,284.1 L480,284.5 L440,284.8 L400,285.1 L360,285.2 L320,285.3 L280,285.4 L240,285.4 L200,285.4 L160,285.5 L120,285.5 L80,285.5 L40,285.5 L0,285.5 Z" fill="#ddd8ca"/>
+          <path d="M0,285.5 L40,285.5 L80,285.5 L120,285.5 L160,285.5 L200,285.4 L240,285.4 L280,285.4 L320,285.3 L360,285.2 L400,285.1 L440,284.8 L480,284.5 L520,284.1 L560,283.5 L600,282.7 L640,281.7 L680,280.6 L720,279.3 L760,277.9 L800,276.5 L840,275.1 L880,273.8 L920,272.7 L960,271.9 L1000,271.5 L1040,271.5 L1080,271.9 L1120,272.7 L1160,273.8 L1200,275.1 L1240,276.5 L1280,277.9 L1320,279.3 L1360,280.6 L1400,281.7 L1440,282.7 L1480,283.5 L1520,284.1 L1560,284.5 L1600,284.8 L1600,390.3 L1560,389.7 L1520,388.7 L1480,387.4 L1440,385.8 L1400,383.7 L1360,381.3 L1320,378.6 L1280,375.6 L1240,372.5 L1200,369.4 L1160,366.7 L1120,364.3 L1080,362.7 L1040,361.8 L1000,361.8 L960,362.7 L920,364.3 L880,366.7 L840,369.4 L800,372.5 L760,375.6 L720,378.6 L680,381.3 L640,383.7 L600,385.8 L560,387.4 L520,388.7 L480,389.7 L440,390.3 L400,390.8 L360,391.2 L320,391.4 L280,391.5 L240,391.6 L200,391.7 L160,391.7 L120,391.7 L80,391.7 L40,391.7 L0,391.7 Z" fill="#d2ccbc"/>
+          <path d="M0,391.7 L40,391.7 L80,391.7 L120,391.7 L160,391.7 L200,391.7 L240,391.6 L280,391.5 L320,391.4 L360,391.2 L400,390.8 L440,390.3 L480,389.7 L520,388.7 L560,387.4 L600,385.8 L640,383.7 L680,381.3 L720,378.6 L760,375.6 L800,372.5 L840,369.4 L880,366.7 L920,364.3 L960,362.7 L1000,361.8 L1040,361.8 L1080,362.7 L1120,364.3 L1160,366.7 L1200,369.4 L1240,372.5 L1280,375.6 L1320,378.6 L1360,381.3 L1400,383.7 L1440,385.8 L1480,387.4 L1520,388.7 L1560,389.7 L1600,390.3 L1600,486.6 L1560,485.4 L1520,483.9 L1480,481.9 L1440,479.2 L1400,476.0 L1360,472.1 L1320,467.7 L1280,462.9 L1240,458.0 L1200,453.1 L1160,448.7 L1120,445.0 L1080,442.3 L1040,440.9 L1000,440.9 L960,442.3 L920,445.0 L880,448.7 L840,453.1 L800,458.0 L760,462.9 L720,467.7 L680,472.1 L640,476.0 L600,479.2 L560,481.9 L520,483.9 L480,485.4 L440,486.6 L400,487.3 L360,487.9 L320,488.2 L280,488.4 L240,488.6 L200,488.6 L160,488.7 L120,488.7 L80,488.7 L40,488.7 L0,488.7 Z" fill="#c6bfae"/>
+          <path d="M0,488.7 L40,488.7 L80,488.7 L120,488.7 L160,488.7 L200,488.6 L240,488.6 L280,488.4 L320,488.2 L360,487.9 L400,487.3 L440,486.6 L480,485.4 L520,483.9 L560,481.9 L600,479.2 L640,476.0 L680,472.1 L720,467.7 L760,462.9 L800,458.0 L840,453.1 L880,448.7 L920,445.0 L960,442.3 L1000,440.9 L1040,440.9 L1080,442.3 L1120,445.0 L1160,448.7 L1200,453.1 L1240,458.0 L1280,462.9 L1320,467.7 L1360,472.1 L1400,476.0 L1440,479.2 L1480,481.9 L1520,483.9 L1560,485.4 L1600,486.6 L1600,570.8 L1560,569.2 L1520,567.1 L1480,564.3 L1440,560.7 L1400,556.2 L1360,550.9 L1320,544.9 L1280,538.3 L1240,531.5 L1200,524.8 L1160,518.6 L1120,513.6 L1080,509.9 L1040,508.0 L1000,508.0 L960,509.9 L920,513.6 L880,518.6 L840,524.8 L800,531.5 L760,538.3 L720,544.9 L680,550.9 L640,556.2 L600,560.7 L560,564.3 L520,567.1 L480,569.2 L440,570.8 L400,571.8 L360,572.6 L320,573.0 L280,573.3 L240,573.5 L200,573.6 L160,573.7 L120,573.7 L80,573.8 L40,573.8 L0,573.8 Z" fill="#b9b2a0"/>
+          <path d="M0,573.8 L40,573.8 L80,573.8 L120,573.7 L160,573.7 L200,573.6 L240,573.5 L280,573.3 L320,573.0 L360,572.6 L400,571.8 L440,570.8 L480,569.2 L520,567.1 L560,564.3 L600,560.7 L640,556.2 L680,550.9 L720,544.9 L760,538.3 L800,531.5 L840,524.8 L880,518.6 L920,513.6 L960,509.9 L1000,508.0 L1040,508.0 L1080,509.9 L1120,513.6 L1160,518.6 L1200,524.8 L1240,531.5 L1280,538.3 L1320,544.9 L1360,550.9 L1400,556.2 L1440,560.7 L1480,564.3 L1520,567.1 L1560,569.2 L1600,570.8 L1600,606.8 L1560,605.2 L1520,603.1 L1480,600.3 L1440,596.7 L1400,592.2 L1360,586.9 L1320,580.9 L1280,574.3 L1240,567.5 L1200,560.8 L1160,554.6 L1120,549.6 L1080,545.9 L1040,544.0 L1000,544.0 L960,545.9 L920,549.6 L880,554.6 L840,560.8 L800,567.5 L760,574.3 L720,580.9 L680,586.9 L640,592.2 L600,596.7 L560,600.3 L520,603.1 L480,605.2 L440,606.8 L400,607.8 L360,608.6 L320,609.0 L280,609.3 L240,609.5 L200,609.6 L160,609.7 L120,609.7 L80,609.8 L40,609.8 L0,609.8 Z" fill="#232f42"/>
+          <path d="M0,609.8 L40,609.8 L80,609.8 L120,609.7 L160,609.7 L200,609.6 L240,609.5 L280,609.3 L320,609.0 L360,608.6 L400,607.8 L440,606.8 L480,605.2 L520,603.1 L560,600.3 L600,596.7 L640,592.2 L680,586.9 L720,580.9 L760,574.3 L800,567.5 L840,560.8 L880,554.6 L920,549.6 L960,545.9 L1000,544.0 L1040,544.0 L1080,545.9 L1120,549.6 L1160,554.6 L1200,560.8 L1240,567.5 L1280,574.3 L1320,580.9 L1360,586.9 L1400,592.2 L1440,596.7 L1480,600.3 L1520,603.1 L1560,605.2 L1600,606.8 L1600,756.6 L1560,755.4 L1520,753.9 L1480,751.9 L1440,749.2 L1400,746.0 L1360,742.1 L1320,737.7 L1280,732.9 L1240,728.0 L1200,723.1 L1160,718.7 L1120,715.0 L1080,712.3 L1040,710.9 L1000,710.9 L960,712.3 L920,715.0 L880,718.7 L840,723.1 L800,728.0 L760,732.9 L720,737.7 L680,742.1 L640,746.0 L600,749.2 L560,751.9 L520,753.9 L480,755.4 L440,756.6 L400,757.3 L360,757.9 L320,758.2 L280,758.4 L240,758.6 L200,758.6 L160,758.7 L120,758.7 L80,758.7 L40,758.7 L0,758.7 Z" fill="#cbb279"/>
+          <path d="M0,758.7 L40,758.7 L80,758.7 L120,758.7 L160,758.7 L200,758.6 L240,758.6 L280,758.4 L320,758.2 L360,757.9 L400,757.3 L440,756.6 L480,755.4 L520,753.9 L560,751.9 L600,749.2 L640,746.0 L680,742.1 L720,737.7 L760,732.9 L800,728.0 L840,723.1 L880,718.7 L920,715.0 L960,712.3 L1000,710.9 L1040,710.9 L1080,712.3 L1120,715.0 L1160,718.7 L1200,723.1 L1240,728.0 L1280,732.9 L1320,737.7 L1360,742.1 L1400,746.0 L1440,749.2 L1480,751.9 L1520,753.9 L1560,755.4 L1600,756.6 L1600,900.0 L1560,900.0 L1520,900.0 L1480,900.0 L1440,900.0 L1400,900.0 L1360,900.0 L1320,900.0 L1280,900.0 L1240,900.0 L1200,900.0 L1160,900.0 L1120,900.0 L1080,900.0 L1040,900.0 L1000,900.0 L960,900.0 L920,900.0 L880,900.0 L840,900.0 L800,900.0 L760,900.0 L720,900.0 L680,900.0 L640,900.0 L600,900.0 L560,900.0 L520,900.0 L480,900.0 L440,900.0 L400,900.0 L360,900.0 L320,900.0 L280,900.0 L240,900.0 L200,900.0 L160,900.0 L120,900.0 L80,900.0 L40,900.0 L0,900.0 Z" fill="#9a8d77"/>
+          <ellipse id="resLens" cx="700" cy="628" rx="170" ry="34" fill="#e3c988" stroke="#8a6f33" stroke-width="2"/>
+          <line x1="0" y1="170" x2="1600" y2="170" stroke="#9b9486" stroke-width="2"/>
+          <!-- rig -->
+          <g id="dRig" opacity="0">
+            <path d="M682,170 L700,108 L718,170 Z" fill="none" stroke="#0f1d2b" stroke-width="3"/>
+            <line x1="686" y1="156" x2="714" y2="156" stroke="#0f1d2b" stroke-width="2.5"/>
+            <line x1="690" y1="140" x2="710" y2="140" stroke="#0f1d2b" stroke-width="2.5"/>
+            <rect x="736" y="152" width="36" height="18" fill="none" stroke="#0f1d2b" stroke-width="3"/>
+          </g>
+          <!-- dynamic drilling layers (JS) -->
+          <g id="dHoles"></g>
+          <g id="dCement"></g>
+          <g id="dCasing"></g>
+          <g id="dCurve"></g>
+          <path id="dBit" d="" fill="#0f1d2b"/>
+          <!-- mud window mini chart -->
+          <g id="dChart" opacity="0">
+            <rect x="150" y="300" width="300" height="370" rx="8" fill="rgba(251,250,247,.92)" stroke="#cfcac0"/>
+            <text class="pt" x="300" y="332" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#0a5357" letter-spacing="2">JANELA DE LAMA</text>
+            <text class="en" x="300" y="332" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#0a5357" letter-spacing="2">MUD WINDOW</text>
+            <path d="M210,355 L222,392 L215,430 L235,470 L228,510 L248,550 L242,595 L258,640" fill="none" stroke="#b64a35" stroke-width="2.5"/>
+            <path d="M335,355 L350,398 L342,440 L362,480 L355,525 L372,570 L366,615 L380,640" fill="none" stroke="#0f1d2b" stroke-width="2.5"/>
+            <path d="M265,355 L305,640" fill="none" stroke="#0a5357" stroke-width="3" stroke-dasharray="2 7"/>
+            <text class="pt" x="232" y="660" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#b64a35">colapso</text>
+            <text class="en" x="232" y="660" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#b64a35">collapse</text>
+            <text class="pt" x="372" y="660" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#0f1d2b">fratura</text>
+            <text class="en" x="372" y="660" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#0f1d2b">fracture</text>
+            <text class="pt" x="300" y="384" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#0a5357">lama</text>
+            <text class="en" x="300" y="384" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#0a5357">mud</text>
+          </g>
+          <!-- labels -->
+          <g id="dF1" opacity="0">
+            <line class="svg-leader" x1="648" y1="262" x2="676" y2="282"/>
+            <rect class="svg-label-box" x="460" y="246" width="188" height="26"/>
+            <text class="svg-label pt" x="474" y="264">fase 1 · condutor</text>
+            <text class="svg-label en" x="474" y="264">phase 1 · conductor</text>
+          </g>
+          <g id="dF2" opacity="0">
+            <line class="svg-leader" x1="648" y1="392" x2="678" y2="408"/>
+            <rect class="svg-label-box" x="450" y="376" width="198" height="26"/>
+            <text class="svg-label pt" x="464" y="394">fase 2 · superfície</text>
+            <text class="svg-label en" x="464" y="394">phase 2 · surface</text>
+          </g>
+          <g id="dF3" opacity="0">
+            <line class="svg-leader" x1="648" y1="512" x2="682" y2="500"/>
+            <rect class="svg-label-box" x="428" y="496" width="220" height="26"/>
+            <text class="svg-label pt" x="442" y="514">fase 3 · intermediário</text>
+            <text class="svg-label en" x="442" y="514">phase 3 · intermediate</text>
+          </g>
+          <g id="dDir" opacity="0">
+            <line class="svg-leader" x1="908" y1="548" x2="714" y2="598"/>
+            <rect class="svg-label-box" x="908" y="520" width="238" height="26"/>
+            <text class="svg-label pt" x="922" y="538">fase final · vertical</text>
+            <text class="svg-label en" x="922" y="538">final section · vertical</text>
+          </g>
+          <g id="dRes" opacity="0">
+            <line class="svg-leader" x1="1060" y1="612" x2="884" y2="630"/>
+            <rect class="svg-label-box" x="1060" y="586" width="212" height="26"/>
+            <text class="svg-label pt" x="1074" y="604">reservatório · alvo</text>
+            <text class="svg-label en" x="1074" y="604">reservoir · target</text>
+          </g>
+          <!-- PetroView badge -->
+          <g id="dBadge" opacity="0">
+            <rect x="580" y="196" width="440" height="96" rx="10" fill="#0f1d2b"/>
+            <text x="800" y="240" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="34" fill="#ffffff">PetroView 3D</text>
+            <text class="pt" x="800" y="272" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" fill="#7cc4c0" letter-spacing="2">PERFIS · TRAJETÓRIAS 3D · DADOS ANP</text>
+            <text class="en" x="800" y="272" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" fill="#7cc4c0" letter-spacing="2">LOGS · 3D TRAJECTORIES · ANP OPEN DATA</text>
+          </g>
+        </svg>
+      </div>
+      <div class="scene-cap">
+        <div class="inner">
+          <div class="cap-left">
+            <div class="cap-kicker"><span class="pt">Cena · Perfuração de um Poço · PetroView 3D</span><span class="en">Scene · Drilling a Well · PetroView 3D</span></div>
+            <p class="cap-text" id="capD"></p>
+          </div>
+          <div class="cap-right">
+            <span class="cap-step" id="stepD">1 / 5</span>
+            <button class="skip-btn" data-skip="sceneD">SKIP ↓</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- EDUCATION -->
   <section id="education">
     <div class="wrap">
-      <div class="sec-head">
-        <div class="top"><span class="sec-num">03</span><h2><span class="pt">Formação</span><span class="en">Education</span></h2></div>
+      <div class="sec-head rev">
+        <div class="top"><span class="sec-num">04</span><h2><span class="pt">Formação</span><span class="en">Education</span></h2></div>
         <p class="sec-sub"><span class="pt">Formação acadêmica — Universidade Federal de Pernambuco (UFPE).</span><span class="en">Academic background — Federal University of Pernambuco (UFPE).</span></p>
       </div>
       <ul class="tl">
-        <li class="tl-item">
+        <li class="tl-item rev">
           <div class="tl-date">2024</div>
           <div class="tl-body">
             <h3><span class="pt">Pós-Doutorado em Engenharia Civil</span><span class="en">Postdoctoral Research, Civil Engineering</span></h3>
@@ -283,7 +744,7 @@
             <p><span class="pt">Geotecnia e geomecânica; modelos analíticos e de simulação.</span><span class="en">Geotechnics and geomechanics; analytical and simulation models.</span></p>
           </div>
         </li>
-        <li class="tl-item">
+        <li class="tl-item rev">
           <div class="tl-date">2019 – 2023</div>
           <div class="tl-body">
             <h3><span class="pt">Doutorado em Engenharia Civil</span><span class="en">PhD in Civil Engineering</span></h3>
@@ -291,7 +752,7 @@
             <p><span class="pt">Tese: estratégias de aceleração em GPU/CPU para problemas hidromecânicos 3D acoplados, aplicadas à geomecânica de reservatórios. Orientador: Leonardo Guimarães.</span><span class="en">Thesis: GPU/CPU acceleration strategies for coupled 3D hydromechanical problems, applied to reservoir geomechanics. Advisor: Leonardo Guimarães.</span></p>
           </div>
         </li>
-        <li class="tl-item">
+        <li class="tl-item rev">
           <div class="tl-date">2016 – 2018</div>
           <div class="tl-body">
             <h3><span class="pt">Mestrado em Engenharia Civil</span><span class="en">MSc in Civil Engineering</span></h3>
@@ -299,7 +760,7 @@
             <p><span class="pt">Dissertação: análise termo-hidro-mecânica em meios porosos com elementos finitos de acoplamento de malhas não-conformes.</span><span class="en">Dissertation: thermo-hydro-mechanical analysis in porous media with non-conforming mesh coupling finite elements.</span></p>
           </div>
         </li>
-        <li class="tl-item">
+        <li class="tl-item rev">
           <div class="tl-date">2016</div>
           <div class="tl-body">
             <h3><span class="pt">Reservoir Geomechanics — curso de extensão</span><span class="en">Reservoir Geomechanics — short course</span></h3>
@@ -307,7 +768,7 @@
             <p><span class="pt">Carga horária: 60h.</span><span class="en">60-hour course.</span></p>
           </div>
         </li>
-        <li class="tl-item">
+        <li class="tl-item rev">
           <div class="tl-date">2011 – 2015</div>
           <div class="tl-body">
             <h3><span class="pt">Graduação em Engenharia Civil</span><span class="en">BSc in Civil Engineering</span></h3>
@@ -318,15 +779,97 @@
     </div>
   </section>
 
+  <!-- SCENE C · CPU → GPU (AABC 2022 paper) -->
+  <div class="scene" id="sceneC" style="height:340vh">
+    <div class="scene-sticky">
+      <div class="scene-fig">
+        <svg id="svgC" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect x="0" y="0" width="1600" height="900" fill="#fbfaf7"/>
+          <!-- 1 · the problem -->
+          <g id="cS1">
+            <g id="cIso" transform="translate(224,210) scale(0.72)"></g>
+            <text id="dofNum" x="800" y="250" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="96" fill="#0f1d2b">0</text>
+            <text class="pt" x="800" y="294" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#5f6b7a" letter-spacing="3">GRAUS DE LIBERDADE ACOPLADOS (u · p)</text>
+            <text class="en" x="800" y="294" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#5f6b7a" letter-spacing="3">COUPLED DEGREES OF FREEDOM (u · p)</text>
+          </g>
+          <!-- 2 · CPU die -->
+          <g id="cS2" opacity="0">
+            <g id="cpuPins"></g>
+            <rect x="560" y="250" width="480" height="360" rx="14" fill="#1a2940" stroke="#0f1d2b" stroke-width="3"/>
+            <rect x="580" y="270" width="440" height="320" rx="8" fill="none" stroke="rgba(255,255,255,.14)"/>
+            <g id="cpuCores"></g>
+            <g id="cpuQueue"></g>
+            <text class="pt" x="800" y="676" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">INTEL CORE i7-8700 · 6 NÚCLEOS · EXECUÇÃO SERIAL</text>
+            <text class="en" x="800" y="676" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">INTEL CORE i7-8700 · 6 CORES · SERIAL EXECUTION</text>
+          </g>
+          <!-- 3 · GPU card -->
+          <g id="cS3" opacity="0">
+            <rect x="400" y="240" width="800" height="350" rx="10" fill="#10263b" stroke="#0a1726" stroke-width="3"/>
+            <g id="gpuFingers"></g>
+            <rect x="448" y="278" width="524" height="264" rx="6" fill="#0a1420"/>
+            <g id="gpuDie"></g>
+            <g id="gpuFan"></g>
+            <text class="pt" x="800" y="676" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">NVIDIA TITAN XP · 3 840 CUDA CORES · 12 GB</text>
+            <text class="en" x="800" y="676" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">NVIDIA TITAN XP · 3,840 CUDA CORES · 12 GB</text>
+          </g>
+          <!-- 4 · the simulation race -->
+          <g id="cS4" opacity="0">
+            <text class="pt" x="510" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">CPU · 6 NÚCLEOS</text>
+            <text class="en" x="510" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">CPU · 6 CORES</text>
+            <text class="pt" x="1090" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">GPU · 3 840 CUDA CORES</text>
+            <text class="en" x="1090" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#2a3542" letter-spacing="2">GPU · 3,840 CUDA CORES</text>
+            <rect x="244" y="260" width="532" height="298" rx="6" fill="#101c2c" stroke="#cfcac0" stroke-width="1.5"/>
+            <rect x="824" y="260" width="532" height="298" rx="6" fill="#101c2c" stroke="#cfcac0" stroke-width="1.5"/>
+            <g id="gSimC"></g>
+            <g id="gSimG"></g>
+            <rect x="250" y="582" width="520" height="12" rx="4" fill="#e8e4d8"/>
+            <rect id="simBarC" x="250" y="582" width="0" height="12" rx="4" fill="#b64a35"/>
+            <rect x="830" y="582" width="520" height="12" rx="4" fill="#0f6f74" opacity=".15"/>
+            <rect id="simBarG" x="830" y="582" width="0" height="12" rx="4" fill="#0f6f74"/>
+            <text id="simTC" x="510" y="624" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#8a4335">64,1 min</text>
+            <text id="simTG" x="1090" y="624" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#0a5357" opacity="0">20,4 min ✓</text>
+            <text class="pt" x="800" y="672" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#8a95a1" letter-spacing="2">MESMO MODELO · MESMA MALHA · PLUMA DE PRESSÃO AVANÇANDO</text>
+            <text class="en" x="800" y="672" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#8a95a1" letter-spacing="2">SAME MODEL · SAME MESH · PRESSURE PLUME ADVANCING</text>
+          </g>
+          <!-- 5 · speedup -->
+          <g id="cS5" opacity="0">
+            <text id="spdBig" x="800" y="420" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="170" fill="#0a5357">×1</text>
+            <text class="pt" x="800" y="468" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#5f6b7a" letter-spacing="2">NO SOLVER (GRADIENTE CONJUGADO)</text>
+            <text class="en" x="800" y="468" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#5f6b7a" letter-spacing="2">IN THE SOLVER (CONJUGATE GRADIENT)</text>
+            <text id="spdL" x="420" y="600" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="66" fill="#b64a35">×1</text>
+            <text class="pt" x="420" y="636" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#5f6b7a" letter-spacing="1">MONTAGEM DAS MATRIZES</text>
+            <text class="en" x="420" y="636" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#5f6b7a" letter-spacing="1">MATRIX ASSEMBLY</text>
+            <text id="spdR" x="1180" y="600" text-anchor="middle" font-family="Fraunces,serif" font-weight="500" font-size="66" fill="#0f1d2b">×1</text>
+            <text class="pt" x="1180" y="636" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#5f6b7a" letter-spacing="1">VS CPU IMPLÍCITA</text>
+            <text class="en" x="1180" y="636" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#5f6b7a" letter-spacing="1">VS IMPLICIT CPU</text>
+            <text x="800" y="712" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#8a95a1">Joseph et al. · Anais da Academia Brasileira de Ciências · 2022</text>
+          </g>
+        </svg>
+      </div>
+      <div class="scene-cap">
+        <div class="inner">
+          <div class="cap-left">
+            <div class="cap-kicker"><span class="pt">Cena · CPU → GPU · Artigo AABC 2022</span><span class="en">Scene · CPU → GPU · AABC 2022 paper</span></div>
+            <p class="cap-text" id="capC"></p>
+          </div>
+          <div class="cap-right">
+            <span class="cap-step" id="stepC">1 / 4</span>
+            <button class="skip-btn" data-skip="sceneC">SKIP ↓</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- PUBLICATIONS -->
   <section id="publications">
     <div class="wrap">
-      <div class="sec-head">
-        <div class="top"><span class="sec-num">04</span><h2><span class="pt">Publicações</span><span class="en">Publications</span></h2></div>
+      <div class="sec-head rev">
+        <div class="top"><span class="sec-num">05</span><h2><span class="pt">Publicações</span><span class="en">Publications</span></h2></div>
         <p class="sec-sub"><span class="pt">Artigos revisados por pares, anais e teses. Lista completa no <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">ORCID</a> / <a href="http://lattes.cnpq.br/0456933468707806" target="_blank" rel="noopener">Lattes</a>.</span><span class="en">Peer-reviewed articles, proceedings and theses. Full list on <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">ORCID</a> / <a href="http://lattes.cnpq.br/0456933468707806" target="_blank" rel="noopener">Lattes</a>.</span></p>
       </div>
 
-      <div class="tabs">
+      <div class="tabs rev">
         <button class="tab active" data-tab="articles"><span class="pt">Artigos</span><span class="en">Articles</span></button>
         <button class="tab" data-tab="proceedings"><span class="pt">Anais</span><span class="en">Proceedings</span></button>
         <button class="tab" data-tab="theses"><span class="pt">Teses</span><span class="en">Theses</span></button>
@@ -415,35 +958,115 @@
     </div>
   </section>
 
+  <!-- SCENE E · FLOW ↔ GEOMECHANICS COUPLING -->
+  <div class="scene" id="sceneE" style="height:340vh">
+    <div class="scene-sticky">
+      <div class="scene-fig">
+        <svg id="svgE" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect x="0" y="0" width="1600" height="900" fill="#fbfaf7"/>
+          <!-- FLOW panel -->
+          <g id="eFlow" opacity="0">
+            <rect x="150" y="240" width="560" height="380" rx="10" fill="#101c2c" stroke="#cfcac0" stroke-width="2"/>
+            <text class="pt" x="430" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#0a5357" letter-spacing="2">SIMULADOR DE FLUXO · PRESSÃO</text>
+            <text class="en" x="430" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#0a5357" letter-spacing="2">FLOW SIMULATOR · PRESSURE</text>
+            <g id="eCells"></g>
+            <line x1="430" y1="248" x2="430" y2="300" stroke="#fbfaf7" stroke-width="3"/>
+            <path d="M424,300 L436,300 L430,312 Z" fill="#fbfaf7"/>
+            <text class="pt" x="446" y="268" font-family="IBM Plex Mono,monospace" font-size="13" fill="#9fb0bf">poço produtor</text>
+            <text class="en" x="446" y="268" font-family="IBM Plex Mono,monospace" font-size="13" fill="#9fb0bf">producing well</text>
+          </g>
+          <!-- GEO panel -->
+          <g id="eGeo" opacity="0">
+            <rect x="890" y="240" width="560" height="380" rx="10" fill="rgba(251,250,247,.9)" stroke="#cfcac0" stroke-width="2"/>
+            <text class="pt" x="1170" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#8a4335" letter-spacing="2">SIMULADOR GEOMECÂNICO · σ e ε</text>
+            <text class="en" x="1170" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" fill="#8a4335" letter-spacing="2">GEOMECHANICS SIMULATOR · σ &amp; ε</text>
+            <ellipse id="eComp" cx="1170" cy="450" rx="150" ry="60" fill="rgba(182,74,53,.0)"/>
+            <g id="eMesh" stroke="#2a3542" stroke-width="1.5" fill="none"></g>
+            <line id="eSurf0" x1="910" y1="270" x2="1430" y2="270" stroke="#8a95a1" stroke-width="2" stroke-dasharray="7 6" opacity="0"/>
+          </g>
+          <!-- blocked question mark (stage 2) -->
+          <g id="eQm" opacity="0">
+            <line x1="718" y1="430" x2="880" y2="430" stroke="#b64a35" stroke-width="3" stroke-dasharray="6 8"/>
+            <line x1="860" y1="400" x2="860" y2="460" stroke="#b64a35" stroke-width="4"/>
+            <text x="800" y="392" text-anchor="middle" font-family="Fraunces,serif" font-size="56" fill="#b64a35">?</text>
+          </g>
+          <!-- coupling bridge -->
+          <g id="eBridge" opacity="0">
+            <path d="M700,330 C760,300 840,300 900,330" fill="none" stroke="#0f6f74" stroke-width="3.5"/>
+            <path d="M900,330 L886,318 L890,334 Z" fill="#0f6f74"/>
+            <path d="M900,520 C840,550 760,550 700,520" fill="none" stroke="#b64a35" stroke-width="3.5"/>
+            <path d="M700,520 L714,532 L710,516 Z" fill="#b64a35"/>
+            <rect class="svg-label-box" x="742" y="262" width="116" height="26"/>
+            <text class="svg-label" x="756" y="280">p → σ′−αp</text>
+            <rect class="svg-label-box" x="738" y="560" width="124" height="26"/>
+            <text class="svg-label" x="752" y="578">εv → φ , k</text>
+            <g id="ePkTeal" fill="#2f9a93"></g>
+            <g id="ePkRed" fill="#d66c54"></g>
+          </g>
+          <!-- time loop (stage 4) -->
+          <g id="eLoop" opacity="0">
+            <circle cx="800" cy="425" r="52" fill="none" stroke="#5f6b7a" stroke-width="2.5" stroke-dasharray="6 7"/>
+            <circle id="eLoopDot" cx="800" cy="373" r="8" fill="#0f6f74"/>
+            <text id="eStepN" x="800" y="432" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="16" fill="#2a3542">n = 1/8</text>
+          </g>
+          <!-- THM badge (stage 5) -->
+          <g id="eBadge" opacity="0">
+            <rect x="676" y="118" width="248" height="62" rx="10" fill="#0f1d2b"/>
+            <text class="pt" x="800" y="157" text-anchor="middle" font-family="Fraunces,serif" font-size="27" fill="#ffffff">Acoplado · THM</text>
+            <text class="en" x="800" y="157" text-anchor="middle" font-family="Fraunces,serif" font-size="27" fill="#ffffff">Coupled · THM</text>
+          </g>
+          <!-- result checks (stage 5) -->
+          <g id="eChecks" opacity="0" font-family="IBM Plex Mono,monospace" font-size="15">
+            <text class="pt" x="800" y="688" text-anchor="middle" fill="#0a5357">✓ compactação &nbsp;&nbsp; ✓ subsidência &nbsp;&nbsp; ✓ k(t) atualizada</text>
+            <text class="en" x="800" y="688" text-anchor="middle" fill="#0a5357">✓ compaction &nbsp;&nbsp; ✓ subsidence &nbsp;&nbsp; ✓ updated k(t)</text>
+          </g>
+        </svg>
+      </div>
+      <div class="scene-cap">
+        <div class="inner">
+          <div class="cap-left">
+            <div class="cap-kicker"><span class="pt">Cena · Fluxo ↔ Geomecânica</span><span class="en">Scene · Flow ↔ Geomechanics</span></div>
+            <p class="cap-text" id="capE"></p>
+          </div>
+          <div class="cap-right">
+            <span class="cap-step" id="stepE">1 / 5</span>
+            <button class="skip-btn" data-skip="sceneE">SKIP ↓</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- SKILLS -->
+
   <section id="skills">
     <div class="wrap">
-      <div class="sec-head">
-        <div class="top"><span class="sec-num">05</span><h2><span class="pt">Competências</span><span class="en">Skills</span></h2></div>
+      <div class="sec-head rev">
+        <div class="top"><span class="sec-num">06</span><h2><span class="pt">Competências</span><span class="en">Skills</span></h2></div>
         <p class="sec-sub"><span class="pt">Competências técnicas e idiomas.</span><span class="en">Technical competencies and languages.</span></p>
       </div>
       <div class="skills-grid">
-        <div class="skill-group">
+        <div class="skill-group rev">
           <h3><span class="pt">Programação</span><span class="en">Programming</span></h3>
           <div class="skill-list"><span>Python</span><span>MATLAB (GPU)</span><span>NumPy / SciPy</span><span>FISH (FLAC3D)</span><span>SQL</span></div>
         </div>
-        <div class="skill-group">
+        <div class="skill-group rev">
           <h3><span class="pt">Métodos Numéricos</span><span class="en">Numerical Methods</span></h3>
           <div class="skill-list"><span>FEM</span><span>FDM</span><span><span class="pt">Métodos sem malha</span><span class="en">Meshless methods</span></span><span><span class="pt">Malhas não-conformes</span><span class="en">Non-conforming meshes</span></span><span>HPC GPU/CPU</span></div>
         </div>
-        <div class="skill-group">
+        <div class="skill-group rev">
           <h3><span class="pt">Simulação &amp; Modelagem</span><span class="en">Simulation &amp; Modeling</span></h3>
           <div class="skill-list"><span>FLAC3D</span><span>CODE_BRIGHT</span><span>OPM Flow</span><span><span class="pt">Acoplamento THM</span><span class="en">THM coupling</span></span><span>ParaView</span></div>
         </div>
-        <div class="skill-group">
+        <div class="skill-group rev">
           <h3><span class="pt">Geomecânica</span><span class="en">Geomechanics</span></h3>
           <div class="skill-list"><span><span class="pt">Fluência do sal</span><span class="en">Salt creep</span></span><span><span class="pt">Cavidades salinas / fechamento de minas</span><span class="en">Salt caverns / mine closure</span></span><span><span class="pt">Fraturamento hidráulico</span><span class="en">Hydraulic fracturing</span></span><span><span class="pt">Estabilidade de taludes</span><span class="en">Slope stability</span></span><span><span class="pt">Integridade de poços</span><span class="en">Well integrity</span></span></div>
         </div>
-        <div class="skill-group">
+        <div class="skill-group rev">
           <h3>IA &amp; Data</h3>
           <div class="skill-list"><span>RAG / LLM</span><span>Streamlit</span><span>Dashboards</span><span>Azure</span></div>
         </div>
-        <div class="skill-group">
+        <div class="skill-group rev">
           <h3><span class="pt">Idiomas</span><span class="en">Languages</span></h3>
           <div class="lang-list">
             <div class="lang-row"><span class="nm">Français</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
@@ -455,8 +1078,96 @@
     </div>
   </section>
 
+  <!-- MINI-LAB -->
+  <section id="lab">
+    <div class="wrap">
+      <div class="sec-head rev">
+        <div class="top"><span class="sec-num">07</span><h2><span class="pt">Laboratório Geomecânico</span><span class="en">Geomechanics Mini-Lab</span></h2></div>
+        <p class="sec-sub"><span class="pt">Mexa nos parâmetros — a física responde em tempo real.</span><span class="en">Move the sliders — the physics responds in real time.</span></p>
+      </div>
+
+      <div class="ltabs rev">
+        <button class="ltab active" data-ltab="creep"><span class="pt">Fluência do sal</span><span class="en">Salt creep</span></button>
+        <button class="ltab" data-ltab="kirsch"><span class="pt">Tensões no poço (Kirsch)</span><span class="en">Wellbore stresses (Kirsch)</span></button>
+      </div>
+
+      <!-- creep panel -->
+      <div class="ltab-panel active" data-lpanel="creep">
+        <div class="lab-grid">
+          <div class="lab-ctls">
+            <div class="ctl">
+              <div class="lbl"><span><span class="pt">Tensão desviadora σ</span><span class="en">Deviatoric stress σ</span></span><b id="oSig">15 MPa</b></div>
+              <input type="range" id="sSig" min="5" max="25" step="0.5" value="15">
+            </div>
+            <div class="ctl">
+              <div class="lbl"><span><span class="pt">Temperatura T</span><span class="en">Temperature T</span></span><b id="oTem">60 °C</b></div>
+              <input type="range" id="sTem" min="40" max="100" step="1" value="60">
+            </div>
+            <div class="ctl">
+              <div class="lbl"><span><span class="pt">Horizonte de tempo</span><span class="en">Time horizon</span></span><b id="oHor">30 <span class="pt">anos</span><span class="en">yrs</span></b></div>
+              <input type="range" id="sHor" min="5" max="50" step="1" value="30">
+            </div>
+            <div class="lab-formula">ε̇ = A · e^(−Q/RT) · σⁿ &nbsp;·&nbsp; n = 5 · Q = 54 kJ/mol</div>
+            <div class="lab-note"><span class="pt">modelo didático · parâmetros ilustrativos de halita — não usar em projeto</span><span class="en">teaching model · illustrative halite parameters — not for design</span></div>
+          </div>
+          <div class="lab-viz">
+            <div class="lab-read">
+              <div class="lab-chip"><span class="k"><span class="pt">taxa de fluência</span><span class="en">creep rate</span></span><span class="v" id="rEps">—</span></div>
+              <div class="lab-chip"><span class="k"><span class="pt">fechamento volumétrico</span><span class="en">volumetric closure</span></span><span class="v" id="rRate">—</span></div>
+              <div class="lab-chip"><span class="k"><span class="pt">fechamento no horizonte</span><span class="en">closure at horizon</span></span><span class="v" id="rClose">—</span></div>
+            </div>
+            <div class="vrow">
+              <svg id="creepChart" viewBox="0 0 420 280" aria-hidden="true"></svg>
+              <svg id="creepCav" viewBox="0 0 120 220" aria-hidden="true">
+                <path id="cavRef" d="M48,40 C36,46 30,62 30,84 C30,116 42,132 60,132 C78,132 90,116 90,84 C90,62 84,46 72,40 Z" fill="none" stroke="#cfcac0" stroke-width="2" stroke-dasharray="5 5" transform="translate(0,20)"/>
+                <path id="cavNow" d="M48,40 C36,46 30,62 30,84 C30,116 42,132 60,132 C78,132 90,116 90,84 C90,62 84,46 72,40 Z" fill="rgba(15,111,116,.18)" stroke="#0a5357" stroke-width="2.5" transform="translate(0,20)"/>
+                <text x="60" y="196" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f6b7a"><tspan class="pt">caverna</tspan><tspan class="en">cavern</tspan></text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- kirsch panel -->
+      <div class="ltab-panel" data-lpanel="kirsch">
+        <div class="lab-grid">
+          <div class="lab-ctls">
+            <div class="ctl">
+              <div class="lbl"><span>σH <span class="pt">(horizontal maior)</span><span class="en">(max horizontal)</span></span><b id="oSH">40 MPa</b></div>
+              <input type="range" id="sSH" min="20" max="60" step="1" value="40">
+            </div>
+            <div class="ctl">
+              <div class="lbl"><span>σh <span class="pt">(horizontal menor)</span><span class="en">(min horizontal)</span></span><b id="oSh">25 MPa</b></div>
+              <input type="range" id="sSh" min="10" max="60" step="1" value="25">
+            </div>
+            <div class="ctl">
+              <div class="lbl"><span><span class="pt">Pressão da lama p</span><span class="en">Mud pressure p</span></span><b id="oPw">20 MPa</b></div>
+              <input type="range" id="sPw" min="5" max="45" step="1" value="20">
+            </div>
+            <div class="ctl">
+              <div class="lbl"><span><span class="pt">Resistência da rocha (UCS)</span><span class="en">Rock strength (UCS)</span></span><b id="oUcs">70 MPa</b></div>
+              <input type="range" id="sUcs" min="40" max="120" step="2" value="70">
+            </div>
+            <div class="lab-formula">σθ = σH + σh − 2(σH−σh)·cos 2θ − p</div>
+            <div class="lab-note"><span class="pt">solução de Kirsch (elástica, poço vertical) · modelo didático</span><span class="en">Kirsch solution (elastic, vertical well) · teaching model</span></div>
+          </div>
+          <div class="lab-viz">
+            <div class="lab-read">
+              <div class="lab-chip"><span class="k" style="text-transform:none">σθ máx</span><span class="v" id="kMax">—</span></div>
+              <div class="lab-chip"><span class="k" style="text-transform:none">σθ mín</span><span class="v" id="kMin">—</span></div>
+              <div class="lab-chip" id="kStatusChip"><span class="k"><span class="pt">parede do poço</span><span class="en">borehole wall</span></span><span class="v" id="kStatus">—</span></div>
+            </div>
+            <svg id="kirschSvg" viewBox="0 0 420 300" aria-hidden="true"></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
+
   <footer id="contact">
+    <canvas id="footCanvas" aria-hidden="true"></canvas>
     <div class="wrap">
       <div class="foot-eyebrow"><span class="pt">Contato</span><span class="en">Contact</span></div>
       <h2><span class="pt">Interessado em geomecânica, simulação ou uma colaboração?</span><span class="en">Interested in geomechanics, simulation or a collaboration?</span></h2>
@@ -466,34 +1177,959 @@
         <a href="https://github.com/Jeanbjoseph" target="_blank" rel="noopener">GitHub</a>
         <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">ORCID</a>
         <a href="http://lattes.cnpq.br/0456933468707806" target="_blank" rel="noopener">Lattes</a>
+        <a href="https://simgroup.com.br" target="_blank" rel="noopener">AI SIM</a>
       </div>
       <div class="foot-bottom">
         <span>Jean Baptiste Joseph, PhD · Recife, Brazil</span>
-        <span>ORCID · <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">0000-0002-5625-8487</a></span>
+        <span>ORCID <a href="https://orcid.org/0000-0002-5625-8487" target="_blank" rel="noopener">0000-0002-5625-8487</a> · <span class="pt">Atualizado nov 2026</span><span class="en">Updated Nov 2026</span></span>
       </div>
     </div>
   </footer>
 </main>
 
 <script>
-  var btn=document.getElementById('langBtn'),root=document.documentElement;
-  btn.addEventListener('click',function(){var n=root.lang==='pt'?'en':'pt';root.lang=n;btn.textContent=n==='pt'?'EN':'PT';});
-  var menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
-  function closeMenu(){navLinks.classList.remove('open');menuBtn.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}
-  menuBtn.addEventListener('click',function(){
-    var open=navLinks.classList.toggle('open');
-    menuBtn.classList.toggle('open',open);
-    menuBtn.setAttribute('aria-expanded',open?'true':'false');
+(function(){
+"use strict";
+var root=document.documentElement;
+var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function clamp(v,a,b){return v<a?a:(v>b?b:v)}
+function lerp(a,b,t){return a+(b-a)*t}
+function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+/* ---------- language ---------- */
+var btn=document.getElementById('langBtn');
+btn.addEventListener('click',function(){var n=root.lang==='pt'?'en':'pt';root.lang=n;btn.textContent=n==='pt'?'EN':'PT';updateCaps();});
+
+/* ---------- menu ---------- */
+var menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
+function closeMenu(){navLinks.classList.remove('open');menuBtn.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}
+menuBtn.addEventListener('click',function(){
+  var open=navLinks.classList.toggle('open');
+  menuBtn.classList.toggle('open',open);
+  menuBtn.setAttribute('aria-expanded',open?'true':'false');
+});
+navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    var id=t.getAttribute('data-tab');
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+    document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.toggle('active',p.getAttribute('data-panel')===id)});
+    t.classList.add('active');
   });
-  navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
-  document.querySelectorAll('.tab').forEach(function(t){
+});
+
+/* ---------- scroll progress + active nav ---------- */
+var progress=document.getElementById('progress');
+var sections=['about','expertise','experience','projects','education','publications','skills','lab'];
+var navAs={};
+navLinks.querySelectorAll('a').forEach(function(a){navAs[a.getAttribute('href').slice(1)]=a;});
+function onScrollBar(){
+  var h=document.documentElement.scrollHeight-window.innerHeight;
+  progress.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  var cur=sections[0];
+  for(var i=0;i<sections.length;i++){
+    var el=document.getElementById(sections[i]);
+    if(el&&el.getBoundingClientRect().top<window.innerHeight*0.45)cur=sections[i];
+  }
+  sections.forEach(function(s){if(navAs[s])navAs[s].classList.toggle('active',s===cur);});
+}
+
+/* ---------- reveal ---------- */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.15});
+document.querySelectorAll('.rev').forEach(function(el){io.observe(el);});
+
+/* ---------- count-up ---------- */
+var cio=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var el=e.target,target=+el.getAttribute('data-count'),t0=null;
+    cio.unobserve(el);
+    if(reduced){el.textContent=target;return;}
+    function tick(ts){
+      if(!t0)t0=ts;
+      var p=clamp((ts-t0)/1100,0,1);
+      el.textContent=Math.round(ease(p)*target);
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el);});
+
+/* ---------- hero creep mesh ---------- */
+(function(){
+  var cv=document.getElementById('meshCanvas'),hero=document.getElementById('about');
+  if(!cv)return;
+  var ctx=cv.getContext('2d'),W=0,H=0,cols=0,rows=0,sp=54,nodes=[],mx=-9999,my=-9999,running=false,raf=null;
+  function build(){
+    var r=hero.getBoundingClientRect();
+    W=Math.round(r.width);H=Math.round(r.height);
+    var dpr=Math.min(window.devicePixelRatio||1,2);
+    cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+'px';cv.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    cols=Math.ceil(W/sp)+1;rows=Math.ceil(H/sp)+1;
+    nodes=[];
+    for(var j=0;j<rows;j++)for(var i=0;i<cols;i++){
+      var x=i*sp,y=j*sp;
+      nodes.push({rx:x,ry:y,x:x,y:y,vx:0,vy:0});
+    }
+    draw();
+  }
+  function step(){
+    var moved=false;
+    for(var n=0;n<nodes.length;n++){
+      var p=nodes[n];
+      var dx=p.x-mx,dy=p.y-my,d2=dx*dx+dy*dy,R=130;
+      if(d2<R*R&&d2>0.01){
+        var d=Math.sqrt(d2),f=(1-d/R)*2.4;
+        p.vx+=dx/d*f;p.vy+=dy/d*f;
+      }
+      p.vx+=(p.rx-p.x)*0.012;p.vy+=(p.ry-p.y)*0.012;
+      p.vx*=0.9;p.vy*=0.9;
+      p.x+=p.vx;p.y+=p.vy;
+      if(Math.abs(p.vx)+Math.abs(p.vy)>0.02||Math.abs(p.x-p.rx)+Math.abs(p.y-p.ry)>0.5)moved=true;
+    }
+    draw();
+    if(moved||mx>-9000){raf=requestAnimationFrame(step);}else{running=false;}
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var j=0;j<rows;j++)for(var i=0;i<cols;i++){
+      var a=nodes[j*cols+i];
+      if(i<cols-1)seg(a,nodes[j*cols+i+1],sp);
+      if(j<rows-1)seg(a,nodes[(j+1)*cols+i],sp);
+    }
+  }
+  function seg(a,b,rest){
+    var dx=b.x-a.x,dy=b.y-a.y,len=Math.sqrt(dx*dx+dy*dy),strain=Math.abs(len-rest)/rest;
+    if(strain>0.06){
+      var al=clamp(strain*2.2,0,0.5);
+      ctx.strokeStyle='rgba(182,74,53,'+al.toFixed(3)+')';
+    }else{
+      ctx.strokeStyle='rgba(15,111,116,0.13)';
+    }
+    ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+  }
+  function kick(){if(!running&&!reduced){running=true;raf=requestAnimationFrame(step);}}
+  hero.addEventListener('mousemove',function(e){
+    var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;kick();
+  });
+  hero.addEventListener('mouseleave',function(){mx=-9999;my=-9999;kick();});
+  var rto=null;
+  window.addEventListener('resize',function(){clearTimeout(rto);rto=setTimeout(build,180);});
+  build();
+})();
+
+/* ---------- generic scene scrubber ---------- */
+function makeScene(id,updateFn,capEl,stepEl,caps){
+  var el=document.getElementById(id);
+  if(!el)return null;
+  var sc={el:el,update:updateFn,cap:capEl,step:stepEl,caps:caps,last:-1};
+  el.querySelectorAll('.skip-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var r=el.getBoundingClientRect();
+      window.scrollTo({top:window.scrollY+r.bottom-window.innerHeight+2,behavior:reduced?'auto':'smooth'});
+    });
+  });
+  return sc;
+}
+var sceneList=[];
+function sceneScroll(){
+  for(var i=0;i<sceneList.length;i++){
+    var sc=sceneList[i];if(!sc)continue;
+    var r=sc.el.getBoundingClientRect();
+    var total=r.height-window.innerHeight;
+    var p=total>0?clamp(-r.top/total,0,1):1;
+    if(reduced)p=1;
+    if(Math.abs(p-sc.last)<0.0005)continue;
+    sc.last=p;
+    sc.update(p);
+    var N=sc.caps.pt.length;
+    var s=Math.min(N,Math.floor(p*N)+1);
+    sc.step.textContent=s+' / '+N;
+    var lang=root.lang==='en'?'en':'pt';
+    sc.cap.textContent=sc.caps[lang][s-1];
+  }
+}
+function updateCaps(){sceneList.forEach(function(sc){if(sc){sc.last=-1;}});sceneScroll();}
+
+/* ---------- SCENE A : salt cavern ---------- */
+(function(){
+  var cav=document.getElementById('cav'),well=document.getElementById('well'),rig=document.getElementById('rig'),
+      skyDip=document.getElementById('skyDip'),surf0=document.getElementById('surf0'),creep=document.getElementById('creepArr');
+  if(!cav)return;
+  var caps={
+    pt:[
+      'Um poço é perfurado através do overburden e do caprock até o corpo de sal — a mineração por dissolução começa com injeção de água.',
+      'A água dissolve a halita e a caverna cresce; a salmoura é produzida para a superfície. O sonar mede a geometria.',
+      'Com o tempo o sal flui como um fluido muito viscoso: é a fluência (creep). As paredes convergem e a caverna perde volume.',
+      'A convergência em profundidade se propaga até a superfície como uma bacia suave de subsidência — monitorada por InSAR, GPS e nivelamento.'
+    ],
+    en:[
+      'A well is drilled through the overburden and caprock into the salt body — solution mining starts with water injection.',
+      'Water dissolves the halite and the cavern grows; brine is produced to surface. Sonar surveys measure the geometry.',
+      'Over time salt flows like a very viscous fluid: creep. The walls converge and the cavern loses volume.',
+      'Convergence at depth propagates upward as a gentle subsidence bowl at surface — monitored by InSAR, GPS and leveling.'
+    ]
+  };
+  var lbls={lblOver:1,lblCap:1,lblSalt:1,lblCav:2,lblSub:4};
+  function cavPath(w,yb){
+    var cx=800,yr=565,ym=lerp(yr,yb,0.45);
+    var nw=w*0.45,bw=w*0.8;
+    return 'M'+(cx-nw)+','+yr+
+      ' C'+(cx-w)+','+(yr+30)+' '+(cx-w)+','+(ym)+' '+(cx-w)+','+(ym+20)+
+      ' C'+(cx-w)+','+(yb-30)+' '+(cx-bw)+','+yb+' '+cx+','+yb+
+      ' C'+(cx+bw)+','+yb+' '+(cx+w)+','+(yb-30)+' '+(cx+w)+','+(ym+20)+
+      ' C'+(cx+w)+','+(ym)+' '+(cx+w)+','+(yr+30)+' '+(cx+nw)+','+yr+' Z';
+  }
+  function skyPath(A){
+    var pts='M0,0 L1600,0 L1600,200 ';
+    for(var x=1600;x>=0;x-=25){
+      var g=Math.exp(-Math.pow((x-800)/260,2));
+      pts+='L'+x+','+(200+A*g).toFixed(1)+' ';
+    }
+    return pts+'Z';
+  }
+  // build creep arrows
+  var arrDefs=[[660,620,1],[648,700,1],[700,788,0.6],[940,620,-1],[952,700,-1],[900,788,-0.6]];
+  var NS='http://www.w3.org/2000/svg';
+  arrDefs.forEach(function(d){
+    var g=document.createElementNS(NS,'g');
+    var x=d[0],y=d[1],dir=d[2],L=34*Math.abs(dir),sx=dir>0?1:-1;
+    var ln=document.createElementNS(NS,'line');
+    ln.setAttribute('x1',x);ln.setAttribute('y1',y);ln.setAttribute('x2',x+sx*L);ln.setAttribute('y2',y);
+    var hd=document.createElementNS(NS,'path');
+    var tip=x+sx*L;
+    hd.setAttribute('d','M'+tip+','+y+' L'+(tip-sx*10)+','+(y-6)+' L'+(tip-sx*10)+','+(y+6)+' Z');
+    hd.setAttribute('stroke','none');
+    g.appendChild(ln);g.appendChild(hd);
+    creep.appendChild(g);
+  });
+  function upd(p){
+    var s=p*4;
+    var t1=ease(clamp(s,0,1)),t2=ease(clamp(s-1,0,1)),t3=ease(clamp(s-2,0,1)),t4=ease(clamp(s-3,0,1));
+    rig.setAttribute('opacity',clamp(t1*1.4,0,1));
+    well.setAttribute('y2',lerp(200,600,t1));
+    var w0=lerp(10,135,t2),c=lerp(1,0.72,t3),w=w0*c;
+    var yb=lerp(615,800,t2)-26*t3;
+    cav.setAttribute('d',cavPath(w,yb));
+    cav.setAttribute('opacity',clamp(t2*2,0,1));
+    creep.setAttribute('opacity',t3>0&&t3<1?Math.sin(t3*Math.PI):(t3>=1&&t4<0.4?0.35:0));
+    var A=lerp(0,46,t4);
+    skyDip.setAttribute('d',skyPath(A));
+    surf0.setAttribute('opacity',t4*0.9);
+    for(var k in lbls){
+      var el=document.getElementById(k),stage=lbls[k];
+      var tt=[t1,t2,t3,t4][stage-1];
+      el.setAttribute('opacity',clamp(tt*1.6-0.3,0,1));
+    }
+  }
+  var sc=makeScene('sceneA',upd,document.getElementById('capA'),document.getElementById('stepA'),caps);
+  sceneList.push(sc);
+  upd(0);
+})();
+
+/* ---------- SCENE B : log → MEM → mud window ---------- */
+(function(){
+  var svg=document.getElementById('svgB');
+  if(!svg)return;
+  var NS='http://www.w3.org/2000/svg';
+  var yTop=160,yBot=820;
+  var rnd=mulberry32(42);
+  function noiseCurve(n,smooth){
+    var v=[],x=0;
+    for(var i=0;i<n;i++){x=x*smooth+(rnd()*2-1)*(1-smooth);v.push(x);}
+    var mx=0;v.forEach(function(a){mx=Math.max(mx,Math.abs(a))});
+    return v.map(function(a){return a/(mx||1)});
+  }
+  function poly(parent,pts,color,wdt,dash){
+    var p=document.createElementNS(NS,'polyline');
+    p.setAttribute('points',pts.map(function(q){return q[0].toFixed(1)+','+q[1].toFixed(1)}).join(' '));
+    p.setAttribute('fill','none');p.setAttribute('stroke',color);p.setAttribute('stroke-width',wdt);
+    if(dash)p.setAttribute('stroke-dasharray',dash);
+    parent.appendChild(p);return p;
+  }
+  function label(parent,x,y,txt,color){
+    var t=document.createElementNS(NS,'text');
+    t.setAttribute('x',x);t.setAttribute('y',y);
+    t.setAttribute('font-family','IBM Plex Mono,monospace');t.setAttribute('font-size','15');
+    t.setAttribute('fill',color);t.textContent=txt;
+    parent.appendChild(t);return t;
+  }
+  var N=120,ys=[];
+  for(var i=0;i<=N;i++)ys.push(yTop+(yBot-yTop)*i/N);
+  // stage 1: raw logs
+  var g1=document.getElementById('gLogs');
+  var gr=noiseCurve(N+1,0.72),dt=noiseCurve(N+1,0.78);
+  poly(g1,ys.map(function(y,i){return[440+gr[i]*110,y]}),'#b64a35',2);
+  poly(g1,ys.map(function(y,i){return[760+dt[i]*90,y]}),'#0f6f74',2);
+  poly(g1,ys.map(function(y,i){return[1060+noiseCurveCache(i),y]}),'#5f6b7a',1.5);
+  function noiseCurveCache(i){if(!noiseCurveCache.v)noiseCurveCache.v=noiseCurve(N+1,0.75);return noiseCurveCache.v[i]*80}
+  label(g1,400,214,'GR','#b64a35');label(g1,730,214,'DT','#0a5357');label(g1,1030,214,'RHOB','#5f6b7a');
+  // stage 2: elastic props
+  var g2=document.getElementById('gElas');
+  var e1=noiseCurve(N+1,0.93),e2=noiseCurve(N+1,0.95);
+  poly(g2,ys.map(function(y,i){return[520+e1[i]*70+(y-yTop)*0.06,y]}),'#0f6f74',2.5);
+  poly(g2,ys.map(function(y,i){return[940+e2[i]*55,y]}),'#b64a35',2.5);
+  label(g2,470,214,'E (GPa)','#0a5357');label(g2,900,214,'ν (-)','#b64a35');
+  // stage 3: stresses
+  var g3=document.getElementById('gStress');
+  var sh=noiseCurve(N+1,0.96);
+  poly(g3,ys.map(function(y){return[300+(y-yTop)*0.52,y]}),'#5c99c4',2.5,'7 6');
+  poly(g3,ys.map(function(y,i){return[330+(y-yTop)*0.86+sh[i]*26,y]}),'#0f6f74',2.5);
+  poly(g3,ys.map(function(y){return[360+(y-yTop)*1.18,y]}),'#0f1d2b',2.5);
+  label(g3,320,214,'Pp','#5c99c4');label(g3,760,214,'σh','#0a5357');label(g3,1080,214,'σv','#0f1d2b');
+  // stage 4: mud window
+  var g4=document.getElementById('gWin');
+  var co=noiseCurve(N+1,0.94),fr=noiseCurve(N+1,0.96);
+  var colPts=ys.map(function(y,i){return[430+(y-yTop)*0.62+co[i]*30,y]});
+  var frPts=ys.map(function(y,i){return[720+(y-yTop)*0.92+fr[i]*24,y]});
+  var area=document.createElementNS(NS,'path');
+  var d='M'+colPts.map(function(q){return q[0].toFixed(1)+','+q[1].toFixed(1)}).join(' L');
+  d+=' L'+frPts.slice().reverse().map(function(q){return q[0].toFixed(1)+','+q[1].toFixed(1)}).join(' L')+' Z';
+  area.setAttribute('d',d);area.setAttribute('fill','rgba(15,111,116,0.13)');area.setAttribute('stroke','none');
+  g4.appendChild(area);
+  poly(g4,colPts,'#b64a35',2.5);
+  poly(g4,frPts,'#0f1d2b',2.5);
+  poly(g4,ys.map(function(y){return[575+(y-yTop)*0.77,y]}),'#0a5357',3,'2 7');
+  label(g4,400,214,'colapso','#b64a35').id='wColl';
+  label(g4,690,214,'fratura','#0f1d2b').id='wFrac';
+  label(g4,980,214,'janela de lama','#0a5357').id='wWin';
+  var caps={
+    pt:[
+      'Tudo começa nos perfis do poço: raios gama, sônico e densidade registrados metro a metro ao longo da profundidade.',
+      'Correlações e física de rochas transformam os perfis em propriedades mecânicas: módulo de elasticidade e coeficiente de Poisson.',
+      'Com as propriedades e a pressão de poros nasce o MEM — o modelo geomecânico 1D: Pp, tensão horizontal σh e sobrecarga σv.',
+      'O resultado prático: a janela de lama. Entre o colapso do poço e a fratura da formação está a faixa segura para perfurar.'
+    ],
+    en:[
+      'It all starts with well logs: gamma ray, sonic and density recorded meter by meter along depth.',
+      'Correlations and rock physics turn logs into mechanical properties: Young’s modulus and Poisson’s ratio.',
+      'Adding pore pressure yields the 1D MEM — the mechanical earth model: Pp, horizontal stress σh and overburden σv.',
+      'The practical result: the mud window. Between borehole collapse and formation fracture lies the safe drilling margin.'
+    ]
+  };
+  var bit=document.getElementById('bitLine');
+  function upd(p){
+    var s=clamp(p*4,0,4);
+    function op(ci){return clamp(1.8-Math.abs(s-ci)*1.4,0,1)}
+    g1.setAttribute('opacity',s<0.5?1:op(0.5));
+    g2.setAttribute('opacity',op(1.5));
+    g3.setAttribute('opacity',op(2.5));
+    g4.setAttribute('opacity',s>3.5?1:op(3.5));
+    var y=lerp(yTop,yBot,clamp(p,0,1));
+    bit.setAttribute('y1',y);bit.setAttribute('y2',y);
+    var en=root.lang==='en';
+    document.getElementById('axTitle').textContent=en?'DEPTH':'PROFUNDIDADE';
+    var wc=document.getElementById('wColl'),wf=document.getElementById('wFrac'),ww=document.getElementById('wWin');
+    if(wc){wc.textContent=en?'collapse':'colapso';wf.textContent=en?'fracture':'fratura';ww.textContent=en?'mud window':'janela de lama';}
+  }
+  var sc=makeScene('sceneB',upd,document.getElementById('capB'),document.getElementById('stepB'),caps);
+  sceneList.push(sc);
+  upd(0);
+})();
+
+/* ---------- SCENE C : CPU → GPU (AABC 2022) ---------- */
+(function(){
+  var svg=document.getElementById('svgC');
+  if(!svg)return;
+  var NS='http://www.w3.org/2000/svg';
+  function hex2rgb(c){return[parseInt(c.slice(1,3),16),parseInt(c.slice(3,5),16),parseInt(c.slice(5,7),16)]}
+  function mix(a,b,t){
+    var A=hex2rgb(a),B=hex2rgb(b);
+    return 'rgb('+Math.round(lerp(A[0],B[0],t))+','+Math.round(lerp(A[1],B[1],t))+','+Math.round(lerp(A[2],B[2],t))+')';
+  }
+  function el(tag,attrs,parent){
+    var e=document.createElementNS(NS,tag);
+    for(var k in attrs)e.setAttribute(k,attrs[k]);
+    parent.appendChild(e);return e;
+  }
+  /* --- stage 1: iso mesh block --- */
+  (function(){
+    var g=document.getElementById('cIso');
+    var NI=14,NJ=10,w=40,h=20,ox=800,oy=130,D=150;
+    function px(i,j){return ox+(i-j)*w}
+    function py(i,j){return oy+(i+j)*h}
+    var cL=[px(0,NJ),py(0,NJ)],cM=[px(NI,NJ),py(NI,NJ)],cR=[px(NI,0),py(NI,0)];
+    [[0,0.3,'#cfc9ba'],[0.3,0.62,'#b9b2a0'],[0.62,1,'#303d55']].forEach(function(b){
+      [[cL,cM],[cM,cR]].forEach(function(pr){
+        el('path',{d:'M'+pr[0][0]+','+(pr[0][1]+D*b[0])+' L'+pr[1][0]+','+(pr[1][1]+D*b[0])+' L'+pr[1][0]+','+(pr[1][1]+D*b[1])+' L'+pr[0][0]+','+(pr[0][1]+D*b[1])+' Z',fill:b[2],stroke:'#9b9486','stroke-width':'0.6'},g);
+      });
+    });
+    for(var j=0;j<NJ;j++)for(var i=0;i<NI;i++){
+      el('path',{d:'M'+px(i,j)+','+py(i,j)+' L'+px(i+1,j)+','+py(i+1,j)+' L'+px(i+1,j+1)+','+py(i+1,j+1)+' L'+px(i,j+1)+','+py(i,j+1)+' Z',fill:((i+j)%2===0)?'#e3ded0':'#dcd6c6',stroke:'#b5ae9f','stroke-width':'1'},g);
+    }
+  })();
+  /* --- stage 2: CPU cores + queue --- */
+  var cores=[],queueSq=[];
+  (function(){
+    var gc=document.getElementById('cpuCores');
+    for(var r=0;r<2;r++)for(var c=0;c<3;c++){
+      var x=606+c*134,y=306+r*134;
+      var rect=el('rect',{x:x,y:y,width:118,height:118,rx:8,fill:'#223450',stroke:'rgba(255,255,255,.22)','stroke-width':'1.5'},gc);
+      el('text',{x:x+59,y:y+66,'text-anchor':'middle','font-family':'IBM Plex Mono,monospace','font-size':'15',fill:'rgba(255,255,255,.4)'},gc).textContent='C'+(r*3+c);
+      cores.push(rect);
+    }
+    var gp=document.getElementById('cpuPins');
+    for(var k=0;k<12;k++){
+      el('rect',{x:566+k*40,y:238,width:12,height:12,fill:'#8a95a1'},gp);
+      el('rect',{x:566+k*40,y:610,width:12,height:12,fill:'#8a95a1'},gp);
+    }
+    var gq=document.getElementById('cpuQueue');
+    for(var q=0;q<10;q++)queueSq.push(el('rect',{x:0,y:416,width:24,height:24,rx:4,fill:'rgba(182,74,53,.75)',stroke:'#b64a35'},gq));
+  })();
+  /* --- stage 3: GPU die + fingers + fan --- */
+  var dieCells=[];
+  (function(){
+    var gd=document.getElementById('gpuDie');
+    var cols=25,rows=12;
+    for(var j=0;j<rows;j++)for(var i=0;i<cols;i++){
+      dieCells.push({el:el('rect',{x:458+i*20,y:288+j*20,width:17,height:17,rx:2,fill:'#13263a'},gd),i:i,j:j});
+    }
+    var gf=document.getElementById('gpuFingers');
+    for(var k=0;k<22;k++)el('rect',{x:430+k*24,y:590,width:14,height:16,fill:'#c9a14b'},gf);
+    var fan=document.getElementById('gpuFan');
+    el('circle',{cx:1092,cy:410,r:80,fill:'#0d1b2a',stroke:'rgba(255,255,255,.18)','stroke-width':'2'},fan);
+    for(var b=0;b<5;b++){
+      el('path',{d:'M1092,410 L'+(1092+62*Math.cos(b*1.2566))+','+(410+62*Math.sin(b*1.2566))+' A62,62 0 0 1 '+(1092+62*Math.cos(b*1.2566+0.7))+','+(410+62*Math.sin(b*1.2566+0.7))+' Z',fill:'rgba(124,196,192,.14)'},fan);
+    }
+    el('circle',{cx:1092,cy:410,r:18,fill:'#1a2940',stroke:'rgba(255,255,255,.25)'},fan);
+  })();
+  /* --- stage 4: twin simulation grids --- */
+  var simC=[],simG=[];
+  (function(){
+    var gc=document.getElementById('gSimC'),gg=document.getElementById('gSimG');
+    for(var j=0;j<11;j++)for(var i=0;i<20;i++){
+      simC.push({el:el('rect',{x:252+i*26,y:266+j*26,width:23,height:23,rx:2,fill:'#17263b'},gc),i:i,j:j});
+      simG.push({el:el('rect',{x:832+i*26,y:266+j*26,width:23,height:23,rx:2,fill:'#17263b'},gg),i:i,j:j});
+    }
+  })();
+  /* --- refs --- */
+  var S=[document.getElementById('cS1'),document.getElementById('cS2'),document.getElementById('cS3'),document.getElementById('cS4'),document.getElementById('cS5')];
+  var dofNum=document.getElementById('dofNum'),
+      simBarC=document.getElementById('simBarC'),simBarG=document.getElementById('simBarG'),
+      simTG=document.getElementById('simTG'),
+      spdBig=document.getElementById('spdBig'),spdL=document.getElementById('spdL'),spdR=document.getElementById('spdR');
+  function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+  var caps={
+    pt:[
+      'Um problema hidromecânico acoplado de verdade: malha com 14,7 milhões de elementos e 8 milhões de graus de liberdade — um sistema gigante a cada passo de tempo.',
+      'Na CPU, o trabalho é serial: um núcleo processa os elementos um a um, e cada passo de tempo custa minutos preciosos.',
+      'A placa de vídeo muda o jogo: 3.840 CUDA cores executam milhares de threads ao mesmo tempo — montagem e solver vetorizados direto no MATLAB (gpuArray).',
+      'A corrida da simulação: o mesmo modelo rodando lado a lado — a pluma de pressão varre a malha, a GPU cruza a linha em 20 minutos e a CPU segue se arrastando até 64.',
+      'Speedup de até 14× no solver e 13× na montagem das matrizes — mais de 140× sobre a montagem implícita em CPU. Publicado nos Anais da Academia Brasileira de Ciências (2022). O seu modelo também pode rodar assim.'
+    ],
+    en:[
+      'A real coupled hydromechanical problem: a 14.7-million-element mesh with 8 million degrees of freedom — one giant system every time step.',
+      'On the CPU the work is serial: one core walks through the elements one by one, and every time step costs precious minutes.',
+      'The graphics card changes the game: 3,840 CUDA cores run thousands of threads at once — assembly and solver vectorized straight from MATLAB (gpuArray).',
+      'The simulation race: the same model running side by side — the pressure plume sweeps the mesh, the GPU crosses the line in 20 minutes while the CPU grinds on to 64.',
+      'Up to 14× speedup in the solver and 13× in matrix assembly — over 140× versus the implicit CPU assembly. Published in Anais da Academia Brasileira de Ciências (2022). Your model can run like this too.'
+    ]
+  };
+  var sceneCWasIn=false;
+  function upd(p){
+    var s=p*5;
+    for(var i=0;i<5;i++){
+      var d;
+      if(i===0)d=Math.max(0,s-0.5);
+      else if(i===4)d=Math.max(0,4.5-s);
+      else d=Math.abs(s-(i+0.5));
+      S[i].setAttribute('opacity',clamp(1-(d-0.26)*4,0,1));
+    }
+    var t1=clamp(s,0,1),t2=clamp(s-1,0,1),t3=clamp(s-2,0,1),t4=clamp(s-3,0,1),t5=clamp(s-4,0,1);
+    dofNum.textContent=fmt(Math.round(ease(t1)*8000000));
+    // CPU: one active core at a time + queue crawling in
+    var act=Math.floor(t2*24)%6;
+    for(var c=0;c<6;c++)cores[c].setAttribute('fill',c===act&&t2>0?'#b64a35':'#223450');
+    for(var q=0;q<queueSq.length;q++){
+      var x=1120+q*42-t2*480;
+      queueSq[q].setAttribute('x',x);
+      queueSq[q].setAttribute('opacity',x<1046||x>1420?0:1);
+    }
+    // GPU: wavefronts across the die
+    for(var n=0;n<dieCells.length;n++){
+      var d=dieCells[n];
+      var v=(0.5+0.5*Math.sin(t3*30+(d.i+d.j)*0.42))*clamp(t3*2.5,0,1);
+      d.el.setAttribute('fill',mix('#13263a','#3fd0c4',v));
+    }
+    // simulation race: same plume, GPU ~3.1x faster
+    var pg=clamp(t4*1.25,0,1),pc=clamp(t4*1.25*0.318,0,1);
+    function plume(cells,p){
+      for(var n=0;n<cells.length;n++){
+        var c=cells[n],dd=Math.hypot(c.i,(c.j-5)*1.5),v=clamp((p*27-dd)/4.5,0,1);
+        var f;
+        if(v<=0)f='#17263b';
+        else{
+          f=mix('#17263b','#2f9a93',Math.min(1,v*1.8));
+          if(v>0.6)f=mix('#2f9a93','#e5a84b',(v-0.6)/0.4);
+        }
+        c.el.setAttribute('fill',f);
+      }
+    }
+    if(t4>0||sceneCWasIn){plume(simC,pc);plume(simG,pg);sceneCWasIn=t4>0;}
+    simBarG.setAttribute('width',520*pg);
+    simBarC.setAttribute('width',520*pc);
+    simTG.setAttribute('opacity',pg>=1?1:0);
+    // speedup counters
+    var e5=ease(t5);
+    spdBig.textContent='×'+Math.max(1,Math.round(e5*14));
+    spdL.textContent='×'+Math.max(1,Math.round(e5*13));
+    spdR.textContent='×'+Math.max(1,Math.round(e5*140));
+  }
+  var sc=makeScene('sceneC',upd,document.getElementById('capC'),document.getElementById('stepC'),caps);
+  sceneList.push(sc);
+  upd(0);
+})();
+
+/* ---------- SCENE D : well drilling → PetroView ---------- */
+(function(){
+  var svg=document.getElementById('svgD');
+  if(!svg)return;
+  var NS='http://www.w3.org/2000/svg';
+  function el(tag,attrs,parent){
+    var e=document.createElementNS(NS,tag);
+    for(var k in attrs)e.setAttribute(k,attrs[k]);
+    parent.appendChild(e);return e;
+  }
+  var CX=700,Y0=170,D1=300,D2=420,D3=540;
+  var MUD='#9fd2e8',WALL='#8d8577',CEM='#e8e2d2',CAS='#2a3542';
+  var gH=document.getElementById('dHoles'),gC=document.getElementById('dCement'),
+      gS=document.getElementById('dCasing'),gK=document.getElementById('dCurve');
+  // telescoping vertical holes (fill = mud)
+  var hole1=el('rect',{x:CX-27,y:Y0,width:54,height:0,fill:MUD,stroke:WALL,'stroke-width':'2.5'},gH);
+  var hole2=el('rect',{x:CX-20,y:D1,width:40,height:0,fill:MUD,stroke:WALL,'stroke-width':'2.5'},gH);
+  var hole3=el('rect',{x:CX-14,y:D2,width:28,height:0,fill:MUD,stroke:WALL,'stroke-width':'2.5'},gH);
+  // cement sheaths (between hole wall and casing)
+  function cemPair(hw,cw,y,h){
+    return[el('rect',{x:CX-hw,y:y,width:hw-cw,height:h,fill:CEM,opacity:0},gC),
+           el('rect',{x:CX+cw,y:y,width:hw-cw,height:h,fill:CEM,opacity:0},gC)];
+  }
+  var cem1=cemPair(27,21,Y0,D1-Y0),cem2=cemPair(20,15,D1,D2-D1),cem3=cemPair(14,10,D2,D3-D2);
+  // casing strings (line pairs, revealed by height)
+  function casPair(cw,y){
+    return[el('line',{x1:CX-cw,y1:y,x2:CX-cw,y2:y,stroke:CAS,'stroke-width':'4'},gS),
+           el('line',{x1:CX+cw,y1:y,x2:CX+cw,y2:y,stroke:CAS,'stroke-width':'4'},gS)];
+  }
+  var cas1=casPair(21,Y0),cas2=casPair(15,D1),cas3=casPair(10,D2);
+  // final vertical section into the reservoir top + production string
+  var D4=648;
+  var hole4=el('rect',{x:CX-10,y:D3,width:20,height:0,fill:MUD,stroke:WALL,'stroke-width':'2.5'},gK);
+  var kPrd=el('line',{x1:CX,y1:D3,x2:CX,y2:D3,stroke:CAS,'stroke-width':'5','stroke-dasharray':'12 8',opacity:0},gK);
+  var bit=document.getElementById('dBit'),rig=document.getElementById('dRig'),
+      chart=document.getElementById('dChart'),lens=document.getElementById('resLens'),
+      badge=document.getElementById('dBadge');
+  var lb={F1:document.getElementById('dF1'),F2:document.getElementById('dF2'),F3:document.getElementById('dF3'),
+          Dir:document.getElementById('dDir'),Res:document.getElementById('dRes')};
+  function setBit(x,y,w,op){
+    bit.setAttribute('d','M'+(x-w/2)+','+(y-16)+' L'+(x+w/2)+','+(y-16)+' L'+x+','+(y+6)+' Z');
+    bit.setAttribute('opacity',op);
+  }
+  var caps={
+    pt:[
+      'Um poço nasce em fases: a broca abre o trecho de maior diâmetro enquanto a lama circula, sustentando a parede recém-cortada.',
+      'Perfurar → revestir → cimentar: a cada fase desce um revestimento telescópico, e o cimento sela o espaço anular antes da próxima descida de broca.',
+      'A geomecânica comanda a perfuração: o peso da lama precisa ficar dentro da janela — acima do colapso da parede, abaixo da fratura da formação.',
+      'Na fase final o poço segue vertical: a broca atravessa o selo e entra pelo topo do reservatório, pousando no alvo metro a metro.',
+      'É essa história que o PetroView 3D conta na tela: perfis, trajetórias direcionais e dados abertos da ANP, em 3D, direto no navegador.'
+    ],
+    en:[
+      'A well is born in phases: the bit opens the largest-diameter section while mud circulates, supporting the freshly cut wall.',
+      'Drill → case → cement: each phase runs a telescoping casing string, and cement seals the annulus before the next bit goes in.',
+      'Geomechanics runs the show: mud weight must stay inside the window — above wall collapse, below formation fracture.',
+      'In the final section the well stays vertical: the bit crosses the seal and enters through the top of the reservoir, landing on target meter by meter.',
+      'That is the story PetroView 3D tells on screen: logs, directional trajectories and ANP open data, in 3D, right in the browser.'
+    ]
+  };
+  function upd(p){
+    var s=p*5;
+    var t1=clamp(s,0,1),t2=clamp(s-1,0,1),t3=clamp(s-2,0,1),t4=clamp(s-3,0,1),t5=clamp(s-4,0,1);
+    rig.setAttribute('opacity',clamp(t1*2,0,1));
+    // phase 1: drill conductor hole
+    var ds1=ease(t1);
+    hole1.setAttribute('height',(D1-Y0)*ds1);
+    // phase 2: run casing 1, cement, drill ahead
+    var cs1=ease(clamp(t2*2.2,0,1));
+    cas1[0].setAttribute('y2',Y0+(D1-Y0)*cs1);cas1[1].setAttribute('y2',Y0+(D1-Y0)*cs1);
+    var ce1=clamp((t2-0.45)*4,0,1);cem1[0].setAttribute('opacity',ce1);cem1[1].setAttribute('opacity',ce1);
+    var ds2=ease(clamp((t2-0.5)/0.5,0,1));
+    hole2.setAttribute('height',(D2-D1)*ds2);
+    // phase 3: casing 2 + cement, drill ahead (mud window on)
+    var cs2=ease(clamp(t3*2.2,0,1));
+    cas2[0].setAttribute('y2',D1+(D2-D1)*cs2);cas2[1].setAttribute('y2',D1+(D2-D1)*cs2);
+    var ce2=clamp((t3-0.45)*4,0,1);cem2[0].setAttribute('opacity',ce2);cem2[1].setAttribute('opacity',ce2);
+    var ds3=ease(clamp((t3-0.5)/0.5,0,1));
+    hole3.setAttribute('height',(D3-D2)*ds3);
+    chart.setAttribute('opacity',clamp((t3-0.1)*2.5,0,1)*clamp(1-t4*2.5,0,1));
+    // phase 4: casing 3 + directional curve
+    var cs3=ease(clamp(t4*2,0,1));
+    cas3[0].setAttribute('y2',D2+(D3-D2)*cs3);cas3[1].setAttribute('y2',D2+(D3-D2)*cs3);
+    var ce3=clamp((t4-0.25)*4,0,1);cem3[0].setAttribute('opacity',ce3);cem3[1].setAttribute('opacity',ce3);
+    var f4=ease(clamp((t4-0.3)/0.7,0,1));
+    hole4.setAttribute('height',(D4-D3)*f4);
+    // phase 5: production string + target glow + badge
+    kPrd.setAttribute('opacity',t5>0?1:0);
+    kPrd.setAttribute('y2',D3+(D4-D3)*ease(t5));
+    lens.setAttribute('stroke-width',2+4*clamp(t5,0,1)*(0.6+0.4*Math.sin(t5*12)));
+    lens.setAttribute('fill',t5>0?'#eed9a0':'#e3c988');
+    badge.setAttribute('opacity',clamp((t5-0.15)*2.5,0,1));
+    // drill bit position
+    var bx=CX,by,bw,bop=1;
+    if(f4>0){by=D3+(D4-D3)*f4;bw=20;}
+    else if(t3>=0.5){by=D2+(D3-D2)*ds3;bw=24;}
+    else if(t2>=0.5){by=D1+(D2-D1)*ds2;bw=34;}
+    else{by=Y0+(D1-Y0)*ds1;bw=46;bop=clamp(t1*3,0,1);}
+    if(t5>0.2)bop=clamp(1-(t5-0.2)*3,0,1);
+    setBit(bx,by,bw,bop);
+    // labels
+    lb.F1.setAttribute('opacity',clamp(t1*2-0.3,0,1)*clamp(1-t3*1.5,0,1));
+    lb.F2.setAttribute('opacity',clamp((t2-0.3)*3,0,1)*clamp(1-t4*2,0,1));
+    lb.F3.setAttribute('opacity',clamp((t3-0.3)*3,0,1)*clamp(1-t4*2,0,1));
+    lb.Dir.setAttribute('opacity',clamp((t4-0.35)*3,0,1)*clamp(1-t5*2.5,0,1));
+    lb.Res.setAttribute('opacity',clamp((t4-0.55)*3,0,1));
+  }
+  var sc=makeScene('sceneD',upd,document.getElementById('capD'),document.getElementById('stepD'),caps);
+  sceneList.push(sc);
+  upd(0);
+})();
+
+/* ---------- projects parallax ---------- */
+var pxA=document.getElementById('pxA'),pxB=document.getElementById('pxB'),pxC=document.getElementById('pxC'),projSec=document.getElementById('projects');
+function parallax(){
+  if(!projSec||reduced)return;
+  var r=projSec.getBoundingClientRect();
+  if(r.bottom<0||r.top>window.innerHeight)return;
+  var t=clamp(1-(r.top+r.height*0.5)/(window.innerHeight+r.height*0.5),0,1)-0.5;
+  pxA.style.transform='translateY('+(t*-70)+'px)';
+  pxB.style.transform='translateY('+(t*30)+'px)';
+  pxC.style.transform='translateY('+(t*110)+'px)';
+}
+
+/* ---------- footer contours ---------- */
+(function(){
+  var cv=document.getElementById('footCanvas'),foot=document.getElementById('contact');
+  if(!cv)return;
+  var ctx=cv.getContext('2d'),W=0,H=0,t=0,visible=false,raf=null;
+  function size(){
+    var r=foot.getBoundingClientRect();
+    W=Math.round(r.width);H=Math.round(r.height);
+    var dpr=Math.min(window.devicePixelRatio||1,2);
+    cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    cv.style.width=W+'px';cv.style.height=H+'px';
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    var cx=W*0.82,cy=H*0.55;
+    for(var k=1;k<=9;k++){
+      ctx.beginPath();
+      var r0=36+k*44;
+      for(var a=0;a<=Math.PI*2+0.05;a+=0.09){
+        var wob=Math.sin(a*3+t*0.4+k*1.7)*9+Math.sin(a*5-t*0.25+k)*5;
+        var r=r0+wob;
+        var x=cx+Math.cos(a)*r*1.25,y=cy+Math.sin(a)*r*0.85;
+        if(a===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle='rgba(124,196,192,'+(0.14-k*0.009)+')';
+      ctx.lineWidth=1.2;
+      ctx.stroke();
+    }
+  }
+  function loop(){t+=0.016;draw();if(visible&&!reduced)raf=requestAnimationFrame(loop);}
+  var fio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      visible=e.isIntersecting;
+      if(visible){size();if(reduced){draw();}else{cancelAnimationFrame(raf);raf=requestAnimationFrame(loop);}}
+      else cancelAnimationFrame(raf);
+    });
+  },{threshold:0.05});
+  fio.observe(foot);
+  window.addEventListener('resize',function(){if(visible){size();draw();}});
+})();
+
+/* ---------- SCENE E : flow <-> geomechanics coupling ---------- */
+(function(){
+  var svg=document.getElementById('svgE');
+  if(!svg)return;
+  var NS='http://www.w3.org/2000/svg';
+  function el(tag,attrs,parent){
+    var e=document.createElementNS(NS,tag);
+    for(var k in attrs)e.setAttribute(k,attrs[k]);
+    parent.appendChild(e);return e;
+  }
+  function hex2rgb(c){return[parseInt(c.slice(1,3),16),parseInt(c.slice(3,5),16),parseInt(c.slice(5,7),16)]}
+  function mixc(a,b,t){
+    var A=hex2rgb(a),B=hex2rgb(b);
+    return 'rgb('+Math.round(lerp(A[0],B[0],t))+','+Math.round(lerp(A[1],B[1],t))+','+Math.round(lerp(A[2],B[2],t))+')';
+  }
+  /* flow cells 13x8 */
+  var cells=[],gC=document.getElementById('eCells');
+  for(var j=0;j<8;j++)for(var i=0;i<13;i++){
+    cells.push({el:el('rect',{x:172+i*41,y:262+j*41,width:37,height:37,rx:3,fill:'#c98f3f'},gC),i:i,j:j});
+  }
+  /* geo mesh nodes 14x9 */
+  var NX=14,NY=9,gM=document.getElementById('eMesh'),rows=[],colsL=[];
+  for(var j=0;j<NY;j++)rows.push(el('polyline',{points:''},gM));
+  for(var i=0;i<NX;i++)colsL.push(el('polyline',{points:''},gM));
+  function nodePos(i,j,C){
+    var x=910+i*40,y0=270+j*40;
+    var sag=C*36*Math.exp(-Math.pow((x-1170)/170,2))*(1-j/(NY-1)*0.55);
+    return [x,y0+sag];
+  }
+  function drawMesh(C){
+    for(var j=0;j<NY;j++){
+      var pts=[];
+      for(var i=0;i<NX;i++){var p=nodePos(i,j,C);pts.push(p[0].toFixed(1)+','+p[1].toFixed(1));}
+      rows[j].setAttribute('points',pts.join(' '));
+    }
+    for(var i=0;i<NX;i++){
+      var pts2=[];
+      for(var j2=0;j2<NY;j2++){var p2=nodePos(i,j2,C);pts2.push(p2[0].toFixed(1)+','+p2[1].toFixed(1));}
+      colsL[i].setAttribute('points',pts2.join(' '));
+    }
+  }
+  /* data packets on the bridge arcs */
+  var pkT=[],pkR=[],gT=document.getElementById('ePkTeal'),gR=document.getElementById('ePkRed');
+  for(var k=0;k<3;k++){
+    pkT.push(el('circle',{r:7,cx:0,cy:0,opacity:0},gT));
+    pkR.push(el('circle',{r:7,cx:0,cy:0,opacity:0},gR));
+  }
+  function bez(t,P){
+    var u=1-t,a=u*u*u,b=3*u*u*t,c=3*u*t*t,d=t*t*t;
+    return [a*P[0]+b*P[2]+c*P[4]+d*P[6], a*P[1]+b*P[3]+c*P[5]+d*P[7]];
+  }
+  var TOP=[700,330,760,300,840,300,900,330], BOT=[900,520,840,550,760,550,700,520];
+  var eFlow=document.getElementById('eFlow'),eGeo=document.getElementById('eGeo'),
+      eQm=document.getElementById('eQm'),eBridge=document.getElementById('eBridge'),
+      eLoop=document.getElementById('eLoop'),eLoopDot=document.getElementById('eLoopDot'),
+      eStepN=document.getElementById('eStepN'),eBadge=document.getElementById('eBadge'),
+      eChecks=document.getElementById('eChecks'),eComp=document.getElementById('eComp'),
+      eSurf0=document.getElementById('eSurf0');
+  var caps={
+    pt:[
+      'Dois especialistas, duas linguagens: o simulador de fluxo calcula as pressões no reservatório; o geomecânico calcula tensões e deformações na rocha.',
+      'O poço produz e a pressão cai ao redor dele — mas, sem conversar com o fluxo, o simulador mecânico não sente nada: compactação e subsidência ficam invisíveis.',
+      'O acoplamento constrói a ponte: a pressão vira tensão efetiva (σ′ = σ − αp) num sentido; a deformação volumétrica devolve porosidade e permeabilidade no outro.',
+      'E o ciclo gira a cada passo de tempo: fluxo → geomecânica → atualização de φ e k → próximo passo. É o loop do acoplamento parcial entre simuladores.',
+      'Juntos, viram um só modelo: compactação, subsidência e permeabilidade evoluindo com a física completa — o coração da minha pesquisa em acoplamento na UFPE.'
+    ],
+    en:[
+      'Two specialists, two languages: the flow simulator computes reservoir pressures; the geomechanics simulator computes stresses and strains in the rock.',
+      'The well produces and pressure drops around it — but without talking to the flow code, the mechanical simulator feels nothing: compaction and subsidence stay invisible.',
+      'Coupling builds the bridge: pressure becomes effective stress (σ′ = σ − αp) one way; volumetric strain returns updated porosity and permeability the other way.',
+      'And the cycle spins every time step: flow → geomechanics → update φ and k → next step. That is the partial-coupling loop between simulators.',
+      'Together they become one model: compaction, subsidence and permeability evolving with the full physics — the heart of my coupling research at UFPE.'
+    ]
+  };
+  function upd(p){
+    var s=p*5;
+    var t1=ease(clamp(s,0,1)),t2=clamp(s-1,0,1),t3=clamp(s-2,0,1),t4=clamp(s-3,0,1),t5=ease(clamp(s-4,0,1));
+    eFlow.setAttribute('opacity',clamp(t1*1.6,0,1));
+    eGeo.setAttribute('opacity',clamp(t1*1.6-0.25,0,1));
+    /* panels slide together at the end */
+    var slide=120*t5;
+    eFlow.setAttribute('transform','translate('+slide+',0)');
+    eGeo.setAttribute('transform','translate('+(-slide)+',0)');
+    /* pressure drawdown */
+    var P=clamp((s-1)/2.6,0,1);
+    for(var n=0;n<cells.length;n++){
+      var c=cells[n],dd=Math.hypot(c.i-6.1,(c.j-3.5)*1.1);
+      var v=P*Math.exp(-dd/(1.4+4.2*P));
+      c.el.setAttribute('fill',mixc('#c98f3f','#3a78b4',clamp(v*1.35,0,1)));
+    }
+    /* blocked message */
+    eQm.setAttribute('opacity',t2>0&&t3<=0?Math.min(1,t2*2.5)*(1-clamp((s-1.85)*4,0,1)):0);
+    /* bridge + packets */
+    var br=clamp(t3*2.2,0,1)*(1-t5*0.85);
+    eBridge.setAttribute('opacity',br);
+    var spd=t3*1.4+t4*5;
+    for(var k2=0;k2<3;k2++){
+      var tt=(spd+k2/3)%1;
+      var q=bez(tt,TOP);
+      pkT[k2].setAttribute('cx',q[0]);pkT[k2].setAttribute('cy',q[1]);
+      pkT[k2].setAttribute('opacity',br*(t3>0.15?1:0));
+      var q2=bez(tt,BOT);
+      pkR[k2].setAttribute('cx',q2[0]);pkR[k2].setAttribute('cy',q2[1]);
+      pkR[k2].setAttribute('opacity',br*(t3>0.3?1:0));
+    }
+    /* mesh deformation + compaction shading */
+    var C=clamp((s-2.35)/1.65,0,1);
+    drawMesh(C);
+    eComp.setAttribute('fill','rgba(182,74,53,'+(0.22*C)+')');
+    eComp.setAttribute('cy',450+10*C);
+    eSurf0.setAttribute('opacity',C>0.15?0.8:0);
+    /* time loop */
+    var lo=t4>0?clamp(t4*3,0,1)*(1-t5*1.2):0;
+    eLoop.setAttribute('opacity',clamp(lo,0,1));
+    var ang=t4*4*Math.PI-Math.PI/2;
+    eLoopDot.setAttribute('cx',800+52*Math.cos(ang));
+    eLoopDot.setAttribute('cy',425+52*Math.sin(ang));
+    eStepN.textContent='n = '+Math.min(8,Math.floor(t4*8)+1)+'/8';
+    /* finale */
+    eBadge.setAttribute('opacity',clamp((t5-0.25)*2.5,0,1));
+    eChecks.setAttribute('opacity',clamp((t5-0.45)*2.8,0,1));
+  }
+  var sc=makeScene('sceneE',upd,document.getElementById('capE'),document.getElementById('stepE'),caps);
+  sceneList.push(sc);
+  upd(0);
+})();
+
+/* ---------- mini-lab ---------- */
+(function(){
+  var labSec=document.getElementById('lab');
+  if(!labSec)return;
+  var NS='http://www.w3.org/2000/svg';
+  function el(tag,attrs,parent){
+    var e=document.createElementNS(NS,tag);
+    for(var k in attrs)e.setAttribute(k,attrs[k]);
+    parent.appendChild(e);return e;
+  }
+  function pt(){return root.lang!=='en'}
+  // lab tabs
+  labSec.querySelectorAll('.ltab').forEach(function(t){
     t.addEventListener('click',function(){
-      var id=t.getAttribute('data-tab');
-      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
-      document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.toggle('active',p.getAttribute('data-panel')===id)});
+      var id=t.getAttribute('data-ltab');
+      labSec.querySelectorAll('.ltab').forEach(function(x){x.classList.remove('active')});
+      labSec.querySelectorAll('.ltab-panel').forEach(function(p){p.classList.toggle('active',p.getAttribute('data-lpanel')===id)});
       t.classList.add('active');
     });
   });
+
+  /* --- creep lab --- */
+  var sSig=document.getElementById('sSig'),sTem=document.getElementById('sTem'),sHor=document.getElementById('sHor'),
+      oSig=document.getElementById('oSig'),oTem=document.getElementById('oTem'),oHor=document.getElementById('oHor'),
+      rEps=document.getElementById('rEps'),rRate=document.getElementById('rRate'),rClose=document.getElementById('rClose'),
+      chart=document.getElementById('creepChart'),cavNow=document.getElementById('cavNow');
+  var Q=54000,Rg=8.314,N=5;
+  var Acal=1e-10/(Math.exp(-Q/(Rg*333.15))*Math.pow(15,N));
+  // chart skeleton
+  var ML=52,MR=16,MT=16,MB=38,CW=420,CH=280,PW=CW-ML-MR,PH=CH-MT-MB;
+  el('rect',{x:0,y:0,width:CW,height:CH,fill:'#fffefb'},chart);
+  for(var gy=0;gy<=4;gy++){
+    var yy=MT+PH-PH*gy/4;
+    el('line',{x1:ML,y1:yy,x2:CW-MR,y2:yy,stroke:'#e4e1d9','stroke-width':1},chart);
+    el('text',{x:ML-8,y:yy+4,'text-anchor':'end','font-family':'IBM Plex Mono,monospace','font-size':11,fill:'#5f6b7a'},chart).textContent=(gy*25)+'%';
+  }
+  for(var gx=0;gx<=5;gx++){
+    var xx=ML+PW*gx/5;
+    el('text',{x:xx,y:CH-14,'text-anchor':'middle','font-family':'IBM Plex Mono,monospace','font-size':11,fill:'#5f6b7a'},chart).textContent=(gx*10);
+  }
+  var xlab=el('text',{x:ML+PW/2,y:CH-1,'text-anchor':'middle','font-family':'IBM Plex Mono,monospace','font-size':11,fill:'#8a95a1'},chart);
+  var curve=el('polyline',{fill:'none',stroke:'#0f6f74','stroke-width':3},chart);
+  var markV=el('line',{stroke:'#b64a35','stroke-width':1.5,'stroke-dasharray':'4 4'},chart);
+  var markDot=el('circle',{r:5,fill:'#b64a35'},chart);
+  function fmtExp(v){
+    var e=Math.floor(Math.log10(v)),m=v/Math.pow(10,e);
+    return m.toFixed(1)+'e'+e+' s⁻¹';
+  }
+  function creepRender(){
+    var sig=+sSig.value,tc=+sTem.value,hor=+sHor.value,T=tc+273.15;
+    oSig.textContent=sig+' MPa';oTem.textContent=tc+' °C';
+    oHor.innerHTML=hor+' '+(pt()?'anos':'yrs');
+    xlab.textContent=pt()?'tempo (anos)':'time (years)';
+    var eps=Acal*Math.exp(-Q/(Rg*T))*Math.pow(sig,N);
+    var rateYr=3*eps*3.156e7;
+    rEps.textContent=fmtExp(eps);
+    rRate.textContent=(rateYr*100).toFixed(2)+(pt()?' %/ano':' %/yr');
+    var cl=function(t){return 1-Math.exp(-rateYr*t)};
+    rClose.textContent=(cl(hor)*100).toFixed(1)+' %';
+    var ptsArr=[];
+    for(var t=0;t<=50;t+=1){
+      ptsArr.push((ML+PW*t/50).toFixed(1)+','+(MT+PH-PH*Math.min(1,cl(t))).toFixed(1));
+    }
+    curve.setAttribute('points',ptsArr.join(' '));
+    var mx=ML+PW*hor/50,my=MT+PH-PH*Math.min(1,cl(hor));
+    markV.setAttribute('x1',mx);markV.setAttribute('x2',mx);
+    markV.setAttribute('y1',MT+PH);markV.setAttribute('y2',my);
+    markDot.setAttribute('cx',mx);markDot.setAttribute('cy',my);
+    var s=Math.pow(Math.max(0,1-cl(hor)),1/3);
+    cavNow.setAttribute('transform','translate('+(60*(1-s))+','+(20+86*(1-s))+') scale('+s+')');
+  }
+  [sSig,sTem,sHor].forEach(function(i){i.addEventListener('input',creepRender)});
+
+  /* --- kirsch lab --- */
+  var sSH=document.getElementById('sSH'),sSh=document.getElementById('sSh'),sPw=document.getElementById('sPw'),sUcs=document.getElementById('sUcs'),
+      oSH=document.getElementById('oSH'),oSh=document.getElementById('oSh'),oPw=document.getElementById('oPw'),oUcs=document.getElementById('oUcs'),
+      kMax=document.getElementById('kMax'),kMin=document.getElementById('kMin'),
+      kStatus=document.getElementById('kStatus'),kChip=document.getElementById('kStatusChip'),
+      ksvg=document.getElementById('kirschSvg');
+  var KX=210,KY=150,R0=52,R1=60,R2=92;
+  el('rect',{x:0,y:0,width:420,height:300,fill:'#fffefb'},ksvg);
+  var mud=el('circle',{cx:KX,cy:KY,r:R0,fill:'#9fd2e8','fill-opacity':.4,stroke:'#6b6458','stroke-width':2},ksvg);
+  var NSEG=48,segs=[];
+  for(var i=0;i<NSEG;i++){
+    var a0=i/NSEG*2*Math.PI,a1=(i+1)/NSEG*2*Math.PI;
+    var d='M'+(KX+R1*Math.cos(a0))+','+(KY+R1*Math.sin(a0))+
+      ' A'+R1+','+R1+' 0 0 1 '+(KX+R1*Math.cos(a1))+','+(KY+R1*Math.sin(a1))+
+      ' L'+(KX+R2*Math.cos(a1))+','+(KY+R2*Math.sin(a1))+
+      ' A'+R2+','+R2+' 0 0 0 '+(KX+R2*Math.cos(a0))+','+(KY+R2*Math.sin(a0))+' Z';
+    segs.push({el:el('path',{d:d,fill:'#eee',stroke:'none'},ksvg),th:(a0+a1)/2});
+  }
+  // far-field stress arrows
+  function arr(x1,y1,x2,y2,c){
+    el('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:c,'stroke-width':3},ksvg);
+    var ang=Math.atan2(y2-y1,x2-x1);
+    el('path',{d:'M'+x2+','+y2+
+      ' L'+(x2-10*Math.cos(ang-0.4))+','+(y2-10*Math.sin(ang-0.4))+
+      ' L'+(x2-10*Math.cos(ang+0.4))+','+(y2-10*Math.sin(ang+0.4))+' Z',fill:c},ksvg);
+  }
+  arr(66,KY,110,KY,'#b64a35');arr(354,KY,310,KY,'#b64a35');
+  arr(KX,22,KX,52,'#0f6f74');arr(KX,278,KX,248,'#0f6f74');
+  el('text',{x:46,y:KY+5,'font-family':'IBM Plex Mono,monospace','font-size':14,fill:'#b64a35'},ksvg).textContent='σH';
+  el('text',{x:KX-10,y:16,'font-family':'IBM Plex Mono,monospace','font-size':14,fill:'#0a5357'},ksvg).textContent='σh';
+  var legend=el('text',{x:210,y:294,'text-anchor':'middle','font-family':'IBM Plex Mono,monospace','font-size':11,fill:'#8a95a1'},ksvg);
+  function kirschRender(){
+    var SH=+sSH.value,Sh=+sSh.value,Pw=+sPw.value,UCS=+sUcs.value;
+    if(Sh>SH){Sh=SH;sSh.value=SH;}
+    oSH.textContent=SH+' MPa';oSh.textContent=Sh+' MPa';oPw.textContent=Pw+' MPa';oUcs.textContent=UCS+' MPa';
+    mud.setAttribute('fill-opacity',0.15+0.6*Pw/45);
+    var smax=3*SH-Sh-Pw,smin=3*Sh-SH-Pw;
+    kMax.textContent=smax.toFixed(0)+' MPa';kMin.textContent=smin.toFixed(0)+' MPa';
+    var breakout=smax>UCS,frac=smin<0;
+    for(var i=0;i<NSEG;i++){
+      var th=segs[i].th;
+      var s=SH+Sh-2*(SH-Sh)*Math.cos(2*th)-Pw;
+      var f;
+      if(s>UCS)f='rgba(182,74,53,'+Math.min(0.95,0.4+(s-UCS)/60)+')';
+      else if(s<0)f='rgba(92,153,196,'+Math.min(0.95,0.4+(-s)/30)+')';
+      else f='rgba(15,111,116,'+(0.1+0.45*s/UCS)+')';
+      segs[i].el.setAttribute('fill',f);
+    }
+    var st;
+    if(breakout&&frac)st=pt()?'breakout + fratura':'breakout + fracture';
+    else if(breakout)st=pt()?'risco de breakout':'breakout risk';
+    else if(frac)st=pt()?'risco de fratura (tração)':'tensile fracture risk';
+    else st=pt()?'parede estável':'stable wall';
+    kStatus.textContent=st;
+    kChip.classList.toggle('status-bad',breakout||frac);
+    kChip.classList.toggle('status-ok',!(breakout||frac));
+    legend.textContent=pt()
+      ?'anel: σθ na parede · vermelho = cisalhamento · azul = tração'
+      :'ring: wall σθ · red = shear failure · blue = tensile';
+  }
+  [sSH,sSh,sPw,sUcs].forEach(function(i){i.addEventListener('input',kirschRender)});
+
+  document.getElementById('langBtn').addEventListener('click',function(){creepRender();kirschRender();});
+  creepRender();kirschRender();
+})();
+
+/* ---------- master scroll handler ---------- */
+var ticking=false;
+function onScroll(){
+  if(ticking)return;ticking=true;
+  requestAnimationFrame(function(){
+    onScrollBar();sceneScroll();parallax();ticking=false;
+  });
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',onScroll);
+onScroll();
+if(reduced){sceneScroll();}
+})();
 </script>
 </body>
 </html>
